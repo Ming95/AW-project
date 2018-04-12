@@ -1,0 +1,29 @@
+div#foot{
+	margin:auto;
+	width:500px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+ul, ol {
+	list-align: center;
+	list-style: none;
+}
+
+.list li a{
+	background-color:none;
+	color:#000000;
+	text-decoration: none;
+	padding: 10px 15px;
+	display:block;
+}
+
+.list > li{
+	float: left;
+}
+
+
+.list li ul{
+	display:block;
+	position:relative;
+	min-width:140px;
+}

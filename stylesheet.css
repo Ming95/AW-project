@@ -1,0 +1,47 @@
+body {
+	background-color: #FFFFFF;
+}
+div#contenedor {
+	width: auto;
+	margin: auto;
+	margin-top: 0px;
+}
+
+div#front {
+	width: auto;
+	height: 900px;
+	background-image: url("http://localhost/Proyecto/img/main.jpg");
+	background-size: 100% 100%;
+	
+}
+
+h1 {
+	margin: 20px;
+	font-size: 450%;
+	text-align: left;
+	line-height: 600px;
+	color:#fff;
+}
+
+div.login {
+	color: #FFFFFF;
+	width: 100%;
+	text-align: right;
+
+}
+
+a{
+	color: #FFFFFF;
+	font-size: 18px;
+	text-decoration:none;
+}
+
+.Create_button{
+	padding:0.8em 5em;
+	background-color:#FF8000;
+	color:white;
+	border:1px solid black;
+}
+
+
+
