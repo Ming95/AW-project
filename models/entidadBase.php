@@ -57,18 +57,17 @@ class EntidadBase{
     public function getById($id){
         $id = intval($id);
         $req = $this->db->prepare("SELECT * FROM $this->table  WHERE id = :id");
-        $req->execute(array('id' => $id));
+        //$req->execute(array('id' => $id));
         //$result = $req->fetchAll(PDO::FETCH_CLASS, $this->class);
 		$filas = $this->showData($req);
         return $result;
     }
 
     public function getBy($column, $value){
-        $req = $this->db()->prepare("SELECT * FROM $this->table WHERE $column = :value");
-        $req->execute(array('value' => $value));
-        //$result = $req->fetchAll(PDO::FETCH_CLASS, $this->class);
+		$consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
+        $req = $this->db()->query($consulta);
 		$filas = $this->showData($req);
-        return $result;
+        return $filas;
     }
 
     public function deleteById($id){
