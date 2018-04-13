@@ -33,7 +33,7 @@
 		
 		
 		<div class="field" id="searchform">
-			<a class="Create_button" id="create_idea" href="">Crear Idea</a>
+			<a class="Create_button" id="create_idea" href='views/crearidea.html'>Crear Idea</a>
 			<input type="text" id="searchterm" placeholder="¿Qué buscas?" />
 			<button type="button" id="search">Buscar</button>
 		</div>

@@ -23,7 +23,6 @@
 				
 			// Patron de entrada, en este caso solo acepta numeros
 			patron =/[0-9-.]/;
-			//patron =/[0-9]/;
 			tecla_final = String.fromCharCode(tecla);
 			return patron.test(tecla_final);
 		}
@@ -31,11 +30,11 @@
 </head>
 <body>
 
-	<form method="post" action="procesaridea.php">
+	<form method="post" action="../controllers/procesaridea.php">
 		<fieldset>	
 			<legend>Crear idea</legend>
-			<p>Nombre de la idea: <input type="text" name="nombre" /> </p>
-			<p>Dinero que quiero recaudar(€) <input type="text" name="dinero" onkeypress="return valida(event)"></p>
+			<p>Nombre de la idea: <input type="text" name="nombre" required/> </p>
+			<p>Dinero que quiero recaudar(€) <input type="text" name="dinero" onkeypress="return valida(event)" required></p>
 			Fin de recaudacion: <input type="date" name="final" step="1" min="2018-01-01" max="2033-12-31" value="2018-01-01">
 
 			<p>Categorias</p>
@@ -49,9 +48,9 @@
 			 <option value="Ilustracion">Ilustracion</option>
 			</select>
 
-			<p>Foto de la idea: <input type="file" name="foto" /></p>
+			<p>Foto de la idea: <input type="file" name="foto" required/></p>
 
-			<p>CV del equipo: <input type="file" name="archivo" /></p>
+			<p>CV del equipo: <input type="file" name="archivo" required/></p>
 
 			<textarea name="descripcion" rows="4" cols="50">Descripcion de la idea</textarea>
 			
@@ -59,7 +58,7 @@
 			<input name="vender" type="checkbox" value="on" id="check" onchange="javascript:showContent()"/></P>
 			
 			<div id="content" style="display: none;">
-			<p>Precio de la idea: <input type="text" name="precio" value="" /></p>
+			<p>Precio de la idea: <input type="text" name="precio" onkeypress="return valida(event)" value="0" required/></p>
 			 </div>
 			 
 			<button type="submit"> Aceptar</button>

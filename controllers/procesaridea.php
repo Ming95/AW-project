@@ -1,5 +1,5 @@
  <?php
-	Include 'models/idea.php';
+	Include '../models/idea.php';
  
 	if(($_POST['nombre']==null) ||
 		($_POST['dinero']==null) ||
@@ -16,8 +16,21 @@
     $descripcion = $_POST['descripcion']; // no requerido 
 	$datefinal = $_POST['final'];
 	$precio_idea=$_POST['precio'];
-	$vender = false;
+	$vender = 0;
  
+	if (isset($_REQUEST['vender'])){
+				$vender=true;
+			}
+		
+/*echo "$name";
+echo "$dinero";
+echo " $categorias";
+echo "$descripcion";
+echo "$datefinal";
+echo "$precio_idea";
+echo "$vender";
+*/
+	
 	$idea = new Idea;
 	$idea->setNombre_Idea($name);
 	$idea->setDinero_Idea($dinero);
