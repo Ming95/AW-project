@@ -28,14 +28,14 @@ class EntidadBase{
         $this->table=(string) $table;
         $this->class=(string) $class;
         //$this->db = ConnDB::getConn();
-		require_once 'config/conectar.php';
+		require_once '../config/conectar.php';
 		$conectar=new Conectar();
         $this->db=$conectar->conexion();
 		if ($this->db->connect_error) {
 			 die("Connection failed: " . $db->connect_error);
 		}else{
 			echo "conexión realizada ok";
-		}	 
+		}
     }
 
     public function getAll(){
@@ -45,7 +45,7 @@ class EntidadBase{
         return $filas;
 
     }
-	
+
 	private function showData($resultSet){
 		$filas= array();
 		while ($fila = $resultSet->fetch_assoc()) {
@@ -66,7 +66,7 @@ class EntidadBase{
     public function getBy($column, $value){
 		$consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
         $req = $this->db()->query($consulta);
-		$filas = $this->showData($req);
+		    $filas = $this->showData($req);
         return $filas;
     }
 

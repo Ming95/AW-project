@@ -10,9 +10,9 @@ div#contenedor {
 div#front {
 	width: auto;
 	height: 900px;
-	background-image: url("..images/main.jpg");
+	background-image: url("../images/main.jpg");
 	background-size: 100% 100%;
-	
+
 }
 
 h1 {
@@ -42,6 +42,3 @@ a{
 	color:white;
 	border:1px solid black;
 }
-
-
-

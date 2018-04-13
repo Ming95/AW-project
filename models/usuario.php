@@ -47,20 +47,11 @@ class Usuario extends EntidadBase {
     }
 
 	public function getUser($user, $pass){
-    echo "</br>";
     //Hace la consulta
-    $sql = "SELECT id_correo,password FROM usuario WHERE id_correo = '$user'";
-    //Guarda el resultado de la consulta en la variable.
-    $consulta = mysqli_query($this->db(), $sql);
-    //Comprueba si la consulta es vacia
-    if (mysqli_num_rows($consulta) == 0) return false;
-    //Lee la primera fila
-    $fila = mysqli_fetch_array($consulta);
-
-
+    $consulta = $this->getBy('id_correo', $user);
     //Comprueba los resultados
-    if($fila['id_correo'] == $user)
-      if($fila['password'] == $pass) return true;
+    if($consulta[0]['id_correo'] == $user)
+      if($consulta[0]['password'] == $pass) return true;
     return false;
 
   }
