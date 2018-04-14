@@ -1,8 +1,8 @@
 <?php
 	echo"<header id="."main-header".">";
 		session_start();
-		var_dump($_SESSION["logged"]);
-		var_dump($_SESSION["login"]);
+		//var_dump($_SESSION["logged"]);
+		//var_dump($_SESSION["login"]);
 		//$log = $_SESSION["logged"];//la variable login viene de modelo.
 		echo"<a id="."logo-header"." href="."../index.php".">";
 			echo"<span class="."site-name".">SelfIdea</span>";

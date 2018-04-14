@@ -1,7 +1,8 @@
 <?php
+session_start();
 session_unset(); 
 session_destroy(); 
-$_SESSION["logged"]=false;
-echo"cerrando..";
-include '../index.php';
+//echo"cerrando..";
+//Header('../index.php');
+header("Location: ../index.php");
 ?>
