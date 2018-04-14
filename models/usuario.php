@@ -50,9 +50,13 @@ class Usuario extends EntidadBase {
     //Hace la consulta
     $consulta = $this->getBy('id_correo', $user);
     //Comprueba los resultados
-    if($consulta[0]['id_correo'] == $user)
-      if($consulta[0]['password'] == $pass) return true;
-    return false;
+	if($consulta==null)
+		return null;
+    else if(($consulta[0]['id_correo'] == $user) and ($consulta[0]['password'] == $pass))
+		return $consulta;
+	else 
+		return null;
+    
 
   }
 
