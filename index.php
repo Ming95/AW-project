@@ -6,17 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="css/search_bar.css" />
 	<link rel="stylesheet" type="text/css" href="css/top_ideas.css" />
 	<link rel="stylesheet" type="text/css" href="css/top_events.css" />
-	
+	<link rel="stylesheet" type="text/css" href="css/head.css" />
 
 	<meta charset="utf-8">
 	<title>SelfIdea</title>
 </head>
 
 <body>
-
+<?php include 'views/layout/head.php';?>
 <div id="contenedor">
 	<div id="front">
-		<div class="login"><a href='views/layout/login.php'>Login</a> / <a href='views/layout/signup.php'>Registro</a></div>
 		<div id = "category.css">
 			<ul class="nav">
 				<li><a href=""> Categoria</a>
