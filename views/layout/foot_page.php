@@ -1,7 +1,7 @@
-<link rel="stylesheet" type="text/css" href="foot_page.css" />
+<link rel="stylesheet" type="text/css" href="../css/foot_page.css" />
 
 <?php
-	echo"<div id="."foot_page.css".">";
+	echo"<div id="."../css/foot_page.css".">";
 	
 		echo"<ul class="."list".">";
 			echo"<li><a> ACERCA DE NOSOTROS</a>";
@@ -23,9 +23,9 @@
 			echo"</li>";
 		echo"</ul>";
 		
-		echo"<hr>";
-		echo"<p>Disclaimer: esto es un proyecto univertario, con fines meramente académicos.</p>";
-		echo"<hr>";
+		// echo"<hr>";
+		// echo"<p>Disclaimer: esto es un proyecto univertario, con fines meramente académicos.</p>";
+		// echo"<hr>";
 	
 	echo"</div>";
 ?>
