@@ -1,16 +1,7 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: mcardenas
- * Date: 10/05/17
- * Time: 12:21
- */
 
 class EntidadBase{
 
-    /**
-     * @var string
-     */
     private $table;
     private $class;
 
@@ -22,28 +13,24 @@ class EntidadBase{
 
     /**
      * EntityBase constructor.
-     * @param $table
+     * @param $table, $class
      */
     public function __construct($table, $class) {
         $this->table=(string) $table;
         $this->class=(string) $class;
-        //$this->db = ConnDB::getConn();
-		require_once '../config/conectar.php';
-		$conectar=new Conectar();
+    		require_once '../config/conectar.php';
+    		$conectar=new Conectar();
         $this->db=$conectar->conexion();
-		if ($this->db->connect_error) {
-			 die("Connection failed: " . $db->connect_error);
-		// }else{
-			// echo "conexión realizada ok";
-		}
+
+		    if ($this->db->connect_error)
+			       die("Connection failed: " . $db->connect_error);
     }
 
     public function getAll(){
         $req=$this->db()->query("SELECT * FROM $this->table");
         //$resultSet = $query->fetch_assoc(PDO::FETCH_CLASS, $this->class);
-		$filas = $this->showData($req);
+    		$filas = $this->showData($req);
         return $filas;
-
     }
 
 	private function showData($resultSet){
@@ -51,7 +38,7 @@ class EntidadBase{
 		while ($fila = $resultSet->fetch_assoc()) {
 			$filas[] = $fila;
 		}
-        return $filas;
+    return $filas;
 	}
 
     public function getById($id){
@@ -59,12 +46,12 @@ class EntidadBase{
         $req = $this->db->prepare("SELECT * FROM $this->table  WHERE id = :id");
         //$req->execute(array('id' => $id));
         //$result = $req->fetchAll(PDO::FETCH_CLASS, $this->class);
-		$filas = $this->showData($req);
+		    $filas = $this->showData($req);
         return $result;
     }
 
     public function getBy($column, $value){
-		$consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
+		    $consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
         $req = $this->db()->query($consulta);
 		    $filas = $this->showData($req);
         return $filas;

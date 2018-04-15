@@ -21,7 +21,6 @@
 
 			if(isset($_SESSION['intentos'])){
 				echo "<p>Usuario o contraseña incorrectos</p>";
-				if ($_SESSION['intentos'] > 3); //echo "Login incorrecto";
 			}
 	?>
 </div>

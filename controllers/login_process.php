@@ -11,8 +11,9 @@
 	if(!isset($_SESSION['logged'])){
 		$_SESSION["logged"]=false;
 	}
-
-	if($_SESSION["logged"]==false and ($_SESSION['intentos'] >= 3)) { //Si existe "intentos" y ya hecho 3 comprobaciones devolvemos el mensaje de error. Esta comprobación la hacemos aquí arriba porque si ya ha hecho 3 intentos ni siquiera hay que conectar a la BD 
+//Si existe "intentos" y ya hecho 3 comprobaciones devolvemos el mensaje de error.
+//Esta comprobación la hacemos aquí arriba porque si ya ha hecho 3 intentos ni siquiera hay que conectar a la BD 
+	if($_SESSION["logged"]==false and ($_SESSION['intentos'] >= 3)) {
 		$_SESSION['intentos'] = 0;
 		$_SESSION["logged"]=false;
 		header('Location: ../index.php');
@@ -30,11 +31,9 @@
 		$_SESSION['login'] = $consulta[0]['nombre'];
 		$_SESSION['intentos'] = 0;
 		header("Location:/index.php");
-		//include 'index.php';
 	} else {
 		//Si la cuenta y/o contraseña es errónea sumamos 1 al número de intentos
 		$_SESSION['intentos'] += 1;
-		//header("Location:/views/login.php");
 		include '../views/login.php';
 	}
 

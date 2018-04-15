@@ -53,9 +53,10 @@ class Usuario extends EntidadBase {
     public function setImagen($imagen) {
         $this->imagen = $imagen;
     }
-
+  /*
+    Guarda el usuario en la base de datos
+  */
 	public function signupUser(){
-		//echo "Guardando usuario..";
         $query="INSERT INTO usuario (id_correo,password,nombre,imagen,admin)
                 VALUES('".$this->id_correo."',
                        '".$this->password."',
@@ -63,7 +64,6 @@ class Usuario extends EntidadBase {
                        '".$this->imagen."',
                        '".$this->admin."');";
         if($this->db()->query($query) == TRUE){
-			//echo "Usuario creado correctamente";
 		}
     }
 }

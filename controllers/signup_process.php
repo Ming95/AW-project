@@ -5,7 +5,7 @@
   $password = htmlspecialchars(trim(strip_tags($_REQUEST["psw"])));
 	$password2 = htmlspecialchars(trim(strip_tags($_REQUEST["psw2"])));
 	$mail = htmlspecialchars(trim(strip_tags($_REQUEST["mail"])));
-
+	//comprueba que las dos contrasenas coincidan
 	if($password != $password2){
 		$_SESSION['error'] = "las contraseñas no coinciden.";
 		header("Location:/views/signup.php");
@@ -13,6 +13,7 @@
 	else{
 		$user = new Usuario();
 		if($user->getBy("id_correo",$mail)!=null){
+			//comprueba que el email no este registrado
 			$_SESSION['error'] = "El email introducido ya existe.";
 			header("Location:/views/signup.php");
 		}
@@ -23,7 +24,9 @@
 			$user->setNombre($username);
 			$user->setImagen('/images/user_icon.png');
 			$user->setAdmin(0);
+			//Registra el usuario en la base de datos
 			$user->signupUser();
+			//Inicia sesión con el nuevo usuario
 			$_SESSION["logged"]	= true;
 			$_SESSION['login'] = $username;
 			header("Location:/index.php");
