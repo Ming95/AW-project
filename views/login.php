@@ -15,14 +15,22 @@
 				echo"<label for="."psw"."><b>Password</b></label>";
 				echo"<input type="."password"." placeholder="."Enter Password"." name="."psw"." required>";
 				echo"</br>";
-				echo"<button type="."submit".">Login</button>";
+				
+				if(!isset($_SESSION['intentos'])or($_SESSION['intentos'] )< 3){
+						echo'<button name="login" type="."submit".">Login</button></br>';
+						if(isset($_SESSION['intentos']))
+							echo "<p>Usuario o contraseña incorrectos</p>";
+				}else{
+					$_SESSION['intentos'] = 0;
+					echo'<a href="../index.php">Recuperar contraseña</a>';
+					echo"<p>Ha realizado 3 intentos</p>";
+				}
 				echo"</br>";
-			echo"</form>";
+				echo"</form>";
 
-			if(isset($_SESSION['intentos'])){
-				echo "<p>Usuario o contraseña incorrectos</p>";
-			}
 	?>
+	
+	
 </div>
 <hr>
 <?php include 'layout/foot_page.php';?>
