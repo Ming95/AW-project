@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../css/foot_page.css" />
 <title>Login</title>
 
-<?php include 'layout/head.php';?>
+<!--?php include 'layout/head.php';?-->
 <div id="contenedor">
 	<?php
 			echo"<form action="."../controllers/login_process.php"." method="."post".">";
