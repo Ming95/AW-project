@@ -14,18 +14,22 @@
 
 				echo"<label for="."psw"."><b>Password</b></label>";
 				echo'<input type="password" name="psw" placeholder="Elije una contraseña fuerte" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" required>';
+				
 				echo"<p>(La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.)</p>";
 				echo"</br>";
+				//echo"<li>Bienvenido, {$_SESSION['login']} <a href='/views/logout.php'>Cerrar Sesion</a></li>";
 				
 				if(!isset($_SESSION['intentos'])or($_SESSION['intentos'] )< 3){
-						echo'<button name="login" type="."submit".">Login</button></br>';
-						if(isset($_SESSION['intentos']))
-							echo "<p>Usuario o contraseña incorrectos</p>";
+					if(isset($_SESSION['intentos']))
+							echo "</br><p>Usuario o contraseña incorrectos</p>";
+					echo'<button name="login" type="."submit".">Login</button>';
+
 				}else{
 					$_SESSION['intentos'] = 0;
 					echo'<a href="../index.php">Recuperar contraseña</a>';
 					echo"<p>Ha realizado 3 intentos</p>";
 				}
+				echo'<button name="cancelar" type="."submit"."><a href="/views/logout.php">Cancelar</a></button></br>';
 				echo"</br>";
 				echo"</form>";
 
