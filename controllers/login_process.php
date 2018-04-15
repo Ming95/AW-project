@@ -22,7 +22,7 @@
 	//Consultamos si existe el usuario
 	$consulta = $user->getBy("id_correo",$username);
 	//Generamos el hash de la password en claro
-	$hash=MD5($password);
+	$hash=SHA1($password);
 	//Comparamos el nuevo hash con el existente en BBDD
 	if($consulta!=null and hash_equals($hash,$consulta[0]['password']))
 	{
