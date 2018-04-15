@@ -46,20 +46,6 @@ class Usuario extends EntidadBase {
         $this->imagen = $imagen;
     }
 
-	// public function getUser($user, $pass){
-    //Hace la consulta
-    // $consulta = $this->getBy('id_correo', $user);
-    //Comprueba los resultados
-	// if($consulta==null)
-		// return null;
-    // else if(($consulta[0]['id_correo'] == $user) and ($consulta[0]['password'] == $pass))
-		// return $consulta;
-	// else 
-		// return null;
-    
-
-  // }
-
 	public function setUser($user){
 		//echo "Guardando usuario..";
         $query="INSERT INTO usuario (id_correo,password,nombre,imagen,admin)
