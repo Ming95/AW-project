@@ -1,5 +1,5 @@
 <?php
-
+include 'entidadBase.php';
 class Idea extends EntidadBase {
   private $id_idea;
   private $nombre_Idea;
@@ -11,15 +11,15 @@ class Idea extends EntidadBase {
   private $id_correo;
   private $importe_venta;
   private $cv_equipo;
-  
-    
-     
+
+
+
     public function __construct() {
 		$this->table = "idea";
         $class = "Idea";
         parent::__construct($this->table, $class);
     }
-     
+
 	public function getId_idea() {
 		return $this->id_idea;
 	}
