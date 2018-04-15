@@ -33,8 +33,8 @@ class EntidadBase{
         $this->db=$conectar->conexion();
 		if ($this->db->connect_error) {
 			 die("Connection failed: " . $db->connect_error);
-		}else{
-			echo "conexión realizada ok";
+		// }else{
+			// echo "conexión realizada ok";
 		}
     }
 
