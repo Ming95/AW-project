@@ -14,6 +14,14 @@ class Usuario extends EntidadBase {
         parent::__construct($this->table, $class);
     }
 
+    public function isAdmin() {
+        return $this->admin;
+    }
+
+    public function setAdmin($admin) {
+        $this->admin = $admin;
+    }
+
     public function getIdCorreo() {
         return $this->idCorreo;
     }
@@ -22,7 +30,7 @@ class Usuario extends EntidadBase {
         $this->id_correo = $idCorreo;
     }
 
-	public function getPassword() {
+	   public function getPassword() {
         return $this->password;
     }
 
@@ -46,16 +54,16 @@ class Usuario extends EntidadBase {
         $this->imagen = $imagen;
     }
 
-	public function setUser($user){
+	public function signupUser(){
 		//echo "Guardando usuario..";
         $query="INSERT INTO usuario (id_correo,password,nombre,imagen,admin)
-                VALUES('".$user->id_correo."',
-                       '".$user->password."',
-                       '".$user->nombre."',
-                       '".$user->imagen."',
-                       '".$user->admin."');";
+                VALUES('".$this->id_correo."',
+                       '".$this->password."',
+                       '".$this->nombre."',
+                       '".$this->imagen."',
+                       '".$this->admin."');";
         if($this->db()->query($query) == TRUE){
-			echo "Usuario creado correctamente";
+			//echo "Usuario creado correctamente";
 		}
     }
 }

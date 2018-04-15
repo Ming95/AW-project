@@ -27,6 +27,8 @@
 				echo"<button type="."submit".">Signup</button>";
 				echo"</br>";
 			echo"</form>";
+			if(isset($_SESSION['error'])) echo "<p>Error: ".$_SESSION['error']."</p>";
+
 	?>
 </div>
 <hr>
