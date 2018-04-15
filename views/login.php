@@ -8,8 +8,8 @@
 	<?php
 			echo"<form action="."../controllers/login_process.php"." method="."post".">";
 
-				echo"<label for="."uname"."><b>Username</b></label>";
-				echo"<input type="."text"." placeholder="."Enter Username"." name="."uname"." required>";
+				echo"<label for="."mail"."><b>Email</b></label>";
+				echo"<input type="."text"." placeholder="."Enter email"." name="."mail"." required>";
 				echo"</br>";
 
 				echo"<label for="."psw"."><b>Password</b></label>";
@@ -18,7 +18,7 @@
 				echo"<button type="."submit".">Login</button>";
 				echo"</br>";
 			echo"</form>";
-			
+
 			if(isset($_SESSION['intentos'])){
 				echo "<p>Usuario o contraseña incorrectos</p>";
 				if ($_SESSION['intentos'] > 3); //echo "Login incorrecto";
