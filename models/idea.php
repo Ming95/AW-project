@@ -11,6 +11,8 @@ class Idea extends EntidadBase {
   private $id_correo;
   private $importe_venta;
   private $cv_equipo;
+  private $recaudado;
+  private $lim_recaudacion;
 
 
 
@@ -20,6 +22,18 @@ class Idea extends EntidadBase {
         parent::__construct($this->table, $class);
     }
 
+  public function getRecaudado() {
+    return $this->recaudado;
+  }
+  public function setRecaudado($recaudado) {
+    $this->recaudado = $recaudado;
+  }
+  public function getLim_recaudacion() {
+  	return $this->lim_recaudacion;
+  }
+  public function setLim_recaudacion($lim_recaudacion) {
+  	$this->lim_recaudacion = $lim_recaudacion;
+  }
 	public function getId_idea() {
 		return $this->id_idea;
 	}
@@ -80,18 +94,20 @@ class Idea extends EntidadBase {
 	public function setCv_equipo($cv_equipo) {
 		$this->cv_equipo = $cv_equipo;
 	}
-	public function setIdea($idea){
+	public function setIdea(){
 		echo "Guardando idea..";
-        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo)
-               VALUES('".$idea->getNombre_Idea()."',
-                       '".$idea->getId_Categoria()."',
-                       '".$idea->getFecha_Limite()."',
-                       '".$idea->getDesc_idea()."',
-					   '".$idea->getEnVenta()."',
-					   '".$idea->getPopularidad()."',
-					   '".$idea->getId_Correo()."',
-					   '".$idea->getImporte_Venta()."',
-					   '".$idea->getCv_Equipo()."');";
+        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo,recaudado,limite_recaudacion)
+               VALUES('".$this->getNombre_Idea()."',
+                       '".$this->getId_Categoria()."',
+                       '".$this->getFecha_Limite()."',
+                       '".$this->getDesc_idea()."',
+          					   '".$this->getEnVenta()."',
+          					   '".$this->getPopularidad()."',
+          					   '".$this->getId_Correo()."',
+          					   '".$this->getImporte_Venta()."',
+          					   '".$this->getCv_Equipo()."',
+                       '".$this->getRecaudado()."',
+                       '".$this->getLim_recaudacion()."');";
         if($this->db()->query($query) == TRUE){
 			echo "Idea creada correctamente";
 		}

@@ -29,6 +29,7 @@
 			//Inicia sesión con el nuevo usuario
 			$_SESSION["logged"]	= true;
 			$_SESSION['login'] = $username;
+			$_SESSION['mail'] = $mail;
 			header("Location:/index.php");
 		}
 	}

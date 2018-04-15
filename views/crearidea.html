@@ -20,7 +20,7 @@
 			if (tecla==8){
 				return true;
 			}
-				
+
 			// Patron de entrada, en este caso solo acepta numeros
 			patron =/[0-9-.]/;
 			tecla_final = String.fromCharCode(tecla);
@@ -31,7 +31,7 @@
 <body>
 
 	<form method="post" action="../controllers/procesaridea.php">
-		<fieldset>	
+		<fieldset>
 			<legend>Crear idea</legend>
 			<p>Nombre de la idea: <input type="text" name="nombre" required/> </p>
 			<p>Dinero que quiero recaudar(€) <input type="text" name="dinero" onkeypress="return valida(event)" required></p>
@@ -53,17 +53,15 @@
 			<p>CV del equipo: <input type="file" name="archivo" required/></p>
 
 			<textarea name="descripcion" rows="4" cols="50">Descripcion de la idea</textarea>
-			
-			 <p>¿Quieres vender la idea? 
+
+			 <p>¿Quieres vender la idea?
 			<input name="vender" type="checkbox" value="on" id="check" onchange="javascript:showContent()"/></P>
-			
-			<div id="content" style="display: none;">
+
 			<p>Precio de la idea: <input type="text" name="precio" onkeypress="return valida(event)" value="0" required/></p>
-			 </div>
-			 
+
 			<button type="submit"> Aceptar</button>
-		</fieldset>	
+		</fieldset>
 	</form>
-	
+
 </body>
 </html>

@@ -12,7 +12,7 @@
 		$_SESSION["logged"]=false;
 	}
 //Si existe "intentos" y ya hecho 3 comprobaciones devolvemos el mensaje de error.
-//Esta comprobación la hacemos aquí arriba porque si ya ha hecho 3 intentos ni siquiera hay que conectar a la BD 
+//Esta comprobación la hacemos aquí arriba porque si ya ha hecho 3 intentos ni siquiera hay que conectar a la BD
 	if($_SESSION["logged"]==false and ($_SESSION['intentos'] >= 3)) {
 		$_SESSION['intentos'] = 0;
 		$_SESSION["logged"]=false;
@@ -28,6 +28,7 @@
 		{
 			$_SESSION["logged"]	= true;
 			$_SESSION['login'] = $consulta[0]['nombre'];
+			$_SESSION['mail'] = $consulta[0]['id_correo'];
 			$_SESSION['intentos'] = 0;
 			header("Location:/index.php");
 		} else {
