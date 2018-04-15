@@ -9,11 +9,12 @@
 			echo"<form action="."../controllers/login_process.php"." method="."post".">";
 
 				echo"<label for="."mail"."><b>Email</b></label>";
-				echo"<input type="."text"." placeholder="."Enter email"." name="."mail"." required>";
+				echo'<input type="text" name="mail" placeholder="prueba@mail.com" required>';
 				echo"</br>";
 
 				echo"<label for="."psw"."><b>Password</b></label>";
-				echo"<input type="."password"." placeholder="."Enter Password"." name="."psw"." required>";
+				echo'<input type="password" name="psw" placeholder="Elije una contraseña fuerte" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" required>';
+				echo"<p>(La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.)</p>";
 				echo"</br>";
 				
 				if(!isset($_SESSION['intentos'])or($_SESSION['intentos'] )< 3){
