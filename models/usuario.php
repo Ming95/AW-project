@@ -35,7 +35,7 @@ class Usuario extends EntidadBase {
     }
 
     public function setPassword($password) {
-        $this->password = $password;
+        $this->password = SHA1($password);
     }
 
     public function getNombre() {
