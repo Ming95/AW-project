@@ -56,9 +56,9 @@
 
 			 <p>¿Quieres vender la idea?
 			<input name="vender" type="checkbox" value="on" id="check" onchange="javascript:showContent()"/></P>
-
-			<p>Precio de la idea: <input type="text" name="precio" onkeypress="return valida(event)" value="0" required/></p>
-
+			<div id="content" style="display: none;">
+				<p>Precio de la idea: <input type="text" name="precio" onkeypress="return valida(event)" value="0" required/></p>
+			</div>
 			<button type="submit"> Aceptar</button>
 		</fieldset>
 	</form>
