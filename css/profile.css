@@ -1,0 +1,46 @@
+div .lista-perfil{
+  margin: auto;
+  margin-top: 50px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+}
+div .fila-perfil{
+  font-family: "Roboto" !important;
+  font-size: 12pt !important;
+  font-weight: 200 !important;
+  display: block;
+  margin:auto;
+  box-shadow: 0px 1px 17px -1px rgba(0,0,0,0.19);
+  border-radius: 4px 4px 4px 4px;
+  background-color:#ffffff;
+  height: 90px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 9px;
+}
+div .texto-dato{
+  float: left;
+  margin-left: 100px;
+}
+div .boton-fila-perfil{
+  color: white;
+  float: right;
+  margin-top: 22px;
+  margin-right: 100px;
+  background-color:#f50;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+h3{
+  font-size: 20px;
+  color: #f50;
+}
+h2{
+  font-size: 25px;
+  font-family: "Roboto" !important;
+  font-size: 8pt !important;
+  font-weight: 200 !important;
+}
