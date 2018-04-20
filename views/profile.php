@@ -6,34 +6,30 @@
   <link rel="stylesheet" type="text/css" href="/css/formulario.css" />
   <link rel="stylesheet" type="text/css" href="/css/profile.css" />
   <link rel="stylesheet" type="text/css" href="/css/foot_page.css" />
-  <link rel="stylesheet" type="text/css" href="/css/contenedor.css" />
   <title>Mi perfil</title>
 </head>
 <body>
 <?php include './layout/head.php'; ?>
-<div class="contenedor">
-
+<h1 class="error">WORK IN PROGRESS</h1>
   <!--Datos de usuario-->
-  <div class="lista-perfil">
-
-      <form action="cambiarnombre.php">
-        <div class="formulario">
-          <img src="/images/user_icon.png"  alt="Profile image style="width=100; height=100; id="profileimage">
-          <div class="campos-formulario">
-            <h4>Nombre completo:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>
-            <h4>Email:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>
-            <h4>Contraseña:</h4> <input class ="input-box" type="password" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"readonly><br>
-          </div>
-          <div class="submit-formulario">
-            <input type="submit" value="GUARDAR Y ACTUALIZAR" class ="boton-formulario">
-          </div>
+<div class="lista-perfil">
+    <form action="cambiarnombre.php" class="formulario">
+        <img src="/images/user_icon.png"  alt="Profile image style="width=100; height=100; id="profileimage">
+        <div class="campos-formulario">
+          <h4>Nombre completo:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>
+          <h4>Email:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>
+          <h4>Contraseña:</h4> <input class ="input-box" type="password" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"readonly><br>
         </div>
-    </form>
-
-  </div>
+        <div class="submit-formulario">
+          <input type="submit" value="BORRAR CUENTA" class ="boton-formulario">
+          <input type="submit" value="GUARDAR Y ACTUALIZAR" class ="boton-formulario">
+        </div>
+  </form>
+</div>
+<div class="profile-settings">
   <!--Mis Ideas-->
   <div class="lista-perfil">
-      <h2>Mis Ideas</h2>
+      <h1>Mis Ideas</h1>
     <div class="fila-perfil">
       <div class="texto-dato">
         <h3>Idea genial</h3>
@@ -51,7 +47,7 @@
 
   <!--Ideas a las que he aportado-->
   <div class="lista-perfil">
-      <h2>Mis Aportaciones</h2>
+      <h1>Mis Aportaciones</h1>
     <div class="fila-perfil">
       <div class="texto-dato">
         <h3>Idea genial</h3>
@@ -74,7 +70,7 @@
 
   <!--eventos-->
   <div class="lista-perfil">
-    <h2>Próximos Eventos</h2>
+    <h1>Próximos Eventos</h1>
     <div class="fila-perfil">
       <div class="texto-dato">
         <h3>Data Mining</h3>
@@ -89,6 +85,5 @@
     </div>
   </div>
 </div>
-<hr>
 <?php include './layout/foot_page.php';?>
 </body>

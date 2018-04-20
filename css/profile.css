@@ -1,3 +1,10 @@
+.profile-settings{
+  margin:auto;
+  width: 1100px;
+  font-family: "Roboto";
+  font-size: 12pt;
+  font-weight: 200 !important;
+}
 div .lista-perfil{
   margin: auto;
   margin-top: 50px;
@@ -7,9 +14,6 @@ div .lista-perfil{
   padding-bottom: 2px;
 }
 div .fila-perfil{
-  font-family: "Roboto" !important;
-  font-size: 12pt !important;
-  font-weight: 200 !important;
   display: block;
   margin:auto;
   box-shadow: 0px 1px 17px -1px rgba(0,0,0,0.19);
@@ -34,13 +38,10 @@ div .boton-fila-perfil{
   padding-right: 10px;
   border-radius: 4px;
 }
-h3{
+.profile-settings h3{
   font-size: 20px;
   color: #f50;
 }
-h2{
-  font-size: 25px;
-  font-family: "Roboto" !important;
-  font-size: 8pt !important;
-  font-weight: 200 !important;
+.profile-settings h1{
+  font-size: 16pt;
 }

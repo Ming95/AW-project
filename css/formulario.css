@@ -1,4 +1,7 @@
-div .formulario{
+body {
+	background-color: #d8d8d8;
+}
+.formulario{
   font-family: "Roboto";
   font-size: 12pt;
   font-weight: 200 !important;
@@ -15,29 +18,20 @@ div .formulario{
   padding-left: 20px;
   padding-right: 20px;
 }
-div #profileimage {
-  margin-left: 30px;
-	background-size: 100% 100%;
-  border-radius: 5%;
-}
-div .campos-formulario{
+.campos-formulario{
   margin-left: 30px;
 }
 .input-box {
-    font-size: 11pt;
+    font-size:11pt;
     border: 1px solid #000;
-    background: #FFF;
-    border-radius: 5px;
-    color: #222;
+    background:#FFF;
+    border-radius:5px;
+    color:#222;
     padding:10px;
     width:850px;
 }
-h4{
-  margin-bottom: 10px;
-  font-size: 12pt;
-  font-weight: 200;
-}
-div .submit-formulario{
+
+.submit-formulario{
   float: right;
   margin-right: 80px;
   margin-top: 30px;
@@ -49,7 +43,35 @@ div .submit-formulario{
   padding: 10px;
   border-radius: 4%;
 }
-p{
+#profileimage {
+  margin-left: 30px;
+	background-size: 100% 100%;
+  border-radius: 5%;
+}
+.checkbox {
+  border:#fff;
+  background:#FFF;
+  border-radius:5px;
+  color:#222;
+  padding-top:30px;
+  width:850px;
+}
+.error{
+  color: red;
+  font-size: 12pt;
+}
+.formulario legend{
+  margin-bottom: 40px;
+  font-size: 18pt;
+  font-weight: 200;
+  color:#f50;
+}
+.formulario h4{
+  margin-bottom: 10px;
+  font-size: 12pt;
+  font-weight: 200;
+}
+.formulario p{
   font-size: 10pt;
   color: #444;
 }
