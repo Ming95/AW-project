@@ -11,9 +11,10 @@ class Idea extends EntidadBase {
   private $id_correo;
   private $importe_venta;
   private $cv_equipo;
+  /*
   private $recaudado;
   private $lim_recaudacion;
-
+*/
 
 
     public function __construct() {
@@ -21,7 +22,7 @@ class Idea extends EntidadBase {
         $class = "Idea";
         parent::__construct($this->table, $class);
     }
-
+/*
   public function getRecaudado() {
     return $this->recaudado;
   }
@@ -34,6 +35,7 @@ class Idea extends EntidadBase {
   public function setLim_recaudacion($lim_recaudacion) {
   	$this->lim_recaudacion = $lim_recaudacion;
   }
+  */
 	public function getId_idea() {
 		return $this->id_idea;
 	}
@@ -96,7 +98,7 @@ class Idea extends EntidadBase {
 	}
 	public function setIdea(){
 		echo "Guardando idea..";
-        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo,recaudado,limite_recaudacion)
+        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo)
                VALUES('".$this->getNombre_Idea()."',
                        '".$this->getId_Categoria()."',
                        '".$this->getFecha_Limite()."',
@@ -105,12 +107,8 @@ class Idea extends EntidadBase {
           					   '".$this->getPopularidad()."',
           					   '".$this->getId_Correo()."',
           					   '".$this->getImporte_Venta()."',
-          					   '".$this->getCv_Equipo()."',
-                       '".$this->getRecaudado()."',
-                       '".$this->getLim_recaudacion()."');";
-        if($this->db()->query($query) == TRUE){
-			echo "Idea creada correctamente";
-		}
+          					   '".$this->getCv_Equipo()."');";
+        if($this->db()->query($query) == TRUE) echo "Idea creada correctamente";
     }
 }
 ?>

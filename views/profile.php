@@ -1,5 +1,8 @@
-
 <!DOCTYPE html>
+<?php
+	session_start();
+	if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:/views/login.php");
+?>
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="/css/head.css" />

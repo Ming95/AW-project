@@ -11,27 +11,25 @@
 	//Controlar que el propietario de la idea existe. Consultar en bbdd a usuario si el usuario de sesion existe en la bbdd.
   $name = $_POST['nombre']; // requerido
   $dinero = $_POST['dinero']; // requerido
-  $categorias = $_POST['categorias']; // requerido
+  $categoria = $_POST['categoria']; // requerido
   $descripcion = $_POST['descripcion']; // no requerido
   $datefinal = $_POST['final'];
   $precio_idea=$_POST['precio'];
   $vender = 0;
-
 	if (isset($_REQUEST['vender'])){
 				$vender=true;
 			}
 
 	$idea = new Idea;
 	$idea->setNombre_Idea($name);
-	$idea->setLim_recaudacion($dinero);
-	$idea->setId_Categoria($categorias);
+	$idea->setId_Categoria($categoria);
 	$idea->setFecha_Limite($datefinal);
 	$idea->setDesc_idea($descripcion);
 	$idea->setEnVenta($vender);
 	$idea->setImporte_venta($precio_idea);
 	$idea->setCv_Equipo("/img/data");
 	$idea->setId_Correo($_SESSION['mail']);
-  $idea->setRecaudado(0);
+  //$idea->setImagen("/img/idea1");
 
 	$idea->getBy('id_idea',sha1($name));
   $idea->setIdea();

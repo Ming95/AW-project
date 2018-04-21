@@ -26,7 +26,8 @@
 				?>
 				</div>
 				<div class="submit-formulario">
-					<input type="submit" value="LOGIN" class ="boton-formulario">
+					<input type="button" value="REGISTRARSE" class ="boton-formulario2" onclick="location.href='/views/signup.php'">
+					<input type="submit" value="INICIAR SESIÓN" class ="boton-formulario">
 				</div>
 			</form>
 </div>

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
+
+<?php
+	session_start();
+	if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:/views/login.php");
+?>
 <html>
 <head>
+
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/css/head.css" />
 	<link rel="stylesheet" type="text/css" href="/css/foot_page.css" />
@@ -35,8 +41,7 @@
 			return patron.test(tecla_final);
 		}
 	</script>
-<div id="contenedor">
-	<form method="post" action="../controllers/procesaridea.php" class="formulario">
+	<form method="post" action="/controllers/procesaridea.php" class="formulario">
 			<legend>Crear Idea</legend>
 			<h4>Nombre de la idea</h4><input type="text" name="nombre" required class ="input-box">
 			<h4>Recaudación</h4>
@@ -48,14 +53,14 @@
 
 			<h4>Categoría</h4>
 			<p>Elige a qué categoría pertenece tu idea</p>
-			<select name="categorias" class ="input-box">
+			<select name="categoria" class ="input-box">
 				<option value="Deportes">Deportes</option>
 				<option value="Comida">Comida</option>
 				<option value="Musica" selected>Musica</option>
 				<option value="Cine">Cine</option>
 				<option value="Juegos">Juegos</option>
-				<option value="Diseño">Dieseño</option>
-				<option value="Ilustracion">Ilustracion</option>
+				<option value="Diseño">Diseño</option>
+				<option value="Ilustracion">Ilustración</option>
 			</select>
 
 			<h4>Imagen de la idea</h4>
@@ -78,14 +83,13 @@
 			</div>
 
 			<div id="content" style="display: none;">
-				<h4>Precio de la idea (€)</h4> <input type="text" name="precio" onkeypress="return valida(event)" placeholder="1000" required class ="input-box">
+				<h4>Precio de la idea (€)</h4> <input type="text" name="precio" onkeypress="return valida(event)" placeholder="1000" class ="input-box">
 			</div>
 			<div class="submit-formulario">
 				<input type="submit" value="ACEPTAR" class ="boton-formulario">
 			</div>
 
 	</form>
-</div>
 <?php include 'layout/foot_page.php';?>
 </body>
 </html>
