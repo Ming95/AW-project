@@ -1,14 +1,15 @@
 body{
-	height:100%;
 	background-color:#F6F5F5;
+	height:100%
 }
 div.a {
 	opacity: 0.9;
     position: relative;
     width: 1300px;
-    height: 2000px; 
-    /* border: 3px solid red;  */
-	/* background-color:#F6F5F5; */
+     height: 1000px;  
+   /*  border: 3px solid red;  */ 
+	margin-top: 20px;
+
 }
 
 div.b {
@@ -16,15 +17,14 @@ div.b {
     left: 0px;
     width: 47%;
     height: 100%;
-    /* border: 3px solid gray; */
+   /*  border: 3px solid gray;  */
 } 
 
 div.c {
     position: absolute;
     left: 650px;    
     width: 250px;
-    height: 800px;
- /*    border: 3px solid green; */
+    /* border: 3px solid green;  */
 } 
 
 div.d {
@@ -32,10 +32,11 @@ div.d {
     right: 0px;    
     width: 200px;
     height: 800px;
-   /*  border: 3px solid yellow; */
+	padding:3px;
+    border: 1px solid #ccc;
 }
 
-ul {
+.lista {
     list-style-type: none;
     margin: 0px;
     padding: 0;
@@ -45,36 +46,46 @@ ul {
 	/* border: 3px solid blue; */
 }
 
-li {
-    float: left;
-	width:33.33%;
+/* li {
+
 }
 
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-	background-color: yellow; 
-	font-size: 18px;
-	outline: none;
-}
+
+} */
 
 .texto{
 	font-size: 18px;
 	color:#9B9A9A;
 }
-.texto2{
+.texto3{
 	font-size: 18px;
 	color:#9B9A9A;
 	text-align:center;
 }
 .active {
+	float: left;
+	width:33.33%;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	font-size: 18px;
+	outline: none;
     background-color: #FE9A22;
 }
 .nactive {
     background-color: #070707;
+	float: left;
+	width:33.33%;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	font-size: 18px;
+	outline: none;
 }
 
 div.datos1 {
@@ -85,8 +96,8 @@ div.datos1 {
 div.datos2 {
 	width: 100%;
 	display:none;
-	/* border: 3px solid brown; */
-	height:75%;
+	border: 1px solid #ccc;
+	height:50%;
 }
 div.datos3 {
 	width: 100%;
@@ -126,6 +137,14 @@ div.datos3 {
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
+  margin-bottom:12px;
+  margin-top:6px;
+}
+.icon-transp{
+	margin-top:15px;
+	font-size:36px;
+	background: transparent;
+	border: none !important;
 }
 
 .button:hover {background-color: #FE7F22}
@@ -191,3 +210,5 @@ div.desc {
     display: table;
     clear: both;
 }
+
+.fa-thumbs-o-up:before{content:"\f087"}
