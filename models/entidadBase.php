@@ -18,10 +18,9 @@ class EntidadBase{
     public function __construct($table, $class) {
         $this->table=(string) $table;
         $this->class=(string) $class;
-    		require_once './config/conectar.php';
-    		$conectar=new Conectar();
+    	require_once '../config/conectar.php';
+    	$conectar=new Conectar();
         $this->db=$conectar->conexion();
-
 		    if ($this->db->connect_error)
 			       die("Connection failed: " . $db->connect_error);
     }
@@ -53,6 +52,7 @@ class EntidadBase{
         //$req->execute(array('id' => $id));
         //$result = $req->fetchAll(PDO::FETCH_CLASS, $this->class);
 		    $filas = $this->showData($req);
+		
         return $result;
     }
 
