@@ -11,6 +11,7 @@ class Idea extends EntidadBase {
   private $id_correo;
   private $importe_venta;
   private $cv_equipo;
+  private $importe_solicitado;
   /*
   private $recaudado;
   private $lim_recaudacion;
@@ -96,9 +97,15 @@ class Idea extends EntidadBase {
 	public function setCv_equipo($cv_equipo) {
 		$this->cv_equipo = $cv_equipo;
 	}
+	
+	public function getImporte_solicitado() {
+		return $this->importe_solicitado;
+	}
+	public function setImporte_Solicitado($importe_solicitado) {
+		$this->importe_solicitado = $importe_solicitado;
+	}
 	public function setIdea(){
-		echo "Guardando idea..";
-        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo)
+        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo,importe_solicitado)
                VALUES('".$this->getNombre_Idea()."',
                        '".$this->getId_Categoria()."',
                        '".$this->getFecha_Limite()."',
@@ -107,8 +114,11 @@ class Idea extends EntidadBase {
           					   '".$this->getPopularidad()."',
           					   '".$this->getId_Correo()."',
           					   '".$this->getImporte_Venta()."',
-          					   '".$this->getCv_Equipo()."');";
-        if($this->db()->query($query) == TRUE) echo "Idea creada correctamente";
-    }
+          					   '".$this->getCv_Equipo()."',
+							   '".$this->getImporte_solicitado()."');";
+        if($this->db()->query($query) == TRUE) echo "Idea guardada correctamente";
+	}
+		
+	
 }
 ?>
