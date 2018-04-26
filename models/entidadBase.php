@@ -18,7 +18,7 @@ class EntidadBase{
     public function __construct($table, $class) {
         $this->table=(string) $table;
         $this->class=(string) $class;
-    		require_once '../config/conectar.php';
+    		require_once './config/conectar.php';
     		$conectar=new Conectar();
         $this->db=$conectar->conexion();
 
@@ -26,12 +26,18 @@ class EntidadBase{
 			       die("Connection failed: " . $db->connect_error);
     }
 
-    public function getAll(){
-        $req=$this->db()->query("SELECT * FROM $this->table");
-        //$resultSet = $query->fetch_assoc(PDO::FETCH_CLASS, $this->class);
+	/*Selecciona todos los elementos ordenados por la columna indicada y orden ascendente*/
+	public function getAllOrderByAsc($column){
+		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column ASC ");
     		$filas = $this->showData($req);
         return $filas;
-    }
+	}
+	/*Selecciona todos los elementos ordenados por la columna indicada y orden descendente*/
+	public function getAllOrderByDesc($column){
+		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC");
+    		$filas = $this->showData($req);
+        return $filas;
+	}
 
 	private function showData($resultSet){
 		$filas= array();
@@ -50,6 +56,7 @@ class EntidadBase{
         return $result;
     }
 
+	/*Selecciona todas las filas correspondientes a la columna y valor indicados*/
     public function getBy($column, $value){
 		    $consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
         $req = $this->db()->query($consulta);
@@ -67,6 +74,8 @@ class EntidadBase{
         $query=$this->db()->query("DELETE FROM $this->table WHERE $column = '$value'");
         return $query;
     }
+	
+	
 
 }
 ?>
