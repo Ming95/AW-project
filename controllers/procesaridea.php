@@ -35,7 +35,7 @@
 		$idea->setIdea();
 	$idea->closeConnection();
 	}catch(Exception $e){
-		$_SESSION['error']=$e->getMessage();
+		$_SESSION['data_error']=$e->getMessage();
 		header("Location:/errorpage.php");
 	}
 
