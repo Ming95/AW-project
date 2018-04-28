@@ -12,7 +12,7 @@
     <div class="row">
 	<?php
 		session_start();
-        echo '<label class="texto2">'.$_SESSION['error'].'</label>';
+        echo '<label class="texto2">'.$_SESSION['data_error'].'</label>';
 	?>
     </div>
      <input class="submit" type="submit" value="Cerrar" onclick="volver()">
