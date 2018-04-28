@@ -80,3 +80,11 @@ function showContent() {
 				elemento.style.display = 'block';
 			}
 		}
+	
+ 		function volver() {
+			window.history.back(-1);
+		}
+		 
+		function cerrar(){
+			window.close();
+		}
