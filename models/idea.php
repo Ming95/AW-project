@@ -116,7 +116,8 @@ class Idea extends EntidadBase {
           					   '".$this->getImporte_Venta()."',
           					   '".$this->getCv_Equipo()."',
 							   '".$this->getImporte_solicitado()."');";
-        if($this->db()->query($query) == TRUE) echo "Idea guardada correctamente";
+        if($this->db()->query($query) == false) 
+			throw new Exception('MySQL: Error al realizar la inserción SQL');
 	}
 		
 	
