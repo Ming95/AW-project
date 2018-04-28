@@ -38,7 +38,8 @@ class Conectar{
     }
 	
 	public function closeConexion($db){
-		mysqli_close($db);
+		if($db==true)
+			mysqli_close($db);
 	}
 }
 ?>
