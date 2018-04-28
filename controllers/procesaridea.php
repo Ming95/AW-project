@@ -30,8 +30,13 @@
 	$idea->setCv_Equipo("/img/data");
 	$idea->setId_Correo($_SESSION['mail']);
   //$idea->setImagen("/img/idea1");
-
-	$idea->getBy('id_idea',sha1($name));
-  $idea->setIdea();
+	try{
+		$idea->getBy('id_idea',sha1($name));
+		$idea->setIdea();
+	$idea->closeConnection();
+	}catch(Exception $e){
+		$_SESSION['error']=$e->getMessage();
+		header("Location:/errorpage.php");
+	}
 
 ?>
