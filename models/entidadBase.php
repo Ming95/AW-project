@@ -7,6 +7,7 @@ class EntidadBase{
 
     private $db;
 
+	private $conectar;
     public function db() {
         return $this->db;
     }
@@ -19,19 +20,24 @@ class EntidadBase{
         $this->table=(string) $table;
         $this->class=(string) $class;
     	require_once '../config/conectar.php';
-    	$conectar=new Conectar();
-        $this->db=$conectar->conexion();
-		    if ($this->db->connect_error){
-			       die("Connection failed: " . $db->connect_error);
-				   throw new Exception('MySQL: Error al realizar la conexión con la BBDD');
-			}
+		try{
+			$conectar=new Conectar();
+			$this->db=$conectar->getConexion();
+		}catch(Excepcion $e){
+			throw new Exception($e);
+		}
     }
+	
+	public function closeConnection(){
+		$conectar=new Conectar();
+		$conectar->closeConexion($this->db);
+	}
 
 	/*Selecciona todos los elementos ordenados por la columna indicada y orden ascendente*/
 	public function getAllOrderByAsc($column){
 		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column ASC ");
 		 if($req==false){
-			throw new Exception('MySQL: Error al realizar la consulta SQL');
+			throw new Exception('MySQL: Error al realizar la consulta SQL 1');
 		}
     		$filas = $this->showData($req);
         return $filas;
@@ -40,7 +46,7 @@ class EntidadBase{
 	public function getAllOrderByDesc($column){
 		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC");
 		 if($req==false){
-			throw new Exception('MySQL: Error al realizar la consulta SQL');
+			throw new Exception('MySQL: Error al realizar la consulta SQL 2');
 		}
     	$filas = $this->showData($req);
         return $filas;
@@ -69,7 +75,7 @@ class EntidadBase{
 		    $consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
         $req = $this->db()->query($consulta);
 		if($req==false){
-			throw new Exception('MYSQL: Error al realizar la consulta SQL');
+			throw new Exception('MYSQL: Error al realizar la consulta SQL 3');
 		}
 		 $filas = $this->showData($req);
         return $filas;
