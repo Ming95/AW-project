@@ -18,23 +18,32 @@
 		$_SESSION["logged"]=false;
 		header('Location: ../index.php');
 	}else{
-		$user = new Usuario();
-		//Consultamos si existe el usuario
-		$consulta = $user->getBy("id_correo",$username);
-		//Generamos el hash de la password en claro
-		$hash=SHA1($password);
-		//Comparamos el nuevo hash con el existente en BBDD
-		if($consulta!=null and hash_equals($hash,$consulta[0]['password']))
-		{
-			$_SESSION["logged"]	= true;
-			$_SESSION['login'] = $consulta[0]['nombre'];
-			$_SESSION['mail'] = $consulta[0]['id_correo'];
-			$_SESSION['intentos'] = 0;
-			header("Location:/index.php");
-		} else {
-			//Si la cuenta y/o contraseña es errónea sumamos 1 al número de intentos
-			$_SESSION['intentos'] += 1;
-			include '../views/login.php';
+		try{
+			$user = new Usuario();
+			//Consultamos si existe el usuario
+			$consulta = $user->getBy("id_correo",$username);
+			//Generamos el hash de la password en claro
+			$hash=SHA1($password);
+			//Comparamos el nuevo hash con el existente en BBDD
+			var_dump($consulta);
+			if($consulta!=null and hash_equals($hash,$consulta[0]['password']))
+			{
+				$_SESSION["logged"]	= true;
+				$_SESSION['login'] = $consulta[0]['nombre'];
+				$_SESSION['mail'] = $consulta[0]['id_correo'];
+				$_SESSION['intentos'] = 0;
+				header("Location:/index.php");
+			} else {
+				//Si la cuenta y/o contraseña es errónea sumamos 1 al número de intentos
+				$_SESSION['intentos'] += 1;
+				include '../views/login.php';
+			}
+		}catch (Exception $e) {
+				$_SESSION['error']=$e->getMessage();
+				header("Location:/errorpage.php");
+				//$_SESSION["error"]=$e->getMessage();
+				//include '../views/login.php';
+				//exit();
 		}
 	}
 
