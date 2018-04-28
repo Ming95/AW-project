@@ -19,13 +19,15 @@
 		header('Location: ../index.php');
 	}else{
 		try{
+			//Se crea el objeto usuario y se abre conexión
 			$user = new Usuario();
 			//Consultamos si existe el usuario
 			$consulta = $user->getBy("id_correo",$username);
+			//Cerramos la conexión tras realizar la consulta
+			$user->closeConnection();
 			//Generamos el hash de la password en claro
 			$hash=SHA1($password);
 			//Comparamos el nuevo hash con el existente en BBDD
-			var_dump($consulta);
 			if($consulta!=null and hash_equals($hash,$consulta[0]['password']))
 			{
 				$_SESSION["logged"]	= true;
@@ -41,9 +43,6 @@
 		}catch (Exception $e) {
 				$_SESSION['error']=$e->getMessage();
 				header("Location:/errorpage.php");
-				//$_SESSION["error"]=$e->getMessage();
-				//include '../views/login.php';
-				//exit();
 		}
 	}
 
