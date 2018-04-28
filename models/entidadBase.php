@@ -37,7 +37,7 @@ class EntidadBase{
 	public function getAllOrderByAsc($column){
 		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column ASC ");
 		 if($req==false){
-			throw new Exception('MySQL: Error al realizar la consulta SQL 1');
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
 		}
     		$filas = $this->showData($req);
         return $filas;
@@ -46,7 +46,7 @@ class EntidadBase{
 	public function getAllOrderByDesc($column){
 		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC");
 		 if($req==false){
-			throw new Exception('MySQL: Error al realizar la consulta SQL 2');
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
 		}
     	$filas = $this->showData($req);
         return $filas;
@@ -75,7 +75,7 @@ class EntidadBase{
 		    $consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
         $req = $this->db()->query($consulta);
 		if($req==false){
-			throw new Exception('MYSQL: Error al realizar la consulta SQL 3');
+			throw new Exception('MYSQL: Error al realizar la consulta SQL');
 		}
 		 $filas = $this->showData($req);
         return $filas;
