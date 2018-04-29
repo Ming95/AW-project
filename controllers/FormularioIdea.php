@@ -92,39 +92,50 @@ EOF;
     protected function procesaFormulario($datos)
     {
         $result = array();
-        if(($_POST['nombre']==null) ||
-      		($_POST['dinero']==null) ||
-      		($_POST['foto']==null) ||
-      		($_POST['archivo']==null) ||
-      		($_POST['descripcion']==null)){
-            $result[] = "Lo sentimos, parece haber un problema con los datos enviados.";
-      	}
-      	//Controlar que el propietario de la idea existe. Consultar en bbdd a usuario si el usuario de sesion existe en la bbdd.
-        $name = $_POST['nombre']; // requerido
-        $dinero = $_POST['dinero']; // requerido
-        $categoria = $_POST['categoria']; // requerido
-        $descripcion = $_POST['descripcion']; // no requerido
-        $datefinal = $_POST['final'];
-        $foto = "/images/idea.jpg";
-        $precio_idea=$_POST['precio'];
-        $vender = false;
-      	if (isset($_REQUEST['vender'])){
-      				$vender=true;
-      			}
 
+        //Comprueba campos del formulario
+        if(($datos['nombre']==null) || ($datos['dinero']==null) || ($datos['descripcion']==null))
+            $result[] = "Lo sentimos, parece haber un problema con los datos enviados.";
+
+        //Comprueba que la imagen sea un archivo de imagen
+        $image_dir = "images/ideas/";
+        $image_file = $image_dir . basename($_FILES["foto"]["name"]);
+        $imageFileType = strtolower(pathinfo($image_file,PATHINFO_EXTENSION));
+
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" )
+            $result[] = "El archivo debe ser una imagen";
+
+        //Comprueba que el curriculum sea un pdf
+        $curr_dir = "images/ideas/";
+        $curr_file = $curr_dir . basename($_FILES["archivo"]["name"]);
+        $currFileType = strtolower(pathinfo($curr_file,PATHINFO_EXTENSION));
+
+        if($currFileType != "pdf") $result[] = "El Curriculum debe tener extensión .pdf";
+
+        /* Da error de directorio
+        //Sube la Imagen
+        if (!move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file))
+            $result[]="Error al subir la imagen";
+
+        //Sube el cv
+        if (!move_uploaded_file($_FILES["archivo"]["tmp_name"], "../images/ideas".basename($_FILES["foto"]["name"])))
+            $result[]="Error al subir el Curriculum";
+        */
+
+        //Crea objeto idea y atributos
       	$idea = new Idea;
-      	$idea->setNombre_Idea($name);
-      	$idea->setId_Categoria($categoria);
-      	$idea->setFecha_Limite($datefinal);
-      	$idea->setDesc_idea($descripcion);
-      	$idea->setEnVenta($vender);
-        $idea->setImporte_Solicitado($dinero);
-      	$idea->setImporte_venta($precio_idea);
-      	$idea->setCv_Equipo("/img/data");
+      	$idea->setNombre_Idea($datos['nombre']);
+      	$idea->setId_Categoria($datos['categoria']);
+      	$idea->setFecha_Limite($datos['final']);
+      	$idea->setDesc_idea($_POST['descripcion']);
+      	$idea->setEnVenta(isset($_REQUEST['vender']));
+        $idea->setImporte_Solicitado($datos['dinero']);
+      	$idea->setImporte_venta($datos['precio']);
+      	$idea->setCv_Equipo($curr_file);
       	$idea->setId_Correo($_SESSION['mail']);
-        $idea->setImagen($foto);
+        $idea->setImagen($image_file);
+
       	try{
-      		$idea->getBy('id_idea',sha1($name));
       		$idea->setIdea();
       	  $idea->closeConnection();
           $result = '../index.php';
