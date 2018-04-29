@@ -14,8 +14,9 @@
   $categoria = $_POST['categoria']; // requerido
   $descripcion = $_POST['descripcion']; // no requerido
   $datefinal = $_POST['final'];
+  $foto = "/images/idea.jpg";
   $precio_idea=$_POST['precio'];
-  $vender = 0;
+  $vender = false;
 	if (isset($_REQUEST['vender'])){
 				$vender=true;
 			}
@@ -26,10 +27,11 @@
 	$idea->setFecha_Limite($datefinal);
 	$idea->setDesc_idea($descripcion);
 	$idea->setEnVenta($vender);
+  $idea->setImporte_Solicitado($dinero);
 	$idea->setImporte_venta($precio_idea);
 	$idea->setCv_Equipo("/img/data");
 	$idea->setId_Correo($_SESSION['mail']);
-  //$idea->setImagen("/img/idea1");
+  $idea->setImagen($foto);
 	try{
 		$idea->getBy('id_idea',sha1($name));
 		$idea->setIdea();

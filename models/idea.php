@@ -12,10 +12,7 @@ class Idea extends EntidadBase {
   private $importe_venta;
   private $cv_equipo;
   private $importe_solicitado;
-  /*
-  private $recaudado;
-  private $lim_recaudacion;
-*/
+  private $imagen;
 
 
     public function __construct() {
@@ -23,20 +20,7 @@ class Idea extends EntidadBase {
         $class = "Idea";
         parent::__construct($this->table, $class);
     }
-/*
-  public function getRecaudado() {
-    return $this->recaudado;
-  }
-  public function setRecaudado($recaudado) {
-    $this->recaudado = $recaudado;
-  }
-  public function getLim_recaudacion() {
-  	return $this->lim_recaudacion;
-  }
-  public function setLim_recaudacion($lim_recaudacion) {
-  	$this->lim_recaudacion = $lim_recaudacion;
-  }
-  */
+
 	public function getId_idea() {
 		return $this->id_idea;
 	}
@@ -97,15 +81,21 @@ class Idea extends EntidadBase {
 	public function setCv_equipo($cv_equipo) {
 		$this->cv_equipo = $cv_equipo;
 	}
-	
+
 	public function getImporte_solicitado() {
 		return $this->importe_solicitado;
 	}
 	public function setImporte_Solicitado($importe_solicitado) {
 		$this->importe_solicitado = $importe_solicitado;
 	}
-	public function setIdea(){
-        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo,importe_solicitado)
+  public function getImagen() {
+    return $this->imagen;
+  }
+  public function setImagen($imagen) {
+    $this->imagen = $imagen;
+  }
+  public function setIdea(){
+        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo,imagen,importe_solicitado)
                VALUES('".$this->getNombre_Idea()."',
                        '".$this->getId_Categoria()."',
                        '".$this->getFecha_Limite()."',
@@ -115,11 +105,12 @@ class Idea extends EntidadBase {
           					   '".$this->getId_Correo()."',
           					   '".$this->getImporte_Venta()."',
           					   '".$this->getCv_Equipo()."',
+                       '".$this->getImagen()."',
 							   '".$this->getImporte_solicitado()."');";
-        if($this->db()->query($query) == false) 
+        if($this->db()->query($query) == false)
 			throw new Exception('MySQL: Error al realizar la inserción SQL');
 	}
-		
-	
+
+
 }
 ?>
