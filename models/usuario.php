@@ -63,8 +63,8 @@ class Usuario extends EntidadBase {
                        '".$this->nombre."',
                        '".$this->imagen."',
                        '".$this->admin."');";
-        if($this->db()->query($query) == TRUE){
-		}
+        if($this->db()->query($query) == false) 
+			throw new Exception('MySQL: Error al realizar la inserción SQL');
     }
 }
 ?>

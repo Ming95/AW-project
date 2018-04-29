@@ -38,7 +38,8 @@ class UsuarioImporteIdea extends EntidadBase {
                VALUES('".$this->getId_idea()."',
           			  '".$this->getId_correo()."',
           			  '".$this->getImporte_aportado()."');";
-        if($this->db()->query($query) == TRUE) 
+         if($this->db()->query($query) == false) 
+			throw new Exception('MySQL: Error al realizar la inserción SQL');
 	}
   }
 
