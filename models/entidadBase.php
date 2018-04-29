@@ -24,6 +24,7 @@ class EntidadBase{
 			$conectar=new Conectar();
 			$this->db=$conectar->getConexion();
 		}catch(Excepcion $e){
+			error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
 			throw new Exception($e);
 		}
     }
