@@ -41,6 +41,7 @@
 				include '../views/login.php';
 			}
 		}catch (Exception $e) {
+				error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
 				$_SESSION['data_error']=$e->getMessage();
 				header("Location:/errorpage.php");
 		}
