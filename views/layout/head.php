@@ -1,6 +1,6 @@
 <?php
 	echo"<header id="."main-header".">";
-		session_start();
+		 if(!isset($_SESSION)) { session_start(); } else { session_destroy(); session_start(); } 
 		//var_dump($_SESSION["logged"]);
 		//var_dump($_SESSION["login"]);
 		//$log = $_SESSION["logged"];//la variable login viene de modelo.
