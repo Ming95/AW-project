@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="/css/formulario.css" />
 	<title>Login</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Login</title>
 </head>
 
 <body>

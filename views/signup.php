@@ -4,9 +4,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/head.css" />
 	<link rel="stylesheet" type="text/css" href="/css/foot_page.css" />
 	<link rel="stylesheet" type="text/css" href="/css/formulario.css" />
-	<title>Login</title>
+	<title>Registro</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Login</title>
 </head>
 
 <body>
@@ -18,6 +17,5 @@
 			$form->gestiona();
 			include 'layout/foot_page.php';
 	?>
-
 </body>
 </html>
