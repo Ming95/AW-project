@@ -18,11 +18,11 @@
 		</div>
 		<ul class="lista">
 			<li><a class="active"  id="lista1" href="#Descripcion" onclick="myfunction1(this)" >Descripción</a></li>
-			<li><a class="nactive" id="lista2"  href="#Comentario" onclick="location='../controllers/consultar_idea_process.php?id_idea=<?php echo $dato_idea[0]['id_idea'];?>&comentario=<?php echo base64_encode('holaa');?>'">Comentario</a></li>
+			<li><a class="nactive" id="lista2"  href="#Comentario" onclick="location='../controllers/ComentarioController.php?id_idea=<?php echo $_SESSION['data']['dato_idea'][0]['id_idea'];?>&opcion=2'">Comentario</a></li>
 			<li><a class="nactive" id="lista3"  href="#Equipo" onclick="myfunction3(this)">Equipo</a></li> 
 		</ul>
 		<div class="datos1" id="datos1">
-			<textarea class="textarea1" name="textarea1" id="textarea1" rows="20" cols="82" disabled> <?php echo $dato_idea[0]['desc_idea'];?>
+			<textarea class="textarea1" name="textarea1" id="textarea1" rows="20" cols="82" disabled> <?php echo $_SESSION['data']['dato_idea'][0]['desc_idea'];?>
 			</textarea>
 		</div>
 		<div class="datos2" id="datos2">
@@ -33,7 +33,8 @@
 				<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 			</div>
 			<div class="row">
-			  <input type="submit" id= "button" class="button" value="Publicar" onclick="location='../controllers/consultar_idea_process.php?id_idea=<?php echo $dato_idea[0]['id_idea'];?>&inserta=<?php echo base64_encode('insertando comentario');?>'"/>
+			  <!--input type="submit" id= "button" class="button" value="Publicar" onclick="location='../controllers/ComentarioController.php?id_idea=<?php echo $_SESSION['data']['dato_idea'][0]['id_idea'];?>&opcion=1&comentario=obtenerComentario()'"/!-->
+			   <input type="submit" id= "button" class="button" value="Publicar" onclick="obtenerComentario(<?php echo $_SESSION['data']['dato_idea'][0]['id_idea'];?>)"/>
 			</div>
 			<div class="row">
 				<div id= "div1">
@@ -42,7 +43,7 @@
 		</div>
 		<div class="datos3" id="datos3" >
 			<label class="texto">Pulse aquí para descargar el CV del equipo</label>
-			<a href="../CV_equipo.doc" target='_blank' title="Click here to open a Word document"><?php echo $dato_idea[0]['cv_equipo'];?></a>
+			<a href="../CV_equipo.doc" target='_blank' title="Click here to open a Word document"><?php echo $_SESSION['data']['dato_idea'][0]['cv_equipo'];?></a>
 		</div>
 	</div>
 	
@@ -51,8 +52,8 @@
 	</script> 
 
 <div class="c"></br>
-		<span class="label other"> Faltan <?php echo $dias_finalizar;?> dias para finalizar</span></br></br></br>
-		<span class="label other"> <?php echo $dato_idea[0]['popularidad'];?> visitas</span></br></br></br>
+		<span class="label other"> Faltan <?php echo $_SESSION['data']['dias_finalizar']?> dias para finalizar</span></br></br></br>
+		<span class="label other"> <?php echo $_SESSION['data']['dato_idea'][0]['popularidad'];?> visitas</span></br></br></br>
 		<input type="submit" id= "button" class="button" value="Patrocinar" onclick = "location='../views/patrocina.php'"/>
 		<input type="submit" id= "button" class="button" value="Reportar incidencia" onclick = "location='../views/reportaincidencia.php'"/>
 		<input type="submit" id= "button" class="button" value="Comprar idea" onclick = "location='../views/compraidea.php'"/></br>
@@ -66,7 +67,7 @@
 			  <img src="../images/img_forest.jpg" alt="Forest" width="300" height="300">
 			</a>
 			<div class="desc">
-				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $masIdeas[0]['id_idea'];?>"><?php echo $masIdeas[0]['nombre_idea'];?></a></p>
+				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][0]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][0]['nombre_idea'];?></a></p>
 			</div>
 		  </div>
 		</div>
@@ -77,7 +78,7 @@
 			  <img src="../images/img_forest.jpg" alt="Northern Lights" width="600" height="400">
 			</a>
 			 <div class="desc">
-				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $masIdeas[1]['id_idea'];?>"><?php echo $masIdeas[1]['nombre_idea'];?></a></p>
+				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][1]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][1]['nombre_idea'];?></a></p>
 			</div>
 		  </div>
 		</div>
@@ -88,7 +89,7 @@
 			  <img src="../images/img_forest.jpg" alt="Mountains" width="600" height="400">
 			</a>
 			<div class="desc">	
-				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $masIdeas[2]['id_idea'];?>"><?php echo $masIdeas[2]['nombre_idea'];?></a></p>
+				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][2]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][2]['nombre_idea'];?></a></p>
 			</div>
 		  </div>
 		</div>
