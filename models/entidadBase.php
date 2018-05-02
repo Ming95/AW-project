@@ -43,6 +43,49 @@ class EntidadBase{
     		$filas = $this->showData($req);
         return $filas;
 	}
+	
+		/*Selecciona todos los elementos con un filtro ordenados por la columna indicada y orden ascendente*/
+	public function getAllFilteredAndOrderASC($column, $filter, $valueFilter){
+		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter' ORDER by $column ASC ");
+		 if($req==false){
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
+		}
+    		$filas = $this->showData($req);
+        return $filas;
+	}
+	
+		
+		/*Selecciona todos los elementos con un filtro ordenados por la columna indicada y orden ascendente*/
+	public function getAllFilteredAndOrderDesc($column, $filter, $valueFilter){
+		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter' ORDER by $column DESC ");
+		 if($req==false){
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
+		}
+    		$filas = $this->showData($req);
+        return $filas;
+	}
+	
+	
+	/*Seleccionar todos los elementos filtrados por el elemento indicado*/
+	public function getAllFiltered($filter, $valueFilter){
+		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter'");
+		 if($req==false){
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
+		}
+    		$filas = $this->showData($req);
+       return $filas;
+	}
+
+	/*Selecciona todos los elementos con varios filtros ordenados por la columna indicada y orden ascendente* */
+	public function getAllFiltered2AndOrder($column, $filter1,$valueFilter1,$filter2,$valueFilter2){
+		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter1 = '$valueFilter1' AND $filter2 <> '$valueFilter2' ORDER by $column ASC ");
+		 if($req==false){
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
+		}
+    		$filas = $this->showData($req);
+        return $filas;
+	}
+	
 	/*Selecciona todos los elementos ordenados por la columna indicada y orden descendente*/
 	public function getAllOrderByDesc($column){
 		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC");
@@ -73,7 +116,7 @@ class EntidadBase{
 
 	/*Selecciona todas las filas correspondientes a la columna y valor indicados*/
     public function getBy($column, $value){
-		    $consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
+		$consulta ="SELECT * FROM $this->table WHERE $column = '$value'";
         $req = $this->db()->query($consulta);
 		if($req==false){
 			throw new Exception('MYSQL: Error al realizar la consulta SQL');
