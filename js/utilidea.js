@@ -48,6 +48,11 @@ function showContent() {
 			parent.appendChild(linea);
 		}
 		
+		function leerComentario(){
+			var texto = document.getElementById("subject").value;
+			return texto;
+		}
+		
 		function mostrarComentarios(comentarios){
 			var types = JSON.parse(comentarios);
 			var parent = document.getElementById("div1");
@@ -122,3 +127,7 @@ function showContent() {
 			alert('hola');
 		}
 		 
+		function obtenerComentario(id_idea){
+			//location='../controllers/ComentarioController.php?id_idea=<?php echo $_SESSION['data']['dato_idea'][0]['id_idea'];?>&opcion=1&comentario=obtenerComentario()'"/>
+			window.location.href = '../controllers/ComentarioController.php?id_idea='+id_idea+'&opcion='+1+'&comentario='+leerComentario();
+		}
