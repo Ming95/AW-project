@@ -98,6 +98,7 @@ div.datos2 {
 	display:none;
 	border: 1px solid #ccc;
 	height:50%;
+	overflow-y: scroll;
 }
 div.datos3 {
 	width: 100%;
