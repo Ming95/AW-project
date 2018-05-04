@@ -1,29 +1,96 @@
-div#foot{
-	margin:auto;
-	width:500px;
-	font-family:Arial, Helvetica, sans-serif;
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-ul, ol {
-	list-align: center;
-	list-style: none;
+footer{
+    width: 100%;
+    background: #202020;
+    color:white;
 }
 
-.list li a{
-	background-color:none;
-	color:#000000;
-	text-decoration: none;
-	padding: 10px 15px;
-	display:block;
+.container-footer-all{
+    width: 100%;
+    max-width:1600px;
+    margin:auto;
+    padding: 40px;
 }
 
-.list > li{
-	float: left;
+.container-body{
+    display: flex;
+    justify-content: space-between;
 }
 
+.container-body .column1{
+    max-width:400px;
+    margin: 50px;
+}
+.column1{
+    max-width: 400px;
+}
 
-.list li ul{
-	display:block;
-	position:relative;
-	min-width:140px;
+.column1 h1{
+    font-size: 22px;
+}
+
+div.column1 p{
+    font-size: 14px;
+    color: #c7c7c7;
+    margin-top: 20px;
+}
+
+.column2{
+    max-width: 400px;
+}
+
+.column2 h1{
+    padding-top: 10px;
+    font-size: 22px;
+}
+
+.column2 .row{
+    margin-top: 10px;
+}
+div img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.row label{
+    margin-top: 5px;
+    margin-left:10px;
+    color: #c7c7c7;
+}
+
+.column3{
+    max-width: 400px;
+}
+
+.column3 h1{
+    padding-top: 10px;
+    font-size: 22px;
+}
+
+.column3 .row2{
+    margin-top: 10px;
+}
+.row2 label{
+    margin-top: 10px;
+    margin-left: 20px;
+    max-width: 150px;
+    color: #c7c7c7;
+}
+.container-footer{
+    width: 100%;
+    background: #101010;
+    display:flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.copyright{
+    color: #c7c7c7;
 }
