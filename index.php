@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="/css/stylesheet.css" />
-	<link rel="stylesheet" type="text/css" href="/css/category.css" />
-	<link rel="stylesheet" type="text/css" href="/css/search_bar.css" />
-	<link rel="stylesheet" type="text/css" href="/css/top_ideas.css" />
-	<link rel="stylesheet" type="text/css" href="/css/top_events.css" />
-	<link rel="stylesheet" type="text/css" href="/css/head.css" />
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+	<link rel="stylesheet" type="text/css" href="css/category.css" />
+	<link rel="stylesheet" type="text/css" href="css/search_bar.css" />
+	<link rel="stylesheet" type="text/css" href="css/top_ideas.css" />
+	<link rel="stylesheet" type="text/css" href="css/top_events.css" />
 
 	<meta charset="utf-8">
 	<title>SelfIdea</title>
 </head>
 
 <body>
-<?php include 'views/layout/head.php';?>
 <div id="contenedor">
 	<div id="front">
+		<div class="login">
+            <a class="reg" href='views/login.php'>Login</a> / 
+            <a class="reg" href='views/signup.php'>Registro</a>
+        </div>
 		<div id = "category.css">
 			<ul class="nav">
-				<li><a href=""> Categoria</a>
-					<ul>
-						<li><a href=""> categoria 1</a></li>
-						<li><a href=""> categoria 2</a></li>
-						<li><a href=""> categoria 3</a></li>
-					</ul>
-				</li>
+                <li id ="cat"><a href=""> Deportes</a></li>
+                <li id ="cat"><a href=""> Moda</a></li>
+                <li id ="cat"><a href=""> Electrónica</a></li>
+                <li id ="cat"><a href=""> Informática</a></li>
+                <li id ="cat"><a href=""> Hogar</a></li>
 			</ul>
 		</div>
-
-		<h1>SelfIdea</h1>
+		<h1 id="title">SelfIdea</h1>
 
 
 		<div class="field" id="searchform">
@@ -43,14 +42,13 @@
 
 	<div id="top_ideas.css">
 		<h2>Top ideas</h2>
-		<p> Aquí estarán las 5 ideas/proyecto mas valorados, será generado mediante un php </p>
+        <?php include 'views/top_ideas.php';?>
 	</div>
-
+	
 	<hr>
-
+	
 	<div id="top_events.css">
-		<h2>Próximos eventos</h2>
-		<p> Aquí estarán los 5 eventos más próximos a la fecha actual, será generado mediante un php</p>
+		<?php include 'views/top_events.php';?>
 	</div>
 
 	<hr>
@@ -59,6 +57,5 @@
 
 
 </div> <!-- Fin del contenedor -->
-
 </body>
 </html>
