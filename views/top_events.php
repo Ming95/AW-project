@@ -13,28 +13,28 @@
         </div>    
         
 		<div class="thumbnail"> 
-            <a href ="https://www.w3schools.com/">
+            <a href ="/controllers/ConsultarEventoController.php?id_evento=1">
                 <img class ="previewImg" src="images/img_forest.jpg">
                 <p class="description">descripción del evento corto</p>
             </a>
             <div id ="social">
             <a href ="https://twitter.com/?lang=es">
-                <img class="twitter" src= "images/twitter.jpg">
+                <img class="twitter" src= "../images/twitter.jpg">
             </a>
             </div>
 		</div>
         <div class="thumbnail">
-            <a href ="https://www.w3schools.com/">
-                <img class ="previewImg" src="images/img_forest.jpg">
+            <a href ="/controllers/ConsultarEventoController.php?id_evento=1">
+                <img class ="previewImg" src="../images/img_forest.jpg">
                 <p class="description">descripción del evento corto asjhdfasefijwaeghñ asdfghawepghasidgiohaew</p>
             </a>
             <a href ="https://twitter.com/?lang=es">
-                <img class="twitter" src= "images/twitter.jpg">
+                <img class="twitter" src= "../images/twitter.jpg">
             </a>
 		</div>
         <div class="thumbnail">
-            <a href ="https://www.w3schools.com/">
-                <img class ="previewImg" src="images/img_forest.jpg">
+            <a href ="/controllers/ConsultarEventoController.php?id_evento=1">
+                <img class ="previewImg" src="../images/img_forest.jpg">
                 <p class= "description">descripción del evento corto</p>
             </a>
             <a href ="https://twitter.com/?lang=es">
