@@ -46,7 +46,17 @@ class EntidadBase{
 	
 		/*Selecciona todos los elementos con un filtro ordenados por la columna indicada y orden ascendente*/
 	public function getAllFilteredAndOrderASC($column, $filter, $valueFilter){
-		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter' ORDER by $column ASC ");
+		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter' ORDER by $column ASC");
+		 if($req==false){
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
+		}
+    		$filas = $this->showData($req);
+        return $filas;
+	}
+	
+			/*Selecciona número de elementos con un filtro ordenados por la columna indicada y orden ascendente*/
+	public function getNumElementsOrderBy($column, $numElem){
+		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC LIMIT 3");
 		 if($req==false){
 			throw new Exception('MySQL: Error al realizar la consulta SQL');
 		}
