@@ -1,19 +1,17 @@
  <?php
 	Include '../models/idea.php';
-	Include 'UtilController.php';
 	session_start();
 	if(($_GET['numIdeas']==null) or empty($_GET['numIdeas'])) {
 		$_SESSION['data_error']="Ha ocurrido un problema con los datos enviados";
 		header("Location:/errorpage.php");
 	}
-	$num_ideas= htmlspecialchars(trim(strip_tags($_GET["numIdeas"])));
-	$utilController = new UtilController();
+	$numIdeas= htmlspecialchars(trim(strip_tags($_GET["numIdeas"])));
 	try{
 		$idea = new Idea();
-		$top_ideas=$utilController->obtenerIdeas($idea,$num_ideas,"popularidad");
+		$topIdeas=obtenerIdeas("popularidad");
 		$idea->closeConnection();
 		$data= array();
-		$data['top_ideas'] = $top_ideas;
+		$data['topIdeas'] = $topIdeas;
 		$_SESSION['data'] = $data;
 		header("Location:../index.php");
 		
@@ -22,5 +20,18 @@
 		$_SESSION['data_error']=$e->getMessage();
 		header("Location:/errorpage.php");
 	} 
+	
+	function obtenerIdeas($orderBy){
+		global $numIdeas, $idea;
+		try{
+			$datos=$idea->getNumElemsOrderBy($orderBy,$numIdeas);
+			return $datos;
+		}catch(Exception $e){
+			error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
+			throw new Exception($e);
+		} 
+	}
+
+
 
 ?>
