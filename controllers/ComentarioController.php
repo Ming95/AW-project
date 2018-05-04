@@ -1,7 +1,7 @@
  <?php
 	Include '../models/idea.php';
 	Include '../models/usuarioComentarioIdea.php';
-	Include 'util_controller.php';
+	Include 'UtilController.php';
 	session_start();
 	if(($_GET['id_idea']==null) or empty($_GET['id_idea'])) {
 			echo " Lo sentimos pero parece haber un problema con los datos enviados.";
