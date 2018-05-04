@@ -55,8 +55,8 @@ class EntidadBase{
 	}
 	
 			/*Selecciona número de elementos con un filtro ordenados por la columna indicada y orden ascendente*/
-	public function getNumElementsOrderBy($column, $numElem){
-		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC LIMIT 3");
+	public function getNumElemsOrderBy($column, $numElem){
+		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC LIMIT $numElem");
 		 if($req==false){
 			throw new Exception('MySQL: Error al realizar la consulta SQL');
 		}
