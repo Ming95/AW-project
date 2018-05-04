@@ -1,31 +1,66 @@
-<link rel="stylesheet" type="text/css" href="../css/foot_page.css" />
-<hr>
-<?php
-	echo"<div id="."../css/foot_page.css".">";
 
-		echo"<ul class="."list".">";
-			echo"<li><a> ACERCA DE NOSOTROS</a>";
-				echo"<ul>";
-					echo"<li><a href="."about_us.html"."> Acerca de nosotros</a></li>";
-					echo"<li><a href="."link a la pagina"."> Nuestra motivación</a></li>";
-				echo"</ul>";
-			echo"</li>";
+<html>
+<head>
+    <meta chaset="UTF-8">
+    <title>Footer page</title>
+    <link rel="stylesheet" type="text/css" href="../css/foot_page.css"/>
+</head>
+    
+<body>
+    <footer>
+        <div class="containter-footer-all">
+            <div class="container-body">
+                <div class="column1">
+                    <h1>Sobre Nosotros</h1>
+                    <p>
+                        Somos un grupo de estudiantes que hemos<br>  decidido crear una página web sobre el crowdfuding como<br>
+                        proyecto de la asignatura Aplicaciones Web de FdI UCM<br> para el curso 2017-2018.<br>
+                    </p>
 
-			echo"<li><a> ATENCIÓN AL CLIENTE</a>";
-				echo"<ul>";
-					echo"<li><a href="."link a la pagina"."> Contacto</a></li>";
-					echo"<li><a href="."link a la pagina"."> Reglas de nuestra comunidad</a></li>";
-					echo"<li><a href="."link a la pagina"."> Cómo crear ideas</a></li>";
-					echo"<li><a href="."link a la pagina"."> Política de cookies</a></li>";
-					echo"<li><a href="."link a la pagina"."> Política de privacidad</a></li>";
-					echo"<li><a href="."link a la pagina"."> Términos de uso</a></li>";
-				echo"</ul>";
-			echo"</li>";
-		echo"</ul>";
+                </div>
 
-		// echo"<hr>";
-		// echo"<p>Disclaimer: esto es un proyecto univertario, con fines meramente académicos.</p>";
-		// echo"<hr>";
+                <div class="column2">
+                    <h1>Redes sociales</h1>
+                    <div class="row">
+                        <img src="../images/facebook.png"> <label> Siguenos en Facebook </label>
+                    </div>
+                    <div class="row">
+                        <img src="images/twitter.jpg"> <label> Siguenos en Twitter </label>
+                    </div>
+                    <div class="row">
+                        <img src="images/googlep.png"> <label> Siguenos en Google Plus </label>
+                    </div>
+                </div>
 
-	echo"</div>";
-?>
+                <div class="column3">
+                    <h1>Atención al cliente</h1>
+                    <div class="row2">
+                        <img src="images/contacto.jpg"> <label> Contacto </label>
+                    </div>
+                    <div class="row2">
+                        <img src="images/reglas.jpg"> <label> Reglas de nuestra comunidad </label>
+                    </div>
+                    <div class="row2">
+                        <img src="images/howto.jpg"> <label> Cómo crear ideas </label>
+                    </div>
+                    <div class="row2">
+                        <img src="images/cookie.jpg"> <label> Política de cookies </label>
+                    </div>
+                    <div class="row2">
+                        <img src="images/privacy.png"> <label> Política de privacidad </label>
+                    </div>
+                    <div class="row2">
+                        <img src="images/use.png"> <label> Términos de uso</label>
+                    </div>
+                </div> 
+            </div>
+            
+            <div class ="container-footer">
+                <div class="copyright">
+                   © Todo los derechos reservados 2017-218 
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
