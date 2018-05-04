@@ -25,16 +25,7 @@
 		}
 		
 	}
-	/*Recibe el número de elementos a mostrar y la columna por la que se ordenan los elementos*/
-	function obtenerIdeas($idea, $numElementos, $orderBy){
-		try{
-			$datos=$idea->getNumElementsOrderBy($orderBy,3);
-			return $datos;
-		}catch(Exception $e){
-			error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
-			throw new Exception($e);
-		} 
-	}
+
 	
  }
 ?>
