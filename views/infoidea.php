@@ -67,7 +67,7 @@
 			  <img src="../images/img_forest.jpg" alt="Forest" width="300" height="300">
 			</a>
 			<div class="desc">
-				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][0]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][0]['nombre_idea'];?></a></p>
+				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][0]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][0]['nombre_idea'];?></a></p>
 			</div>
 		  </div>
 		</div>
@@ -78,7 +78,7 @@
 			  <img src="../images/img_forest.jpg" alt="Northern Lights" width="600" height="400">
 			</a>
 			 <div class="desc">
-				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][1]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][1]['nombre_idea'];?></a></p>
+				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][1]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][1]['nombre_idea'];?></a></p>
 			</div>
 		  </div>
 		</div>
@@ -89,7 +89,7 @@
 			  <img src="../images/img_forest.jpg" alt="Mountains" width="600" height="400">
 			</a>
 			<div class="desc">	
-				<p><a href="../controllers/consultar_idea_process.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][2]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][2]['nombre_idea'];?></a></p>
+				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][2]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][2]['nombre_idea'];?></a></p>
 			</div>
 		  </div>
 		</div>
