@@ -1,6 +1,6 @@
  <?php
 	Include '../models/evento.php';
-	Include 'util_controller.php';
+	Include 'UtilController.php';
 
 	session_start();
 	if(($_GET['id_evento']==null) or empty($_GET['id_evento'])) {
