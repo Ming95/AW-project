@@ -9,6 +9,22 @@ class FormularioIdea extends Form
 
     protected function generaCamposFormulario($datos)
     {
+      //Carga categorias de entorno.ini
+      $categorias = parse_ini_file("../config/entorno.ini", true);
+      if($categorias==null)
+        throw new Exception('MySQL: Error al cargar las categorias');
+      else{
+        $cat="";
+        $i = 0;
+        while(isset($categorias['CATEGORIAS']['categoria'][$i])){
+          $cat .= '<option value="';
+          $cat .= $categorias['CATEGORIAS']['categoria'][$i];
+          $cat .= '">';
+          $cat .= $categorias['CATEGORIAS']['categoria'][$i];
+          $cat .= '</option>';
+          $i++;
+      }
+    }
         $date = date("Y-m-d");
         $html = <<<EOF
 
@@ -50,13 +66,7 @@ class FormularioIdea extends Form
   			<h4>Categoría</h4>
   			<p>Elige a qué categoría pertenece tu idea</p>
   			<select name="categoria" class ="input-box">
-  				<option value="Deportes">Deportes</option>
-  				<option value="Comida">Comida</option>
-  				<option value="Musica" selected>Musica</option>
-  				<option value="Cine">Cine</option>
-  				<option value="Juegos">Juegos</option>
-  				<option value="Diseño">Diseño</option>
-  				<option value="Ilustracion">Ilustración</option>
+  				$cat
   			</select>
 
   			<h4>Imagen de la idea</h4>

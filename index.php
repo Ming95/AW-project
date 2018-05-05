@@ -9,22 +9,33 @@
 
 	<meta charset="utf-8">
 	<title>SelfIdea</title>
+
+	<?php
+		//Carga categorias de entorno.ini
+		$categorias = parse_ini_file("./config/entorno.ini", true);
+		if($categorias==null)
+			throw new Exception('MySQL: Error al cargar las categorias');
+	 ?>
 </head>
 
 <body>
 <div id="contenedor">
 	<div id="front">
 		<div class="login">
-            <a class="reg" href='views/login.php'>Login</a> / 
+            <a class="reg" href='views/login.php'>Login</a> /
             <a class="reg" href='views/signup.php'>Registro</a>
         </div>
 		<div id = "category.css">
 			<ul class="nav">
-                <li id ="cat"><a href=""> Deportes</a></li>
-                <li id ="cat"><a href=""> Moda</a></li>
-                <li id ="cat"><a href=""> Electrónica</a></li>
-                <li id ="cat"><a href=""> Informática</a></li>
-                <li id ="cat"><a href=""> Hogar</a></li>
+				<?php
+					$i =0;
+					while(isset($categorias['CATEGORIAS']['categoria'][$i])){
+						echo '<li id ="cat"><a href="">';
+						echo $categorias['CATEGORIAS']['categoria'][$i];
+						echo '</a></li>';
+						$i++;
+					}
+					?>
 			</ul>
 		</div>
 		<h1 id="title">SelfIdea</h1>
@@ -44,9 +55,9 @@
 		<h2>Top ideas</h2>
         <?php include 'views/top_ideas.php';?>
 	</div>
-	
+
 	<hr>
-	
+
 	<div id="top_events.css">
 		<?php include 'views/top_events.php';?>
 	</div>
