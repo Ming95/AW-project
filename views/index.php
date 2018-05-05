@@ -53,7 +53,7 @@
 
 
 		<div class="field" id="searchform">
-			<a class="Create_button" id="create_idea" href='views/crearidea.php'>Crear Idea</a>
+			<a class="Create_button" id="create_idea" href='/views/crearidea.php'>Crear Idea</a>
 			<input type="text" id="searchterm" placeholder="¿Qué buscas?" />
 			<button type="button" id="search">Buscar</button>
 		</div>

@@ -148,7 +148,7 @@ EOF;
       	try{
       		$idea->setIdea();
       	  $idea->closeConnection();
-          $result = '../index.php';
+          $result = '../views/index.php';
       	}catch(Exception $e){
       		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
       		$_SESSION['data_error']=$e->getMessage();
