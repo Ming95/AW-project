@@ -3,8 +3,10 @@
 	Include '../models/usuarioComentarioIdea.php';
 	Include 'UtilController.php';
 	session_start();
+	if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:/views/login.php");
 	if(($_GET['id_idea']==null) or empty($_GET['id_idea'])) {
-			echo " Lo sentimos pero parece haber un problema con los datos enviados.";
+			$_SESSION['data_error']="Lo sentimos pero parece haber un problema con los datos enviados.";
+			header("Location:/errorpage.php");
 	}
 	$id_idea= htmlspecialchars(trim(strip_tags($_GET["id_idea"])));
 	
