@@ -1,0 +1,43 @@
+*{
+    width:auto;
+    margin:20px;
+}
+
+.container{
+    width: auto;
+    max-width: 1100px;
+    height: auto;
+    margin:0 auto;
+    padding-left:40px;
+    padding-right:40px;
+    background-color: aquamarine;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.row{
+    width: auto;
+    max-width: 1000px;
+    max-height: 550px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction:row;
+}
+
+#subject{
+    width: 500px;
+    height: 200px;
+}
+
+.submit{
+    width: 100px;
+    height: 50px;
+    border-style: none;
+    border-radius: 20px;
+    background-color: #FF8000;
+}
