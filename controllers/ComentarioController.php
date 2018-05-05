@@ -3,6 +3,7 @@
 	Include '../models/usuarioComentarioIdea.php';
 	Include 'UtilController.php';
 	session_start();
+
 	if(($_GET['id_idea']==null) or empty($_GET['id_idea'])) {
 			echo " Lo sentimos pero parece haber un problema con los datos enviados.";
 	}
@@ -31,11 +32,9 @@
 		require_once("../views/infoidea.php");
 	};
 	
-	function actualizarComentario($id_idea){
-		if(isset($_SESSION['mail'])){
+	function actualizarComentario($id_idea){	
 		$id_correo= htmlspecialchars(trim(strip_tags($_SESSION["mail"])));
 		$comentario= htmlspecialchars(trim(strip_tags($_GET["comentario"])));
-		}
 		try{
 			$usuarioComentarioIdea = new UsuarioComentarioIdea();
 			$usuarioComentarioIdea->setId_idea($id_idea);
