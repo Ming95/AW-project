@@ -22,15 +22,23 @@
 <div id="contenedor">
 	<div id="front">
 		<div class="login">
-            <a class="reg" href='views/login.php'>Login</a> /
-            <a class="reg" href='views/signup.php'>Registro</a>
-        </div>
+			<?php
+			session_start();
+			if(!isset($_SESSION['logged']) || !$_SESSION['logged'])
+				echo '<a class="reg" href="views/login.php">Iniciar Sesion</a>';
+			else{
+				 echo '<a class="reg" href="views/profile.php">'.$_SESSION["login"].'</a>';
+				 echo ' / ';
+				 echo '<a class="reg" href="views/logout.php">Cerrar Sesion</a>';
+			}
+			?>
+    </div>
 		<div id = "category.css">
 			<ul class="nav">
 				<?php
 					$i =0;
 					while(isset($categorias['CATEGORIAS']['categoria'][$i])){
-						echo '<li id ="cat"><a href="/views/MasEventos.php#';
+						echo '<li id ="cat"><a href="/views/MasEventos.php?cat=';
 						echo $categorias['CATEGORIAS']['categoria'][$i];
 						echo '">';
 						echo $categorias['CATEGORIAS']['categoria'][$i];
