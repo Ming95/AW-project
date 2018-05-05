@@ -3,7 +3,7 @@
 <head>
     <meta chaset="UTF-8">
     <title>Footer page</title>
-    <link rel="stylesheet" type="text/css" href="../css/foot_page.css"/>
+    <link rel="stylesheet" type="text/css" href="css/foot_page.css"/>
 </head>
     
 <body>
@@ -22,7 +22,7 @@
                 <div class="column2">
                     <h1>Redes sociales</h1>
                     <div class="row">
-                        <img src="../images/facebook.png"> <label> Siguenos en Facebook </label>
+                        <img src="images/facebook.png"> <label> Siguenos en Facebook </label>
                     </div>
                     <div class="row">
                         <img src="images/twitter.jpg"> <label> Siguenos en Twitter </label>
