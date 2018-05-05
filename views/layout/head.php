@@ -1,7 +1,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
-<link rel="stylesheet" type="text/css" href="../css/head.css" />
+<link rel="stylesheet" type="text/css" href="./css/head.css" />
 
 <script type="text/javascript" src="../js/utilidea.js"></script>
 </head>
