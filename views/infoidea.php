@@ -1,20 +1,18 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="/css/idea.css" />
-<link rel="stylesheet" type="text/css" href="/css/styleforms.css" />
-<link rel="stylesheet" type="text/css" href="/css/head.css" />
-<link rel="stylesheet" type="text/css" href="/css/foot_page.css" />
+<link rel="stylesheet" type="text/css" href="../css/idea.css" />
+<link rel="stylesheet" type="text/css" href="../css/head.css" />
 <script type="text/javascript" src="../js/utilidea.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<?php include 'layout/head.php';?>
+<?php include '../views/layout/head.php';?>
 
 <div class="a">
 
 	<div class="b">
 		<div class="gallery">
-			<img src="../images/img_forest.jpg" alt="Forest">
+			<img class="main-img" src="../images/img_forest.jpg" alt="Forest">
 		</div>
 		<ul class="lista">
 			<li><a class="active"  id="lista1" href="#Descripcion" onclick="myfunction1(this)" >Descripción</a></li>
@@ -51,12 +49,12 @@
 		myfunction2('<?php echo json_encode($comentarios)?>');		
 	</script> 
 
-<div class="c"></br>
-		<span class="label other"> Faltan <?php echo $_SESSION['data']['dias_finalizar']?> dias para finalizar</span></br></br></br>
-		<span class="label other"> <?php echo $_SESSION['data']['dato_idea'][0]['popularidad'];?> visitas</span></br></br></br>
+<div class="c">
+		<span class="label other"> Faltan <?php echo $_SESSION['data']['dias_finalizar']?> dias para finalizar</span><br><br><br>
+		<span class="label other"> <?php echo $_SESSION['data']['dato_idea'][0]['popularidad'];?> visitas</span><br><br><br>
 		<input type="submit" id= "button" class="button" value="Patrocinar" onclick = "location='../views/patrocina.php'"/>
 		<input type="submit" id= "button" class="button" value="Reportar incidencia" onclick = "location='../views/reportaincidencia.php'"/>
-		<input type="submit" id= "button" class="button" value="Comprar idea" onclick = "location='../views/compraidea.php'"/></br>
+		<input type="submit" id= "button" class="button" value="Comprar idea" onclick = "location='../views/compraidea.php'"/><br>
 		<button class="icon-transp"><i class="fa fa-thumbs-up"></i></button>
 </div>
 <div class="d">
@@ -64,7 +62,7 @@
 		<div class="responsive">
 		  <div class="gallery">
 			<a target="_blank" href="../images/img_forest.jpg">
-			  <img src="../images/img_forest.jpg" alt="Forest" width="300" height="300">
+			  <img class="side-img" src="../images/img_forest.jpg" alt="Forest" width="300" height="300">
 			</a>
 			<div class="desc">
 				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][0]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][0]['nombre_idea'];?></a></p>
@@ -75,7 +73,7 @@
 		<div class="responsive">
 		  <div class="gallery">
 			<a target="_blank" href="../images/img_forest.jpg">
-			  <img src="../images/img_forest.jpg" alt="Northern Lights" width="600" height="400">
+			  <img class="side-img" src="../images/img_forest.jpg" alt="Northern Lights" width="600" height="400">
 			</a>
 			 <div class="desc">
 				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][1]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][1]['nombre_idea'];?></a></p>
@@ -86,7 +84,7 @@
 		<div class="responsive">
 		  <div class="gallery">
 			<a target="_blank" href="../images/img_forest.jpg">
-			  <img src="../images/img_forest.jpg" alt="Mountains" width="600" height="400">
+			  <img  class="side-img" src="../images/img_forest.jpg" alt="Mountains" width="600" height="400">
 			</a>
 			<div class="desc">	
 				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][2]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][2]['nombre_idea'];?></a></p>
