@@ -1,58 +1,50 @@
-#main-header {
-	background: #819FF7;
-	height: 90px;
-}	
-#main-header a:link {
-    color: #000000;
+#container{
+    width: 100%;
+    overflow: hidden;
+    background-color: #252932;
+    margin-bottom: 20px;
+}
+.sesion{
+    float:right;
+}
+
+.logo{
+    color:#f2f2f2;
+    font-size: 50px;
+    line-height: 200px;
+    float:left;
+}
+
+.derecha{
+    float:right;
+}
+
+.wrapper{
+    width: 90%;
+    max-width: 1000px;
+    margin:auto;
+}
+
+.sesion{
+    padding-top: 150px;
+    color:#f2f2f2;
+}
+div a:link{
     text-decoration: none;
 }
 
-#main-header a:visited {
-    color: #000000;
+div a:visited{
     text-decoration: none;
 }
 
-/*
- * Logo
- */
-#logo-header {
-	float: left;
-	padding: 15px 0 0 20px;
-	text-decoration: none;
+label a:link{
+    color:#f2f2f2;
+    font-size: 20px;
+    text-decoration: none;
 }
-#logo-header:hover {
-    color: #0b76a6;
-}
-
-#logo-header .site-name {
-    display: block;
-    font-weight: 700;
-    font-size: 1.2em;
-}
-
-#logo-header .site-desc {
-    display: block;
-    font-weight: 300;
-    font-size: 0.8em;
-    color: #999;
-}
-	
-.user li a{
-	background-color:rgb(26, 188, 156);
-	color:#000000;
-	text-decoration: none;
-	padding: 10px 15px;
-	display:block;
-}
-
-.user > li{
-	float: right;
+label a:visited{
+    color:#f2f2f2;
+    font-size: 20px;
     text-decoration: none;
 }
 
-.user li ul{
-	display:none;
-	position:relative;
-    text-decoration:none;
-	min-width:140px;
-}
