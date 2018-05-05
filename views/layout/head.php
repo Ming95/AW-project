@@ -1,18 +1,18 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
-<link rel="stylesheet" type="text/css" href="../css/head.css" />
-    
+<link rel="stylesheet" type="text/css" href="./css/head.css" />
+
 <script type="text/javascript" src="../js/utilidea.js"></script>
 </head>
 <body>
     <?php if(!isset($_SESSION)) { session_start(); } ?>
     <header id="container">
         <div class="wrapper">
-            <a class="logo" href="../index.php">SelfIdea</a>
-            
+            <a class="logo" href="/views/index.php">SelfIdea</a>
+
             <div id="derecha">
-                <?php 
+                <?php
                     if (isset($_SESSION["logged"]) && ($_SESSION["logged"]===true)) {
                         echo"<label class="."sesion".">Bienvenido, {$_SESSION['login']} <a href='/views/logout.php'>Cerrar Sesion</a></label>";
 
@@ -26,5 +26,5 @@
     </header>
 
 </body>
-    
+
 </html>

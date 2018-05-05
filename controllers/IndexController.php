@@ -13,14 +13,14 @@
 		$data= array();
 		$data['topIdeas'] = $topIdeas;
 		$_SESSION['data'] = $data;
-		header("Location:../index.php");
-		
+		//header("Location:index.php");
+
 	}catch(Exception $e){
 		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
 		$_SESSION['data_error']=$e->getMessage();
 		header("Location:/errorpage.php");
-	} 
-	
+	}
+
 	function obtenerIdeas($orderBy){
 		global $numIdeas, $idea;
 		try{
@@ -29,9 +29,8 @@
 		}catch(Exception $e){
 			error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
 			throw new Exception($e);
-		} 
+		}
 	}
-
 
 
 ?>
