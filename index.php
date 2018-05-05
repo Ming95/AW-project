@@ -30,7 +30,9 @@
 				<?php
 					$i =0;
 					while(isset($categorias['CATEGORIAS']['categoria'][$i])){
-						echo '<li id ="cat"><a href="">';
+						echo '<li id ="cat"><a href="/views/MasEventos.php#';
+						echo $categorias['CATEGORIAS']['categoria'][$i];
+						echo '">';
 						echo $categorias['CATEGORIAS']['categoria'][$i];
 						echo '</a></li>';
 						$i++;
