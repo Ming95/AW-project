@@ -38,7 +38,7 @@
 
 	function obtenerMasEventos($dato_evento,$utilController,$evento){
 		$eventosFiltrados= $evento->getAllOrderByAsc("fecha");
-		$masEventos=$utilController->mostrarNElementos(4,$eventosFiltrados);
+		$masEventos=$utilController->mostrarNElementos(6,$eventosFiltrados);
 		return $masEventos;
 	}
 	var_dump(masEventos);
