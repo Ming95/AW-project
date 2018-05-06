@@ -1,5 +1,5 @@
 *{
-    
+
 }
 
 .a{
@@ -110,11 +110,11 @@ div.datos3 {
 }
 
 .other {
-background-color: #e7e7e7; 
+background-color: #000; 
 color: gray;
 }
 
-.d{   
+.d{
     width: 200px;
     height: 800px;
 	padding:3px;

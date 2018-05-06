@@ -9,12 +9,12 @@
 <h2>Confirmación de pago</h2>
 
 <div class="container">
-  <form action="../index.php">
+  <form action="../views/index.php">
     <div class="row">
         <label class="texto2">Pago realizado correctamente</label>
     </div>
-      <input class="submit" type="submit" value="Enviar">	
-      </div> 
+      <input class="submit" type="submit" value="Enviar">
+      </div>
   </form>
 </div>
 

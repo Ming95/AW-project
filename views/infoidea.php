@@ -52,10 +52,17 @@
 
 <div class="c">
 		<span class="label other"> Faltan <?php echo $_SESSION['data']['dias_finalizar']?> dias para finalizar</span><br><br><br>
-		<span class="label other"> <?php echo $_SESSION['data']['dato_idea'][0]['popularidad'];?> visitas</span><br><br><br>
+		<span class="label other">Popularidad: <?php echo $_SESSION['data']['dato_idea'][0]['popularidad'];?>/5</span><br><br><br>
 		<input type="submit" id= "button" class="button" value="Patrocinar" onclick = "location='../views/patrocina.php'"/>
 		<input type="submit" id= "button" class="button" value="Reportar incidencia" onclick = "location='../views/reportaincidencia.php'"/>
-		<input type="submit" id= "button" class="button" value="Comprar idea" onclick = "location='../views/compraidea.php'"/><br>
+		<?php
+		if($_SESSION['data']['dato_idea'][0]['enVenta']){
+				echo '<input type="submit" id= "button" class="button" value="Comprar idea" onclick = "location=';
+				echo "'../views/compraidea.php'";
+				echo '"/>';
+			}
+		?>
+		<br>
 		<button class="icon-transp"><i class="fa fa-thumbs-up"></i></button>
 </div>
 <div class="d">
