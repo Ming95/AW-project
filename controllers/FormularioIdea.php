@@ -133,6 +133,7 @@ EOF;
         */
 
         //Crea objeto idea y atributos
+
       	$idea = new Idea;
       	$idea->setNombre_Idea($datos['nombre']);
       	$idea->setId_Categoria($datos['categoria']);
@@ -148,7 +149,7 @@ EOF;
       	try{
       		$idea->setIdea();
       	  $idea->closeConnection();
-          $result = '../views/index.php';
+          $result = "../controllers/ConsultarIdeaController.php?id_idea=".$idea->getId_idea();
       	}catch(Exception $e){
       		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
       		$_SESSION['data_error']=$e->getMessage();

@@ -81,7 +81,6 @@ class Idea extends EntidadBase {
 	public function setCv_equipo($cv_equipo) {
 		$this->cv_equipo = $cv_equipo;
 	}
-
 	public function getImporte_solicitado() {
 		return $this->importe_solicitado;
 	}
@@ -108,7 +107,11 @@ class Idea extends EntidadBase {
                        '".$this->getImagen()."',
 							   '".$this->getImporte_solicitado()."');";
         if($this->db()->query($query) == false)
-			throw new Exception('MySQL: Error al realizar la inserción SQL');
+			      throw new Exception('MySQL: Error al realizar la inserción SQL');
+          //Consigue el ID de la BBDD
+         $query = $this->getBy('nombre_idea', $this->getNombre_Idea());
+         
+         $this->id_idea =$query[0]['id_idea'];
 	}
 
 
