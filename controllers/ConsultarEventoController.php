@@ -1,4 +1,5 @@
   <?php
+	include '../models/entidadBase.php';
 	Include '../models/evento.php';
 	Include 'UtilController.php';
 
