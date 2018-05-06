@@ -1,5 +1,4 @@
 <?php
-include 'entidadBase.php';
 class Evento extends EntidadBase {
   private $id;
   private $nombre;
