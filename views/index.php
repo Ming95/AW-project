@@ -39,7 +39,7 @@
 				<?php
 					$i =0;
 					while(isset($categorias['CATEGORIAS']['categoria'][$i])){
-						echo '<li id ="cat"><a href="/views/MasEventos.php?cat=';
+						echo '<li id ="cat"><a href="/views/MasIdeas.php?cat=';
 						echo $categorias['CATEGORIAS']['categoria'][$i];
 						echo '">';
 						echo $categorias['CATEGORIAS']['categoria'][$i];
