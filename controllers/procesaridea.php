@@ -7,7 +7,8 @@
 		($_POST['foto']==null) ||
 		($_POST['archivo']==null) ||
 		($_POST['descripcion']==null)){
-			echo " Lo sentimos pero parece haber un problema con los datos enviados.";
+			$_SESSION['data_error']="Lo sentimos pero parece haber un problema con los datos enviados.";
+			header("Location:/errorpage.php");
 	}
 	//Controlar que el propietario de la idea existe. Consultar en bbdd a usuario si el usuario de sesion existe en la bbdd.
   $name = $_POST['nombre']; // requerido
