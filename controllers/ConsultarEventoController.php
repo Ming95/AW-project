@@ -1,4 +1,4 @@
- <?php
+  <?php
 	Include '../models/evento.php';
 	Include 'UtilController.php';
 
@@ -19,11 +19,11 @@
 		$dias_finalizar=ObtenerDiasFinalizacion($dato_evento,$id_evento,$utilController);
 		$evento->closeConnection();
 
-		$data= array();
-		$data['dato_evento'] = $dato_evento;
-		$data['mas_eventos'] = $masEventos;
-		$data['dias_finalizar']=$dias_finalizar;
-		$_SESSION['data'] = $data;
+		$data1= array();
+		$data1['dato_evento'] = $dato_evento;
+		$data1['mas_eventos'] = $masEventos;
+		$data1['dias_finalizar']=$dias_finalizar;
+		$_SESSION['data1'] = $data1;
 		require_once("../views/infoevento.php");
 	}catch(Exception $e){
 		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
@@ -37,10 +37,11 @@
 	}
 
 	function obtenerMasEventos($dato_evento,$utilController,$evento){
-		$eventosFiltrados= $evento->getAllFilteredAndOrderASC("fecha","id",$dato_evento[0]['id']);
-		$masEventos=$utilController->mostrarNElementos(3,$eventosFiltrados);
+		$eventosFiltrados= $evento->getAllOrderByAsc("fecha");
+		$masEventos=$utilController->mostrarNElementos(4,$eventosFiltrados);
 		return $masEventos;
 	}
+	var_dump(masEventos);
 
 	function obtenerDiasFinalizacion($dato_evento,$id_evento,$utilController){
 		$dias_finalizar=$utilController->diffFechas($dato_evento[0]['fecha']);
