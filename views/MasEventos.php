@@ -13,26 +13,41 @@
 
 	<div class="diapositiva">
 	  <div class="numbertext">1 / 3</div>
-		<a href="../views/evento.php" target="_blank">
-			  <img src="../images/evento1.jpg" alt="evento 1" style="width:100%">
-		<a/>
-	  <div class="text">evento 1</div>
+		<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][4]['id'];?>" target="_blank">
+			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][4]['imagen'];
+			  echo'<img src= "'.$imagen1.'" alt="evento 1" style="width:100%">'?>
+		</a>
+	  <div class="text">
+		<p>
+            <?php echo  $_SESSION['data1']['mas_eventos'][4]['nombre'];?> 
+        </p>
+	  </div>
 	</div>
 
 	<div class="diapositiva">
 	  <div class="numbertext">2 / 3</div>
-		<a href="../views/evento.php" target="_blank">
-			  <img src="../images/evento2.jpg" alt="evento 2" style="width:100%">
-		<a/>
-	  <div class="text">evento 2</div>
+		<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][1]['id'];?>" target="_blank">
+			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][1]['imagen'];
+			  echo'<img src= "'.$imagen1.'" alt="evento 2" style="width:100%">'?>
+		</a>
+	  <div class="text">
+		<p>
+            <?php echo  $_SESSION['data1']['mas_eventos'][1]['nombre'];?> 
+		</p>
+	  </div>
 	</div>
 
 	<div class="diapositiva">
 	  <div class="numbertext">3 / 3</div>
-		<a href="../views/evento.php" target="_blank">
-			  <img src="../images/evento1.jpg" alt="evento 3" style="width:100%">
-		<a/>
-	  <div class="text">evento 3</div>
+		<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][2]['id'];?>" target="_blank">
+			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][2]['imagen'];
+			  echo'<img src= "'.$imagen1.'" alt="evento 3" style="width:100%">'?>
+		</a>
+	  <div class="text">
+		<p>
+            <?php echo  $_SESSION['data1']['mas_eventos'][2]['nombre'];?> 
+        </p>
+	  </div>
 	</div>
 
 	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -51,26 +66,29 @@
 	  <h2>Mas eventos</h2>
 	  <div class="row">
 		<div class="evento1">
-			<a href="../views/evento.php" target="_blank">
-			  <img src="../images/evento1.jpg" alt="evento 1" style="width:100%">
+			<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][3]['id'];?>" target="_blank">
+			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][3]['imagen'];
+			  echo'<img src= "'.$imagen1.'" alt="evento 4" style="width:100%">'?>
 			  <div class="caption">
-				<p><a href="../views/evento.php">evento 1</a></p>
+				<p><a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][3]['id'];?>"><?php echo $_SESSION['data1']['mas_eventos'][3]['nombre'];?></a></p>
 			  </div>
 			</a>
 		</div>
 		<div class="evento1">
-			<a href="../views/evento.php" target="_blank">
-			  <img src="../images/evento2.jpg" alt="evento 2" style="width:100%">
+			<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][4]['id'];?>" target="_blank">
+			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][4]['imagen'];
+			  echo'<img src= "'.$imagen1.'" alt="evento 5" style="width:100%">'?>
 			  <div class="caption">
-				<p><a href="../views/evento.php">evento 2</a></p>
+				<p><a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][4]['id'];?>"><?php echo $_SESSION['data1']['mas_eventos'][4]['nombre'];?></a></p>
 			  </div>
 			</a>
 		</div>
 		<div class="evento1">
-			<a href="../views/evento.php" target="_blank">
-			  <img src="../images/evento1.jpg" alt="evento 3" style="width: 100%">
+			<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][5]['id'];?>" target="_blank">
+			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][5]['imagen'];
+			  echo'<img src= "'.$imagen1.'" alt="evento 6" style="width:100%">'?>
 			  <div class="caption">
-				<p><a href="../views/evento.php">evento 1</a></p>
+				<p><a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][5]['id'];?>"><?php echo $_SESSION['data1']['mas_eventos'][5]['nombre'];?></a></p>
 			  </div>	
 			</a>
 		</div>
