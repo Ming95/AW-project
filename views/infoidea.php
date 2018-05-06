@@ -11,13 +11,14 @@
 <div class="a">
 
 	<div class="b">
+		<h1><?php echo $_SESSION['data']['dato_idea'][0]['nombre_idea'];?></h1>
 		<div class="gallery">
-			<img class="main-img" src="../images/img_forest.jpg" alt="Forest">
+			<img class="main-img" src=<?php echo $_SESSION['data']['dato_idea'][0]['imagen'];?> alt="Forest">
 		</div>
 		<ul class="lista">
 			<li><a class="active"  id="lista1" href="#Descripcion" onclick="myfunction1(this)" >Descripción</a></li>
 			<li><a class="nactive" id="lista2"  href="#Comentario" onclick="location='../controllers/ComentarioController.php?id_idea=<?php echo $_SESSION['data']['dato_idea'][0]['id_idea'];?>&opcion=2'">Comentario</a></li>
-			<li><a class="nactive" id="lista3"  href="#Equipo" onclick="myfunction3(this)">Equipo</a></li> 
+			<li><a class="nactive" id="lista3"  href="#Equipo" onclick="myfunction3(this)">Equipo</a></li>
 		</ul>
 		<div class="datos1" id="datos1">
 			<textarea class="textarea1" name="textarea1" id="textarea1" rows="20" cols="82" disabled> <?php echo $_SESSION['data']['dato_idea'][0]['desc_idea'];?>
@@ -44,10 +45,10 @@
 			<a href="../CV_equipo.doc" target='_blank' title="Click here to open a Word document"><?php echo $_SESSION['data']['dato_idea'][0]['cv_equipo'];?></a>
 		</div>
 	</div>
-	
+
 	<script type="text/javascript">
-		myfunction2('<?php echo json_encode($comentarios)?>');		
-	</script> 
+		myfunction2('<?php echo json_encode($comentarios)?>');
+	</script>
 
 <div class="c">
 		<span class="label other"> Faltan <?php echo $_SESSION['data']['dias_finalizar']?> dias para finalizar</span><br><br><br>
@@ -86,7 +87,7 @@
 			<a target="_blank" href="../images/img_forest.jpg">
 			  <img  class="side-img" src="../images/img_forest.jpg" alt="Mountains" width="600" height="400">
 			</a>
-			<div class="desc">	
+			<div class="desc">
 				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][2]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][2]['nombre_idea'];?></a></p>
 			</div>
 		  </div>
