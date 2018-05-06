@@ -1,8 +1,7 @@
 	<div id="box">
         <div id="all_ideas">
-            <a href="../views/MasIdeas.php">Ver más ideas </a>
+            <a href="../views/MasIdeas.php">Ver más ideas &#62&#62</a>
         </div>
-
             <?php
                 $i = 0;
                 while($i <3){
@@ -16,4 +15,5 @@
                     $i++;
                 }
            ?>
+
 	</div>
