@@ -9,20 +9,16 @@
 			$_SESSION['data_error']="Lo sentimos pero parece haber un problema con los datos enviados.";
 			header("Location:/errorpage.php");
 	}
-	$id_idea= htmlspecialchars(trim(strip_tags($_GET["id_idea"])));
-	
-	$utilController = new UtilController();
+	$idIdea= htmlspecialchars(trim(strip_tags($_GET["id_idea"])));
 	
 	try{
-		$idea = new Idea();
-		$dato_idea=obtenerIdea($idea,$id_idea);
-		$masIdeas=obtenerMasIdeas($dato_idea,$utilController,$idea);
-		$dias_finalizar=ObtenerDiasFinalizacion($dato_idea,$id_idea,$utilController);
-		$idea->closeConnection();
+		$datoIdea=obtenerIdea($idIdea);
+		$masIdeas=obtenerNumIdeasInteresantes($datoIdea,3);
+		$diasFinalizar=ObtenerDiasFinalizacion($datoIdea,$idIdea);
 		$data= array();
-		$data['dato_idea'] = $dato_idea;
+		$data['dato_idea'] = $datoIdea;
 		$data['mas_ideas'] = $masIdeas;
-		$data['dias_finalizar']=$dias_finalizar;
+		$data['dias_finalizar']=$diasFinalizar;
 		$_SESSION['data'] = $data;
 		require_once("../views/infoidea.php");
 	}catch(Exception $e){
@@ -31,20 +27,24 @@
 		header("Location:/errorpage.php");
 	} 
 	
-	function obtenerIdea($idea,$id_idea){
-		$dato_idea = $idea->getBy('id_idea',$id_idea);
-		return $dato_idea;
+	function obtenerIdea($idIdea){
+		$idea = new Idea();
+		$datoIdea = $idea->getBy('id_idea',$idIdea);
+		$idea->closeConnection();
+		return $datoIdea;
 	}
 	
-	function obtenerMasIdeas($dato_idea,$utilController,$idea){
-		$ideasFiltradas= $idea->getAllFilteredAndOrderASC("fecha_limite","id_categoria",$dato_idea[0]['id_categoria'],"id_idea",$dato_idea[0]['id_idea']);
-		$masIdeas=$utilController->mostrarNElementos(3,$ideasFiltradas);
-		return $masIdeas;
+	function obtenerNumIdeasInteresantes($datoIdea,$numElems){
+		$idea = new Idea();
+		$ideasFiltradas= $idea->getNumElemsFiltered2AndOrdered("fecha_limite","id_categoria",$datoIdea[0]['id_categoria'],"id_idea",$datoIdea[0]['id_idea'],$numElems);
+		$idea->closeConnection();
+		return $ideasFiltradas;
 	}
 	
-	function obtenerDiasFinalizacion($dato_idea,$id_idea,$utilController){
-		$dias_finalizar=$utilController->diffFechas($dato_idea[0]['fecha_limite']);
-		return $dias_finalizar;
+	function obtenerDiasFinalizacion($datoIdea,$idIdea){
+		$utilController = new UtilController();
+		$diasFinalizar=$utilController->diffFechas($datoIdea[0]['fecha_limite']);
+		return $diasFinalizar;
 	}
 
 	
