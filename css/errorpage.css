@@ -3,7 +3,7 @@
     margin: 0 auto;
     
 }
-
+/*definimos el tamaño del contenedor asi como que los elementos se centrarán verticalmente*/
 .container{
     width: auto;
     max-width: 1100px;
@@ -41,6 +41,7 @@ h1{
     font-size: 22px;
 }
 
+/*propiedades de la imagen del error*/
 .image-error{
     width: 210px;
     height: 210px;

@@ -8,8 +8,10 @@
 
 <body>
     <footer>
+        <!--container-footer-all contiene todos los elementos del footer -->
         <div class="containter-footer-all">
             <div class="container-body">
+                <!--la caja column1 contiene una pequeña descripción de lo que hacemos. -->
                 <div class="column1">
                     <h1>Sobre Nosotros</h1>
                     <p>
@@ -18,7 +20,8 @@
                     </p>
 
                 </div>
-
+                
+                <!--la caja column2 contiene las redes social a la que tenemos pensado linkear para la siguiente entrega. -->
                 <div class="column2">
                     <h1>Redes sociales</h1>
                     <div class="row">
@@ -31,7 +34,8 @@
                         <img src="/images/googlep.png"> <label> Siguenos en Google Plus </label>
                     </div>
                 </div>
-
+                
+                <!--la caja column3 contiene las páginas correspondientes sobre la información que puedan interesar a nuestro visitantes. -->
                 <div class="column3">
                     <h1>Atención al cliente</h1>
                     <div class="row2">
@@ -54,7 +58,7 @@
                     </div>
                 </div>
             </div>
-
+            <!--esta caja contiene un simple mensaje de los derechos. -->
             <div class ="container-footer">
                 <div class="copyright">
                    © Todos los derechos reservados 2017-2018

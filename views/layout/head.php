@@ -7,10 +7,13 @@
 </head>
 <body>
     <?php if(!isset($_SESSION)) { session_start(); } ?>
+    <!--header es el contenedor principal -->
     <header id="container">
         <div class="wrapper">
+            <!--El logo de la pagina que la pinchar lleva a la pagina principal -->
             <a class="logo" href="/views/index.php">SelfIdea</a>
-
+            
+            <!--esta caja permite al usuario hacer login, registrarse o cerrar sesion. -->
             <div id="derecha">
                 <?php
                     if (isset($_SESSION["logged"]) && ($_SESSION["logged"]===true)) {
