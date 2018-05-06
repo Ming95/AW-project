@@ -1,6 +1,7 @@
  <?php
-	Include '../models/idea.php';
-	Include '../models/usuarioComentarioIdea.php';
+	include '../models/EntidadBase.php';
+	Include '../models/Idea.php';
+	Include '../models/UsuarioComentarioIdea.php';
 	Include 'UtilController.php';
 	session_start();
 

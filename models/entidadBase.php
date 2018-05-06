@@ -44,6 +44,15 @@ class EntidadBase{
         return $filas;
 	}
 	
+	public function getNumElemsOrderByAsc($column, $numElem){
+		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column ASC LIMIT $numElem");
+		 if($req==false){
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
+		}
+    		$filas = $this->showData($req);
+        return $filas;
+	}
+	
 		/*Selecciona todos los elementos con un filtro ordenados por la columna indicada y orden ascendente*/
 	public function getAllFilteredAndOrderASC($column, $filter, $valueFilter){
 		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter' ORDER by $column ASC");
@@ -89,6 +98,16 @@ class EntidadBase{
 	/*Selecciona todos los elementos con varios filtros ordenados por la columna indicada y orden ascendente* */
 	public function getAllFiltered2AndOrder($column, $filter1,$valueFilter1,$filter2,$valueFilter2){
 		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter1 = '$valueFilter1' AND $filter2 <> '$valueFilter2' ORDER by $column ASC ");
+		 if($req==false){
+			throw new Exception('MySQL: Error al realizar la consulta SQL');
+		}
+    		$filas = $this->showData($req);
+        return $filas;
+	} 
+	
+		/*Seleccionar el numero de elementos indicados con 2 filtros ordenados por la columna indicada y orden ascendente*/
+	public function getNumElemsFiltered2AndOrdered($column, $filter1,$valueFilter1,$filter2,$valueFilter2,$numElem){
+		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter1 = '$valueFilter1' AND $filter2 <> '$valueFilter2' ORDER by $column ASC LIMIT $numElem");
 		 if($req==false){
 			throw new Exception('MySQL: Error al realizar la consulta SQL');
 		}

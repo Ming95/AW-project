@@ -1,5 +1,5 @@
-*{
-    
+body {
+	margin: 0px;
 }
 
 .a{
@@ -9,9 +9,14 @@
     justify-content: center;
     align-content: center;
     flex-direction: row;
+	margin-bottom:20px;
+	/*border: 3px solid green; */
 }
 
 .b{
+
+	margin: 0 auto;
+	min-width: 700px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -30,6 +35,7 @@ div.datos2 {
 	border: 1px solid #ccc;
 	height:50%;
 	overflow-y: scroll;
+
 }
 
 div.datos3 {
@@ -56,7 +62,7 @@ div.datos3 {
 
 .active {
 	float: left;
-	width:33.33%;
+	width:27.6%;
     display: block;
     color: white;
     text-align: center;
@@ -68,16 +74,16 @@ div.datos3 {
 }
 
 .nactive {
-    background-color: #070707;
-	float: left;
-	width:33.33%;
+	  background-color: #070707;
+		float: left;
+		width: 27.6%;
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-	font-size: 18px;
-	outline: none;
+		font-size: 18px;
+		outline: none;
 }
 
 .textarea1{
@@ -90,17 +96,28 @@ div.datos3 {
 	color:#9B9A9A;
 }
 
+.textarea2{
+    width: 95%;
+	height:10%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+
 .texto{
 	font-size: 18px;
 	color:#9B9A9A;
 }
 
 .c{
+	margin: 0 auto;
     padding:20px;
     display: flex;
-    justify-content: center;
-    align-content: center;
+	justify-content: center;
+	align-content: center;
     flex-direction: column;
+	/*border: 1px solid red;*/
 }
 .label {
     color: white;
@@ -110,13 +127,13 @@ div.datos3 {
 }
 
 .other {
-background-color: #e7e7e7; 
+background-color: #000;
 color: gray;
 }
 
-.d{   
+.d{
     width: 200px;
-    height: 800px;
+    /*height: 800px;*/
 	padding:3px;
     border: 1px solid #ccc;
 }

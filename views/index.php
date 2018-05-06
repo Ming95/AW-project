@@ -16,7 +16,7 @@
 	<title>SelfIdea</title>
 
 	<?php
-		$_GET["numIdeas"]=3;
+		$_GET["numIdeas"]=6;
 		include "../controllers/IndexController.php";
 		//Carga categorias de entorno.ini
 		$categorias = parse_ini_file("../config/entorno.ini", true);
@@ -49,7 +49,7 @@ entrega-->
 				<?php
 					$i =0;
 					while(isset($categorias['CATEGORIAS']['categoria'][$i])){
-						echo '<li id ="cat"><a href="/views/MasEventos.php?cat=';
+						echo '<li id ="cat"><a href="/views/MasIdeas.php?cat=';
 						echo $categorias['CATEGORIAS']['categoria'][$i];
 						echo '">';
 						echo $categorias['CATEGORIAS']['categoria'][$i];

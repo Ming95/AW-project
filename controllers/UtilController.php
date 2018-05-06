@@ -13,7 +13,7 @@
 		return ($diff->days);
 	}
 	/*Muestra el numero de elementos indicados*/
-	function mostrarNElementos($numElementos,$listaDatos){
+/* 	function mostrarNElementos($numElementos,$listaDatos){
 		$listaDef = array();
 		$contador = 0;
 		if($listaDatos){
@@ -24,7 +24,7 @@
 			return $listaDef;
 		}
 
-	}
+	} */
  }
 
 ?>
