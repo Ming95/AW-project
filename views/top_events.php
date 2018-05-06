@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
         <h2 id="event_title">Top Eventos</h2>
         <div id="all_events">
             <a href="">Ver más eventos</a>
-        </div>    
+        </div>
         <!--thumbnail es la caja que contiene la imagen del evento, su descripción, y una imagen del logo de twitter que
 redirige a la página principal de Twitter. La idea es que lleve en el futuro a la pagina de Twitter de SelfIdea.-->
 		<div class="thumbnail">
@@ -47,13 +46,12 @@ redirige a la página principal de Twitter. La idea es que lleve en el futuro a 
 	</div>
 </body>
 </html>
-=======
 <div id="box">
         <h2 id="event_title">Top Eventos</h2>
         <div id="all_events">
             <a href="../views/MasEventos.php">Ver más eventos &#62&#62</a>
-        </div>    
-        
+        </div>
+
 		<?php
 			$i = 0;
 			while($i <3){
@@ -64,10 +62,9 @@ redirige a la página principal de Twitter. La idea es que lleve en el futuro a 
 				echo '<a href="../controllers/ConsultarEventoController.php?id_evento='.$id.'">';
 				echo '<img class ="previewImg" src= "'.$imagen.'">';
 				echo '<p class= "description">'.$nombre.'</p></a></div>';
-				
+
 				$i++;
 			}
 		?>
-    
+
 	</div>
->>>>>>> ff6ea5c63219951b65d003ca2a8d5cf6b4c0525e
