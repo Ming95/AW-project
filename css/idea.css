@@ -14,8 +14,9 @@ body {
 }
 
 .b{
-	/*border: 3px solid orange;*/
+
 	margin: 0 auto;
+	min-width: 700px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -61,7 +62,7 @@ div.datos3 {
 
 .active {
 	float: left;
-	width:33.33%;
+	width:27.6%;
     display: block;
     color: white;
     text-align: center;
@@ -73,16 +74,16 @@ div.datos3 {
 }
 
 .nactive {
-    background-color: #070707;
-	float: left;
-	width:33.33%;
+	  background-color: #070707;
+		float: left;
+		width: 27.6%;
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-	font-size: 18px;
-	outline: none;
+		font-size: 18px;
+		outline: none;
 }
 
 .textarea1{
