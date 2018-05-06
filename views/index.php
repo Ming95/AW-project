@@ -11,7 +11,7 @@
 	<title>SelfIdea</title>
 
 	<?php
-		$_GET["numIdeas"]=3;
+		$_GET["numIdeas"]=6;
 		include "../controllers/IndexController.php";
 		//Carga categorias de entorno.ini
 		$categorias = parse_ini_file("../config/entorno.ini", true);
