@@ -2,6 +2,7 @@ body {
 	background-color: #FFFFFF;
 }
 div#contenedor {
+	font-family: sans-serif;
 	width: auto;
 	margin: auto;
 	margin-top: 0px;

@@ -1,4 +1,6 @@
 #container{
+    box-sizing: border-box;
+    font-family: sans-serif;
     width: 100%;
     overflow: hidden;
     background-color: #252932;
@@ -47,4 +49,3 @@ label a:visited{
     font-size: 20px;
     text-decoration: none;
 }
-
