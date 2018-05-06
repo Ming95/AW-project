@@ -1,7 +1,7 @@
  <?php
- 	include '../models/entidadBase.php';
-	Include '../models/idea.php';
-	Include '../models/evento.php';
+ 	include '../models/EntidadBase.php';
+	Include '../models/Idea.php';
+	Include '../models/Evento.php';
 
 	session_start();
 	$numIdeas=3;

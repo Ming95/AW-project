@@ -1,6 +1,6 @@
  <?php
-	include '../models/entidadBase.php';
-	Include '../models/idea.php';
+	include '../models/EntidadBase.php';
+	Include '../models/Idea.php';
   session_start();
 	if(($_POST['nombre']==null) ||
 		($_POST['dinero']==null) ||

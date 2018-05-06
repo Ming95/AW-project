@@ -1,5 +1,5 @@
 <?php
-	include '../models/usuario.php';
+	include '../models/Usuario.php';
 	session_start();
 	$username = htmlspecialchars(trim(strip_tags($_REQUEST["uname"])));
   $password = htmlspecialchars(trim(strip_tags($_REQUEST["psw"])));

@@ -1,6 +1,6 @@
   <?php
-	include '../models/entidadBase.php';
-	Include '../models/evento.php';
+	include '../models/EntidadBase.php';
+	Include '../models/Evento.php';
 	Include 'UtilController.php';
 
 	session_start();
@@ -15,7 +15,7 @@
 
 	try{
 		$datoEvento=obtenerEvento($idEvento);
-		$masEventos=obtenerMasEventos($datoEvento);
+		$masEventos=obtenerMasEventos($datoEvento,6);
 		$diasFinalizar=ObtenerDiasFinalizacion($datoEvento);
 		$data1= array();
 		$data1['dato_evento'] = $datoEvento;
@@ -36,7 +36,7 @@
 		return $datoEvento;
 	}
 
-	function obtenerMasEventos($datoEvento,$evento, $numElem){
+	function obtenerMasEventos($datoEvento,$numElem){
 		$evento = new Evento();
 		$masEventos= $evento->getNumElemsOrderByAsc("fecha",$numElem);
 		$evento->closeConnection();
