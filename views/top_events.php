@@ -7,9 +7,9 @@
 		<?php
 			$i = 0;
 			while($i <3){
-				$id = $_SESSION["data1"]["mas_eventos"][$i]["id"];
-				$imagen = $_SESSION['data1']['mas_eventos'][$i]['imagen'];
-				$nombre = $_SESSION['data1']['mas_eventos'][$i]['nombre'];
+				$id = $_SESSION['data']['topEventos'][$i]["id"];
+				$imagen = $_SESSION['data']['topEventos'][$i]['imagen'];
+				$nombre = $_SESSION['data']['topEventos'][$i]['nombre'];
 				echo '<div class="thumbnail">';
 				echo '<a href="../controllers/ConsultarEventoController.php?id_evento='.$id.'">';
 				echo '<img class ="previewImg" src= "'.$imagen.'">';
