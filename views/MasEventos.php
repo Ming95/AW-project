@@ -13,13 +13,13 @@
 
 	<div class="diapositiva">
 	  <div class="numbertext">1 / 3</div>
-		<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][4]['id'];?>" target="_blank">
-			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][4]['imagen'];
+		<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][0]['id'];?>" target="_blank">
+			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][0]['imagen'];
 			  echo'<img src= "'.$imagen1.'" alt="evento 1" style="width:100%">'?>
 		</a>
 	  <div class="text">
 		<p>
-            <?php echo  $_SESSION['data1']['mas_eventos'][4]['nombre'];?> 
+            <?php echo  $_SESSION['data1']['mas_eventos'][0]['nombre'];?> 
         </p>
 	  </div>
 	</div>
