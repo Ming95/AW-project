@@ -4,27 +4,27 @@ include '../models/entidadBase.php';
 include '../models/idea.php';
 class FormularioIdea extends Form
 {
+    private $categorias;
+
     public function __construct() {
         parent::__construct('formIdea');
+        $this->categorias = parse_ini_file("../config/entorno.ini", true);
+        if($this->categorias==null)
+          throw new Exception('MySQL: Error al cargar las categorias');
     }
-
     protected function generaCamposFormulario($datos)
     {
       //Carga categorias de entorno.ini
-      $categorias = parse_ini_file("../config/entorno.ini", true);
-      if($categorias==null)
-        throw new Exception('MySQL: Error al cargar las categorias');
-      else{
+
         $cat="";
         $i = 0;
-        while(isset($categorias['CATEGORIAS']['categoria'][$i])){
+        while(isset($this->categorias['CATEGORIAS']['categoria'][$i])){
           $cat .= '<option value="';
-          $cat .= $categorias['CATEGORIAS']['categoria'][$i];
+          $cat .= $this->categorias['CATEGORIAS']['categoria'][$i];
           $cat .= '">';
-          $cat .= $categorias['CATEGORIAS']['categoria'][$i];
+          $cat .= $this->categorias['CATEGORIAS']['categoria'][$i];
           $cat .= '</option>';
           $i++;
-      }
     }
         $date = date("Y-m-d");
         $html = <<<EOF
@@ -137,7 +137,7 @@ EOF;
 
       	$idea = new Idea;
       	$idea->setNombre_Idea($datos['nombre']);
-      	$idea->setId_Categoria($datos['categoria']);
+      	$idea->setId_Categoria(array_search('Juegos', $this->categorias['CATEGORIAS']['categoria']));
       	$idea->setFecha_Limite($datos['final']);
       	$idea->setDesc_idea($_POST['descripcion']);
       	$idea->setEnVenta(isset($_REQUEST['vender']));
