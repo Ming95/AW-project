@@ -13,7 +13,7 @@
 	
 	try{
 		$datoIdea=obtenerIdea($idIdea);
-		$masIdeas=obtenerNumIdeasInteresantes($datoIdea,3);
+		$masIdeas=obtenerNumIdeasInteresantes($datoIdea,6);
 		$diasFinalizar=ObtenerDiasFinalizacion($datoIdea,$idIdea);
 		$data= array();
 		$data['dato_idea'] = $datoIdea;
