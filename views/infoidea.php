@@ -29,7 +29,7 @@
 				<label class="texto"> Introduzca los comentarios:</label>
 			</div>
 			<div class="row">
-				<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+				<textarea class="textarea2" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 			</div>
 			<div class="row">
 			  <!--input type="submit" id= "button" class="button" value="Publicar" onclick="location='../controllers/ComentarioController.php?id_idea=<?php echo $_SESSION['data']['dato_idea'][0]['id_idea'];?>&opcion=1&comentario=obtenerComentario()'"/!-->
@@ -69,9 +69,8 @@
 	<div class="texto3">Te puede interesar...</div>
 		<div class="responsive">
 		  <div class="gallery">
-			<a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][0]['id_idea'];?>" target="_blank">
-			  <?php $imagen1 = $_SESSION['data']['mas_ideas'][0]['imagen'];
-			  echo'<img src= "'.$imagen1.'" alt="idea 1" width="160" height="200">' ?> 
+			<a target="_blank" href="<?php echo $_SESSION['data']['mas_ideas'][0]['imagen'];?>">
+			  <img class="side-img" src="<?php echo $_SESSION['data']['mas_ideas'][0]['imagen'];?>" alt="Forest" width="600" height="400">
 			</a>
 			<div class="desc">
 				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][0]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][0]['nombre_idea'];?></a></p>
@@ -81,11 +80,9 @@
 
 		<div class="responsive">
 		  <div class="gallery">
-			<a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][1]['id_idea'];?>" target="_blank">
-			  <?php $imagen2 = $_SESSION['data']['mas_ideas'][1]['imagen'];
-			  echo'<img src= "'.$imagen2.'" alt="idea 2" width="160" height="200">';
-			  ?> 
-			</a> 
+			<a target="_blank" href="<?php echo $_SESSION['data']['mas_ideas'][1]['imagen'];?>">
+			  <img class="side-img" src="<?php echo $_SESSION['data']['mas_ideas'][1]['imagen'];?>" alt="Forest" width="600" height="400">
+			</a>
 			 <div class="desc">
 				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][1]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][1]['nombre_idea'];?></a></p>
 			</div>
@@ -94,9 +91,8 @@
 
 		<div class="responsive">
 		  <div class="gallery">
-			<a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][2]['id_idea'];?>" target="_blank">
-			  <?php $imagen3 = $_SESSION['data']['mas_ideas'][2]['imagen'];
-			  echo'<img src= "'.$imagen3.'" alt="idea 3"width="160" height="200">'?> 
+			<a target="_blank" href="<?php echo $_SESSION['data']['mas_ideas'][2]['imagen'];?>">
+			  <img  class="side-img" src="<?php echo $_SESSION['data']['mas_ideas'][2]['imagen'];?>" alt="Mountains" width="600" height="400">
 			</a>
 			<div class="desc">
 				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][2]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][2]['nombre_idea'];?></a></p>
@@ -106,7 +102,7 @@
 
 		<div class="clearfix"></div>
 
-		<p class="texto3"><a href="../views/MasIdeas.php">Ver mas</a></p>
+		<p class="texto3"><a href="https://www.w3schools.com/html/">Ver mas</a></p>
 
 	</div>
 
