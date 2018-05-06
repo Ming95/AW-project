@@ -1,5 +1,5 @@
-body {
-	margin: 0px;
+*{
+
 }
 
 .a{
@@ -110,7 +110,7 @@ div.datos3 {
 }
 
 .other {
-background-color: #000;
+background-color: #000; 
 color: gray;
 }
 

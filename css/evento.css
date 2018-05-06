@@ -1,6 +1,3 @@
-body {
-	margin: 0px;
-}
 div.contenido {
 	position:relative;
 	width: 100%;
@@ -16,11 +13,11 @@ div.evento{
 }
 
 h1{
-  text-align:center;
+  text-align:center;	
 }
 
 h2{
-  text-align:center;
+  text-align:center;	
 }
 
 div.imagen{
@@ -28,8 +25,8 @@ div.imagen{
 	width: 100%;
 
 }
-
-
+ 
+ 
 div.descripcion{
 	border: 1px solid #ccc;
 	width: 85%;

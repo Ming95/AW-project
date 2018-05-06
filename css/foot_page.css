@@ -1,6 +1,11 @@
-footer{
+*{
+    margin:0px;
+    padding: 0px;
     box-sizing: border-box;
     font-family: sans-serif;
+}
+
+footer{
     width: 100%;
     background: #202020;
     color:white;
@@ -8,7 +13,9 @@ footer{
 
 .container-footer-all{
     width: 100%;
+    max-width:1600px;
     margin:auto;
+    padding: 40px;
 }
 
 .container-body{
@@ -44,7 +51,7 @@ div.column1 p{
 .column2 .row{
     margin-top: 10px;
 }
-.footerImg{
+div img{
     width: 25px;
     height: 25px;
     border-radius: 50%;

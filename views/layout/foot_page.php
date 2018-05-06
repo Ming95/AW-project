@@ -22,35 +22,35 @@
                 <div class="column2">
                     <h1>Redes sociales</h1>
                     <div class="row">
-                        <img class="footerImg" src="/images/facebook.png"> <label> Siguenos en Facebook </label>
+                        <img src="/images/facebook.png"> <label> Siguenos en Facebook </label>
                     </div>
                     <div class="row">
-                        <img class="footerImg" src="/images/twitter.jpg"> <label> Siguenos en Twitter </label>
+                        <img src="/images/twitter.jpg"> <label> Siguenos en Twitter </label>
                     </div>
                     <div class="row">
-                        <img class="footerImg" src="/images/googlep.png"> <label> Siguenos en Google Plus </label>
+                        <img src="/images/googlep.png"> <label> Siguenos en Google Plus </label>
                     </div>
                 </div>
 
                 <div class="column3">
                     <h1>Atención al cliente</h1>
                     <div class="row2">
-                        <img class="footerImg" src="/images/contacto.jpg"> <label> Contacto </label>
+                        <img src="/images/contacto.jpg"> <label> Contacto </label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/reglas.jpg"> <label> Reglas de nuestra comunidad </label>
+                        <img src="/images/reglas.jpg"> <label> Reglas de nuestra comunidad </label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/howto.jpg"> <label> Cómo crear ideas </label>
+                        <img src="/images/howto.jpg"> <label> Cómo crear ideas </label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/cookie.jpg"> <label> Política de cookies </label>
+                        <img src="/images/cookie.jpg"> <label> Política de cookies </label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/privacy.png"> <label> Política de privacidad </label>
+                        <img src="/images/privacy.png"> <label> Política de privacidad </label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/use.png"> <label> Términos de uso</label>
+                        <img src="/images/use.png"> <label> Términos de uso</label>
                     </div>
                 </div>
             </div>
