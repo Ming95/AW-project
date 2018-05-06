@@ -20,7 +20,7 @@
 		$data1= array();
 		$data1['dato_evento'] = $datoEvento;
 		$data1['mas_eventos'] = $masEventos;
-		$data1['dias_finalizar']=$dias_finalizar;
+		//$data1['dias_finalizar']=$dias_finalizar;
 		$_SESSION['data1'] = $data1;
 		require_once("../views/infoevento.php");
 	}catch(Exception $e){
