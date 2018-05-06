@@ -99,10 +99,32 @@
 			</div>
 		  </div>
 		</div>
+		
+		<div class="responsive">
+		  <div class="gallery">
+			<a target="_blank" href="<?php echo $_SESSION['data']['mas_ideas'][3]['imagen'];?>">
+			  <img  class="side-img" src="<?php echo $_SESSION['data']['mas_ideas'][3]['imagen'];?>" alt="Mountains" width="600" height="400">
+			</a>
+			<div class="desc">
+				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][3]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][3]['nombre_idea'];?></a></p>
+			</div>
+		  </div>
+		</div>
+		
+		<div class="responsive">
+		  <div class="gallery">
+			<a target="_blank" href="<?php echo $_SESSION['data']['mas_ideas'][4]['imagen'];?>">
+			  <img  class="side-img" src="<?php echo $_SESSION['data']['mas_ideas'][4]['imagen'];?>" alt="Mountains" width="600" height="400">
+			</a>
+			<div class="desc">
+				<p><a href="../controllers/ConsultarIdeaController.php?id_idea=<?php echo $_SESSION['data']['mas_ideas'][4]['id_idea'];?>"><?php echo $_SESSION['data']['mas_ideas'][4]['nombre_idea'];?></a></p>
+			</div>
+		  </div>
+		</div>
 
 		<div class="clearfix"></div>
 
-		<p class="texto3"><a href="https://www.w3schools.com/html/">Ver mas</a></p>
+		<p class="texto3"><a href="https://www.w3schools.com/html/" disabled>Ver mas</a></p>
 
 	</div>
 
