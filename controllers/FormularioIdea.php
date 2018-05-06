@@ -1,5 +1,6 @@
 <?php
 include 'Form.php';
+include '../models/entidadBase.php';
 include '../models/idea.php';
 class FormularioIdea extends Form
 {
