@@ -10,7 +10,7 @@
 <h2>Patrocina esta idea</h2>
 
 <div class="container">
-  <form action="pagoOK.html">
+  <form action="pagoOK.php">
     <div class="row">
         <label class="texto">Faltan <?php echo $_SESSION['data']['dias_finalizar']?> días para finalizar el proyecto</label>
         <!--input type="text" id="fname" name="firstname" placeholder="Your name.."!-->
@@ -31,7 +31,7 @@
        <label class="texto">Por favor, introduzca la aportación que desea realizar:</label>
 	 </div>
 	 <div class="row">
-        <input type="text" id="lname" name="lastname" placeholder="Ej: <?php echo (0.3*$_SESSION['data']['dato_idea'][0]['importe_solicitado']);?> €">
+        <input type="text" id="lname" name="lastname" placeholder="Ej: <?php echo (0.3*$_SESSION['data']['dato_idea'][0]['importe_solicitado']);?> €" required>
     </div>
      <div class="row">
       <input class="submit" type="submit" value="Enviar">
