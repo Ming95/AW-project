@@ -1,5 +1,5 @@
 <?php
-include 'entidadBase.php';
+
 class Idea extends EntidadBase {
   private $id_idea;
   private $nombre_Idea;
