@@ -4,11 +4,6 @@
 	Include '../models/evento.php';
 
 	session_start();
-/* 	if(($_GET['numIdeas']==null) or empty($_GET['numIdeas'])) {
-		$_SESSION['data_error']="Ha ocurrido un problema con los datos enviados";
-		header("Location:/errorpage.php");
-	} */
-	//$numIdeas=3; //htmlspecialchars(trim(strip_tags($_GET["numIdeas"])));
 	$numIdeas=3;
 	$numEventos=3;
 	try{
@@ -49,20 +44,6 @@
 			throw new Exception($e);
 		}
 	}
-	
-/* 	function recuperaIdeas(){
-		
-		$topIdeas=obtenerIdeas("popularidad");
-		
-		return $topIdeas;
-	}
-	
-	function recuperaEventos(){
-		
-		$topEventos=obtenerEventos("fecha");
-		
-		return $topEventos;
-	} */
 
 
 ?>
