@@ -2,24 +2,24 @@
 <html>
 <head>
     <!--Hoja de estilos principal para index -->
-	<link rel="stylesheet" type="text/css" href="../css/stylesheet.css" />
+	<link rel="stylesheet" type="text/css" href="./css/stylesheet.css" />
     <!--Hoja de estilos para la parte que muestra las categorias -->
-	<link rel="stylesheet" type="text/css" href="../css/category.css" />
+	<link rel="stylesheet" type="text/css" href="./css/category.css" />
     <!--Hoja de estilos para la barra de busqueda -->
-	<link rel="stylesheet" type="text/css" href="../css/search_bar.css" />
+	<link rel="stylesheet" type="text/css" href="./css/search_bar.css" />
     <!--Hoja de estilos para mostar las 3 ideas mas valoradas -->
-	<link rel="stylesheet" type="text/css" href="../css/top_ideas.css" />
+	<link rel="stylesheet" type="text/css" href="./css/top_ideas.css" />
     <!--Hoja de estilos para mostra los 3 eventos mas proximos -->
-	<link rel="stylesheet" type="text/css" href="../css/top_events.css" />
+	<link rel="stylesheet" type="text/css" href="./css/top_events.css" />
 
 	<meta charset="utf-8">
 	<title>SelfIdea</title>
 
 	<?php
 		$_GET["numIdeas"]=6;
-		include "../controllers/IndexController.php";
+		include "./controllers/IndexController.php";
 		//Carga categorias de entorno.ini
-		$categorias = parse_ini_file("../config/entorno.ini", true);
+		$categorias = parse_ini_file("./config/entorno.ini", true);
 		if($categorias==null)
 			throw new Exception('MySQL: Error al cargar las categorias');
 	 ?>
@@ -74,18 +74,18 @@ entrega-->
     <!--esta parte muestra las 3 ideas mas valoradas -->
 	<div id="top_ideas.css">
 		<h2>Top ideas</h2>
-        <?php include 'top_ideas.php';?>
+        <?php include './views/top_ideas.php';?>
 	</div>
 
 	<hr>
     <!--Esta parte muestra los 3 eventos más proximos -->
 	<div id="top_events.css">
-		<?php include 'top_events.php';?>
+		<?php include './views/top_events.php';?>
 	</div>
 
 	<hr>
 
-	<?php include 'layout/foot_page.php';?>
+	<?php include './views/layout/foot_page.php';?>
 
 
 </div> <!-- Fin del contenedor -->

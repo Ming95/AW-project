@@ -68,7 +68,7 @@ EOF;
       				$_SESSION["logged"]	= true;
       				$_SESSION['login'] = $username;
       				$_SESSION['mail'] = $mail;
-      				$result = '../views/index.php';
+      				$result = '../index.php';
       			}
       			$user->closeConnection();
       		}catch(Exception $e){

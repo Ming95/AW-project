@@ -56,7 +56,7 @@ EOF;
           $_SESSION['login'] = $consulta[0]['nombre'];
           $_SESSION['mail'] = $consulta[0]['id_correo'];
           $_SESSION['intentos'] = 0;
-          $result = '../views/index.php';
+          $result = '../index.php';
         }
         else $result[] = "Email o contraseña incorrecta";
 

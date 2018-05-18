@@ -1,7 +1,7 @@
  <?php
- 	include '../models/EntidadBase.php';
-	Include '../models/Idea.php';
-	Include '../models/Evento.php';
+ 	include './models/EntidadBase.php';
+	Include './models/Idea.php';
+	Include './models/Evento.php';
 
 	session_start();
 	$numIdeas=3;
@@ -31,7 +31,7 @@
 			throw new Exception($e);
 		}
 	}
-	
+
 	function obtenerEventos($orderBy){
 		global $numEventos, $evento;
 		$evento = new Evento();
