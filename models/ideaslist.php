@@ -57,7 +57,7 @@ class IdeasList extends EntidadBase {
             $nombre = $filas[$i]['nombre_idea'];
 
             echo '<div class="thumbnail">';
-            echo '<a href="/controllers/ConsultarIdeaController.php?id_idea='.$id.'">';
+            echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
             echo '<img class ="previewImg" src= "'.$imagen.'">';
             echo '<p class= "description">'.$nombre.'</p></a></div>';
             $i++;

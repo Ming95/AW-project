@@ -13,13 +13,15 @@ class Idea extends EntidadBase {
   private $cv_equipo;
   private $importe_solicitado;
   private $imagen;
+  private $categoria;
+  private $recaudado;
+  private $diasFin;
 
-
-    public function __construct() {
+  public function __construct() {
 		$this->table = "idea";
         $class = "Idea";
         parent::__construct($this->table, $class);
-    }
+  }
 
 	public function getId_idea() {
 		return $this->id_idea;
@@ -93,6 +95,75 @@ class Idea extends EntidadBase {
   public function setImagen($imagen) {
     $this->imagen = $imagen;
   }
+  public function getCategoria() {
+    return $this->categoria;
+  }
+  public function setCategoria($cat) {
+    $this->categoria = $cat;
+  }
+  public function getRecaudado() {
+    return $this->recaudado;
+  }
+  public function setRecaudado($recaudado) {
+    $this->recaudado = $recaudado;
+  }
+  public function getDiasFin() {
+    return $this->diasFin;
+  }
+  public function setDiasFin($diasFin) {
+    $this->diasFin = $diasFin;
+  }
+
+  private function diffFechas($fecha){
+		$date1 = new DateTime($fecha);
+		$date2 = new DateTime("now");
+		$diff = $date1->diff($date2);
+		return ($diff->days);
+	}
+
+  private function loadRecaudado(){
+    $req=$this->db()->query("SELECT SUM(usuario_importe_idea.importe_aportado)AS recaudado
+                            FROM idea JOIN usuario_importe_idea on (idea.id_idea = usuario_importe_idea.id_idea)
+                            WHERE idea.id_idea = ".$this->getId_idea()." GROUP BY idea.id_idea");
+    if($req==false)
+      throw new Exception('MySQL: Error al realizar la consulta SQL');
+    $filas = $this->showData($req);
+    $this->setRecaudado((!count($filas))?0:$filas[0]['recaudado']);
+  }
+  private function loadPopularidad(){
+    $req=$this->db()->query("SELECT COUNT(*) AS pop FROM likes WHERE likes.id_idea = ".$this->getId_idea()."");
+    if($req==false)
+      throw new Exception('MySQL: Error al realizar la consulta SQL');
+    $filas = $this->showData($req);
+    $this->setPopularidad((!count($filas))?0:$filas[0]['pop']);
+  }
+
+  //Carga los campos desde db
+  public function load($id){
+      $req=$this->db()->query("SELECT *  FROM idea JOIN categorias
+                              on (idea.id_categoria=categorias.id_categoria)
+                              WHERE idea.id_idea = ".$id." GROUP BY idea.id_idea");
+      if($req==false)
+        throw new Exception('MySQL: Error al realizar la consulta SQL');
+      $filas = $this->showData($req);
+
+      $this->setId_idea($filas[0]['id_idea']);
+      $this->setNombre_Idea($filas[0]['nombre_idea']);
+      $this->setId_categoria($filas[0]['id_categoria']);
+      $this->setFecha_limite($filas[0]['fecha_limite']);
+      $this->setDesc_idea($filas[0]['desc_idea']);
+      $this->setEnVenta($filas[0]['enVenta']);
+      $this->setId_correo($filas[0]['id_correo']);
+      $this->setImporte_venta($filas[0]['importe_venta']);
+      $this->setCv_equipo($filas[0]['cv_equipo']);
+      $this->setImporte_Solicitado($filas[0]['importe_solicitado']);
+      $this->setImagen($filas[0]['imagen']);
+      $this->setCategoria($filas[0]['valor']);
+      $this->setDiasFin($this->diffFechas($this->getFecha_Limite()));
+      $this->loadRecaudado();
+      $this->loadPopularidad();
+  	}
+
   public function setIdea(){
         $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo,imagen,importe_solicitado)
                VALUES('".$this->getNombre_Idea()."',
@@ -113,7 +184,6 @@ class Idea extends EntidadBase {
 
          $this->id_idea =$query[0]['id_idea'];
 	}
-
 
 }
 ?>
