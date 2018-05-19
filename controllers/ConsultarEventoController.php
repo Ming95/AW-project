@@ -1,5 +1,5 @@
   <?php
-	include '../models/EntidadBase.php';
+	require_once '../models/entidadBase.php';
 	Include '../models/Evento.php';
 	Include 'UtilController.php';
 
@@ -11,7 +11,7 @@
 	}
 	$idEvento= htmlspecialchars(trim(strip_tags($_GET["id_evento"])));
 
-	
+
 
 	try{
 		$datoEvento=obtenerEvento($idEvento);

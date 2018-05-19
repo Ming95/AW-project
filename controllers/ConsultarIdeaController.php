@@ -2,7 +2,7 @@
 	require_once '../models/entidadBase.php';
 	Include '../models/Idea.php';
 	Include '../models/UsuarioComentarioIdea.php';
-	Include 'UtilController.php';
+	Include './UtilController.php';
 	session_start();
 	if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:/views/login.php");
 	if(($_GET['id_idea']==null) or empty($_GET['id_idea'])) {

@@ -1,7 +1,6 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/idea.css" />
-<link rel="stylesheet" type="text/css" href="../css/head.css" />
 <script type="text/javascript" src="../js/utilidea.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -99,7 +98,7 @@
 			</div>
 		  </div>
 		</div>
-		
+
 		<div class="responsive">
 		  <div class="gallery">
 			<a target="_blank" href="<?php echo $_SESSION['data']['mas_ideas'][3]['imagen'];?>">
@@ -110,7 +109,7 @@
 			</div>
 		  </div>
 		</div>
-		
+
 		<div class="responsive">
 		  <div class="gallery">
 			<a target="_blank" href="<?php echo $_SESSION['data']['mas_ideas'][4]['imagen'];?>">

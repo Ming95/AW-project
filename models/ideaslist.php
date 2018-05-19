@@ -5,7 +5,6 @@ class IdeasList extends EntidadBase {
   Clase que permite cargar distintas listas de ideas
 */
   public function __construct() {
-
 	    $this->table = "idea";
       $class = "IdeasList";
       parent::__construct($this->table, $class);

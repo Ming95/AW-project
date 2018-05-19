@@ -1,5 +1,3 @@
-
-<link rel="stylesheet" type="text/css" href="/css/formulario.css" />
 <?php
 
 /**

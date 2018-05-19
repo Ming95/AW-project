@@ -2,8 +2,8 @@
 <html>
 <head>
 	<?php
+	session_start();
 		//Pagina principal
-		require_once './config/conectar.php';
 		require './models/categorias.php';
 		require './models/ideaslist.php';
 		require './models/eventslist.php';
@@ -25,7 +25,6 @@
 		//carga categorias de db
 		$cat = new Categorias;
 		$categorias = $cat->getCategorias();
-		session_start();
 	 ?>
 </head>
 

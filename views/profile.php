@@ -5,10 +5,8 @@
 ?>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="/css/head.css" />
-  <link rel="stylesheet" type="text/css" href="/css/formulario.css" />
-  <link rel="stylesheet" type="text/css" href="/css/profile.css" />
-  <link rel="stylesheet" type="text/css" href="/css/foot_page.css" />
+  <link rel="stylesheet" type="text/css" href="../css/formulario.css" />
+  <link rel="stylesheet" type="text/css" href="../css/profile.css" />
   <title>Mi perfil</title>
 </head>
 <body>

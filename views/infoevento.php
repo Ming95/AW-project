@@ -1,8 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/evento.css" />
-<link rel="stylesheet" type="text/css" href="/css/styleforms.css" />
-<link rel="stylesheet" type="text/css" href="/css/head.css" />
-<link rel="stylesheet" type="text/css" href="/css/foot_page.css" />
+<link rel="stylesheet" type="text/css" href="../css/styleforms.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script>
 	function cambiarboton(){
@@ -14,16 +12,16 @@
 
 <div class="contenido">
 
-	<div class="evento"> 
+	<div class="evento">
 		<div class="imagen">
 		<?php $imagen = $_SESSION['data1']['dato_evento'][0]['imagen'];
 			  echo'<img src= "'.$imagen.'" alt="evento 2" style="width:100%">'?>
 		</div>
        <h1>
-            <?php echo  $_SESSION['data1']['dato_evento'][0]['nombre'];?> 
+            <?php echo  $_SESSION['data1']['dato_evento'][0]['nombre'];?>
         </h1>
 		<div class="descripcion" id="datos1"
-			
+
 			<p>
                 <?php echo $_SESSION['data1']['dato_evento'][0]['desc_evento'];?>
 			</p>
@@ -62,7 +60,7 @@
 			  <div class="caption">
 				<p><a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][2]['id'];?>"><?php echo $_SESSION['data1']['mas_eventos'][2]['nombre'];?>
 			  </a></p>
-			  </div>	
+			  </div>
 			</a>
 		</div>
 	  <p class="texto3"><a href="../views/MasEventos.php">Ver mas</a></p>

@@ -1,6 +1,6 @@
+<link rel="stylesheet" type="text/css" href="../css/crearidea.css" />
 <?php
 include 'Form.php';
-include '../models/EntidadBase.php';
 include '../models/Idea.php';
 class FormularioIdea extends Form
 {
