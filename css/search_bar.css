@@ -1,5 +1,6 @@
 
 .field {
+  padding-top: 100px;
   display:flex;
   left: 30px;
   width: 150px;
@@ -24,5 +25,3 @@
   color:white;
   border:none;
 }
-
-
