@@ -1,5 +1,5 @@
 <?php
-include 'entidadBase.php';
+require_once 'entidadBase.php';
 class Usuario extends EntidadBase {
     private $id_correo;
 	  private $password;
@@ -66,7 +66,7 @@ class Usuario extends EntidadBase {
         if($this->db()->query($query) == false) {
 			throw new Exception('MySQL: Error al realizar la inserción SQL');
 		}
-		
+
     }
 }
 ?>

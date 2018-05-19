@@ -1,5 +1,5 @@
 <?php
-//include 'entidadBase.php';
+require_once 'entidadBase.php';
 class UsuarioComentarioIdea extends EntidadBase {
   private $id;
   private $id_correo;
@@ -19,7 +19,7 @@ class UsuarioComentarioIdea extends EntidadBase {
 	public function setId_idea($id_idea) {
 		$this->id_idea = $id_idea;
 	}
-	
+
 	public function getId_correo() {
 		return $this->id_correo;
 	}
@@ -45,7 +45,7 @@ class UsuarioComentarioIdea extends EntidadBase {
                        '".$this->id_idea."',
 					   '".$this->comentario."',
 					   '".$this->fecha_creacion."');";
-        if($this->db()->query($query) == false) 
+        if($this->db()->query($query) == false)
 			throw new Exception('MySQL: Error al realizar la inserción SQL');
 		else
 			echo "Idea guardada correctamente";

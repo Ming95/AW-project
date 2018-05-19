@@ -1,4 +1,5 @@
 <?php
+require_once 'entidadBase.php';
 class Evento extends EntidadBase {
   private $id;
   private $nombre;

@@ -124,7 +124,7 @@ class EntidadBase{
         return $filas;
 	}
 
-	private function showData($resultSet){
+	protected function showData($resultSet){
 		$filas= array();
 		while ($fila = $resultSet->fetch_assoc()) {
 			$filas[] = $fila;

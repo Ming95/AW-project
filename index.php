@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php
+		//Pagina principal
+		require_once './config/conectar.php';
+		require './models/categorias.php';
+		require './models/ideaslist.php';
+		require './models/eventslist.php';
+	?>
     <!--Hoja de estilos principal para index -->
 	<link rel="stylesheet" type="text/css" href="./css/stylesheet.css" />
     <!--Hoja de estilos para la parte que muestra las categorias -->
@@ -14,14 +21,11 @@
 
 	<meta charset="utf-8">
 	<title>SelfIdea</title>
-
 	<?php
-		$_GET["numIdeas"]=6;
-		include "./controllers/IndexController.php";
-		//Carga categorias de entorno.ini
-		$categorias = parse_ini_file("./config/entorno.ini", true);
-		if($categorias==null)
-			throw new Exception('MySQL: Error al cargar las categorias');
+		//carga categorias de db
+		$cat = new Categorias;
+		$categorias = $cat->getCategorias();
+		session_start();
 	 ?>
 </head>
 
@@ -35,11 +39,11 @@ entrega-->
 		<div class="login">
 			<?php
 			if(!isset($_SESSION['logged']) || !$_SESSION['logged'])
-				echo '<a class="reg" href="login.php">Iniciar Sesion</a>';
+				echo '<a class="reg" href="./views/login.php">Iniciar Sesion</a>';
 			else{
-				 echo '<a class="reg" href="profile.php">'.$_SESSION["login"].'</a>';
+				 echo '<a class="reg" href="./views/profile.php">'.$_SESSION["login"].'</a>';
 				 echo ' / ';
-				 echo '<a class="reg" href="logout.php">Cerrar Sesion</a>';
+				 echo '<a class="reg" href="./views/logout.php">Cerrar Sesion</a>';
 			}
 			?>
         </div>
@@ -47,15 +51,17 @@ entrega-->
 		<div id = "category.css">
 			<ul class="nav">
 				<?php
+				//crea categorias
 					$i =0;
-					while(isset($categorias['CATEGORIAS']['categoria'][$i])){
-						echo '<li id ="cat"><a href="/views/MasIdeas.php?cat=';
-						echo $categorias['CATEGORIAS']['categoria'][$i];
+					while(isset($categorias[$i])){
+						echo '<li><a href="/views/category.php?cat=';
+						echo $categorias[$i];
 						echo '">';
-						echo $categorias['CATEGORIAS']['categoria'][$i];
+						echo $categorias[$i];
 						echo '</a></li>';
 						$i++;
 					}
+
 					?>
 			</ul>
 		</div>
@@ -74,13 +80,20 @@ entrega-->
     <!--esta parte muestra las 3 ideas mas valoradas -->
 	<div id="top_ideas.css">
 		<h2>Top ideas</h2>
-        <?php include './views/top_ideas.php';?>
+		<?php
+		$lista = new IdeasList();
+		$lista->topRated(3);
+		?>
 	</div>
 
 	<hr>
     <!--Esta parte muestra los 3 eventos más proximos -->
 	<div id="top_events.css">
-		<?php include './views/top_events.php';?>
+		<h2>Top eventos</h2>
+		<?php
+		$lista2 = new EventsList();
+		$lista2->rectentEvents(3);
+		?>
 	</div>
 
 	<hr>

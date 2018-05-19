@@ -1,5 +1,5 @@
 <?php
-
+require_once 'entidadBase.php';
 class Idea extends EntidadBase {
   private $id_idea;
   private $nombre_Idea;
@@ -110,7 +110,7 @@ class Idea extends EntidadBase {
 			      throw new Exception('MySQL: Error al realizar la inserción SQL');
           //Consigue el ID de la BBDD
          $query = $this->getBy('nombre_idea', $this->getNombre_Idea());
-         
+
          $this->id_idea =$query[0]['id_idea'];
 	}
 

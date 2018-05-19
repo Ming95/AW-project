@@ -1,5 +1,5 @@
 <?php
-
+require_once 'entidadBase.php';
 class UsuarioImporteIdea extends EntidadBase {
   private $id_idea;
   private $id_correo;
@@ -19,7 +19,7 @@ class UsuarioImporteIdea extends EntidadBase {
 	public function setId_idea($id_idea) {
 		$this->id_idea = $id_idea;
 	}
-	
+
 	public function getId_correo() {
 		return $this->id_correo;
 	}
@@ -33,12 +33,12 @@ class UsuarioImporteIdea extends EntidadBase {
 		$this->importe_aportado = $importe_aportado;
 	}
 
-	public function setUsuarioImporteIdea(){			
+	public function setUsuarioImporteIdea(){
  		$query="INSERT INTO usuario_importe_idea (id_idea,id_correo,importe_aportado)
                VALUES('".$this->getId_idea()."',
           			  '".$this->getId_correo()."',
           			  '".$this->getImporte_aportado()."');";
-         if($this->db()->query($query) == false) 
+         if($this->db()->query($query) == false)
 			throw new Exception('MySQL: Error al realizar la inserción SQL');
 	}
   }
