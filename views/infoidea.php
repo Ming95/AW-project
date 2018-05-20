@@ -30,7 +30,7 @@
 					'<p class="numInfo">'.$idea->getRecaudado().' €</p>'.
 					'<p class="textInfo">de la meta de '.$idea->getImporte_solicitado().' €</p>'.
 
-					'<p class="numInfo2">'.$idea->getPopularidad().' €</p>'.
+					'<p class="numInfo2">'.$idea->getPopularidad().'</p>'.
 					'<p class="textInfo">personas han valorado esta idea</p>'.
 
 					'<p class="numInfo2">'.$idea->getDiasFin().'</p>'.

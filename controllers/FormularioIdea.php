@@ -2,30 +2,32 @@
 <?php
 include 'Form.php';
 include '../models/Idea.php';
+require '../models/categorias.php';
 class FormularioIdea extends Form
 {
+    private $categorias;
+
     public function __construct() {
         parent::__construct('formIdea');
+        //Carga categorias de db
+        $cat = new Categorias;
+        $this->categorias = $cat->getCategorias();
+        if($this->categorias==null)
+          throw new Exception('MySQL: Error al cargar las categorias');
     }
 
     protected function generaCamposFormulario($datos)
     {
-      //Carga categorias de entorno.ini
-      $categorias = parse_ini_file("../config/entorno.ini", true);
-      if($categorias==null)
-        throw new Exception('MySQL: Error al cargar las categorias');
-      else{
-        $cat="";
+        $cat ="";
         $i = 0;
-        while(isset($categorias['CATEGORIAS']['categoria'][$i])){
+        while(isset($this->categorias[$i])){
           $cat .= '<option value="';
-          $cat .= $categorias['CATEGORIAS']['categoria'][$i];
+          $cat .= $this->categorias[$i];
           $cat .= '">';
-          $cat .= $categorias['CATEGORIAS']['categoria'][$i];
+          $cat .= $this->categorias[$i];
           $cat .= '</option>';
           $i++;
-      }
-    }
+        }
         $date = date("Y-m-d");
         $html = <<<EOF
 
@@ -59,10 +61,10 @@ class FormularioIdea extends Form
   			<h4>Nombre de la idea</h4><input type="text" name="nombre" required class ="input-box">
   			<h4>Recaudación</h4>
   			<p>Indica la cantidad en euros que deseas recaudar.</p>
-  			<input type="text" name="dinero" onkeypress="return valida(event)" required class ="input-box">
+  			<input type="text" name="recaudacion" onkeypress="return valida(event)" required class ="input-box">
   			<h4>Fin de recaudacion</h4>
   			<p>Indica la fecha en la que se cerrará la recaudación.</p>
-  			<input type="date" name="final" step="1" min="$date" max="2033-12-31" value="$date" class ="input-box">
+  			<input type="date" name="fecha" step="1" min="$date" max="2033-12-31" value="$date" class ="input-box">
 
   			<h4>Categoría</h4>
   			<p>Elige a qué categoría pertenece tu idea</p>
@@ -105,7 +107,7 @@ EOF;
         $result = array();
 
         //Comprueba campos del formulario
-        if(($datos['nombre']==null) || ($datos['dinero']==null) || ($datos['descripcion']==null))
+        if(($datos['nombre']==null) || ($datos['recaudacion']==null) || ($datos['descripcion']==null))
             $result[] = "Lo sentimos, parece haber un problema con los datos enviados.";
 
         //Comprueba que la imagen sea un archivo de imagen
@@ -114,48 +116,52 @@ EOF;
         $imageFileType = strtolower(pathinfo($image_file,PATHINFO_EXTENSION));
 
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" )
-            $result[] = "El archivo debe ser una imagen";
+            $result[] = "La imagen debe tener extensión: ( .jpg | .png | .jpeg | .gif )";
 
         //Comprueba que el curriculum sea un pdf
         $curr_dir = "images/ideas/";
         $curr_file = $curr_dir . basename($_FILES["archivo"]["name"]);
         $currFileType = strtolower(pathinfo($curr_file,PATHINFO_EXTENSION));
 
-        if($currFileType != "pdf") $result[] = "El Curriculum debe tener extensión .pdf";
+        if($currFileType != "pdf") $result[] = "El curriculum debe tener extensión .pdf";
 
-        /* Da error de directorio
+        if (!file_exists("../images/ideas/ideaprueba/") && !is_dir("../images/ideas/ideaprueba/"))
+          mkdir("../images/ideas/ideaprueba/", 0777);
         //Sube la Imagen
-        if (!move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file))
+        if (!move_uploaded_file($_FILES["foto"]["tmp_name"], "../images/ideas/ideaprueba/".basename($_FILES["foto"]["name"])))
             $result[]="Error al subir la imagen";
 
         //Sube el cv
-        if (!move_uploaded_file($_FILES["archivo"]["tmp_name"], "../images/ideas".basename($_FILES["foto"]["name"])))
+        if (!move_uploaded_file($_FILES["archivo"]["tmp_name"], "../images/ideas/ideaprueba/".basename($_FILES["archivo"]["name"])))
             $result[]="Error al subir el Curriculum";
-        */
 
+        $datos['categoria'] = array_search($datos['categoria'],$this->categorias)+1;
+        $datos['enventa']=(isset($_REQUEST['vender']))?1:'NULL';
+        print_r($datos);
         //Crea objeto idea y atributos
+        if(empty($result)){
+        	$idea = new Idea;
+        	$idea->setNombre_Idea($datos['nombre']);
+        	$idea->setId_Categoria($datos['categoria']);
+        	$idea->setFecha_Limite($datos['fecha']);
+        	$idea->setDesc_idea($_POST['descripcion']);
+        	$idea->setEnVenta($datos['enventa']);
+          $idea->setImporte_Solicitado($datos['recaudacion']);
+        	$idea->setImporte_venta($datos['precio']);
+        	//$idea->setCv_Equipo($curr_file);
+        	$idea->setId_Correo($_SESSION['mail']);
+          //$idea->setImagen($image_file);
 
-      	$idea = new Idea;
-      	$idea->setNombre_Idea($datos['nombre']);
-      	$idea->setId_Categoria($datos['categoria']);
-      	$idea->setFecha_Limite($datos['final']);
-      	$idea->setDesc_idea($_POST['descripcion']);
-      	$idea->setEnVenta(isset($_REQUEST['vender']));
-        $idea->setImporte_Solicitado($datos['dinero']);
-      	$idea->setImporte_venta($datos['precio']);
-      	$idea->setCv_Equipo($curr_file);
-      	$idea->setId_Correo($_SESSION['mail']);
-        $idea->setImagen($image_file);
-
-      	try{
-      		$idea->setIdea();
-      	  $idea->closeConnection();
-          $result = "../controllers/ConsultarIdeaController.php?id_idea=".$idea->getId_idea();
-      	}catch(Exception $e){
-      		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
-      		$_SESSION['data_error']=$e->getMessage();
-      		$result = '../errorpage.php';
-      	}
+        	try{
+        		$idea->setIdea();
+        	  $idea->closeConnection();
+            $result = "../views/infoidea.php?id_idea=".$idea->getId_idea();
+        	}catch(Exception $e){
+        		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
+        		$_SESSION['data_error']=$e->getMessage();
+        		$result = '../errorpage.php';
+        	}
+        }
         return $result;
     }
 }

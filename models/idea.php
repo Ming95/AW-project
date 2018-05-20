@@ -165,18 +165,17 @@ class Idea extends EntidadBase {
   	}
 
   public function setIdea(){
-        $query="INSERT INTO idea (nombre_idea,id_categoria,fecha_limite,desc_idea,enVenta,popularidad,id_correo,importe_venta,cv_equipo,imagen,importe_solicitado)
-               VALUES('".$this->getNombre_Idea()."',
+        $query="INSERT INTO idea (nombre_idea, id_categoria, fecha_limite, desc_idea, enVenta, id_correo, importe_venta, cv_equipo, importe_solicitado, imagen)
+                VALUES('".$this->getNombre_Idea()."',
                        '".$this->getId_Categoria()."',
                        '".$this->getFecha_Limite()."',
                        '".$this->getDesc_idea()."',
           					   '".$this->getEnVenta()."',
-          					   '".$this->getPopularidad()."',
           					   '".$this->getId_Correo()."',
           					   '".$this->getImporte_Venta()."',
           					   '".$this->getCv_Equipo()."',
-                       '".$this->getImagen()."',
-							   '".$this->getImporte_solicitado()."');";
+							         '".$this->getImporte_solicitado()."',
+                       '".$this->getImagen()."');";
         if($this->db()->query($query) == false)
 			      throw new Exception('MySQL: Error al realizar la inserción SQL');
           //Consigue el ID de la BBDD
