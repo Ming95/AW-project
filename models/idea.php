@@ -177,12 +177,34 @@ class Idea extends EntidadBase {
 							         '".$this->getImporte_solicitado()."',
                        '".$this->getImagen()."');";
         if($this->db()->query($query) == false)
-			      throw new Exception('MySQL: Error al realizar la inserción SQL');
+			      throw new Exception('MySQL: Error al realizar la inserción SQL. setIdea()');
+
+        $query="UPDATE idea SET enVenta = NULL WHERE idea.enVenta=0";
+        if($this->db()->query($query) == false)
+            throw new Exception('MySQL: Error al realizar la inserción SQL. Update');
+
+        $query="UPDATE idea SET importe_venta = NULL WHERE idea.importe_venta=0";
+        if($this->db()->query($query) == false)
+            throw new Exception('MySQL: Error al realizar la inserción SQL. Update');
+          
           //Consigue el ID de la BBDD
          $query = $this->getBy('nombre_idea', $this->getNombre_Idea());
 
-         $this->id_idea =$query[0]['id_idea'];
+         $this->setId_idea($query[0]['id_idea']);
 	}
+
+  public function setFiles($cv, $img){
+        $query="UPDATE idea SET cv_equipo = '".$cv."' WHERE idea.id_idea='".$this->getId_idea()."'";
+        if($this->db()->query($query) == false)
+            throw new Exception('MySQL: Error al realizar la inserción SQL. setFiles()');
+        $query="UPDATE idea SET imagen = '".$img."' WHERE idea.id_idea='".$this->getId_idea()."'";
+        if($this->db()->query($query) == false)
+            throw new Exception('MySQL: Error al realizar la inserción SQL. setFiles()');
+          //Consigue el ID de la BBDD
+         $query = $this->getBy('nombre_idea', $this->getNombre_Idea());
+
+         $this->setId_idea($query[0]['id_idea']);
+  }
 
 }
 ?>

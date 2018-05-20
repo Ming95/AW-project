@@ -35,7 +35,6 @@
 
 					'<p class="numInfo2">'.$idea->getDiasFin().'</p>'.
 					'<p class="textInfo">días más</p>'
-
 					;?>
 					<input type="submit" class="boton-formulario" value="Patrocinar" onclick = "location='../views/patrocina.php'"/>
 					<?php

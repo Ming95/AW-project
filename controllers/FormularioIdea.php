@@ -110,34 +110,8 @@ EOF;
         if(($datos['nombre']==null) || ($datos['recaudacion']==null) || ($datos['descripcion']==null))
             $result[] = "Lo sentimos, parece haber un problema con los datos enviados.";
 
-        //Comprueba que la imagen sea un archivo de imagen
-        $image_dir = "images/ideas/";
-        $image_file = $image_dir . basename($_FILES["foto"]["name"]);
-        $imageFileType = strtolower(pathinfo($image_file,PATHINFO_EXTENSION));
-
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" )
-            $result[] = "La imagen debe tener extensión: ( .jpg | .png | .jpeg | .gif )";
-
-        //Comprueba que el curriculum sea un pdf
-        $curr_dir = "images/ideas/";
-        $curr_file = $curr_dir . basename($_FILES["archivo"]["name"]);
-        $currFileType = strtolower(pathinfo($curr_file,PATHINFO_EXTENSION));
-
-        if($currFileType != "pdf") $result[] = "El curriculum debe tener extensión .pdf";
-
-        if (!file_exists("../images/ideas/ideaprueba/") && !is_dir("../images/ideas/ideaprueba/"))
-          mkdir("../images/ideas/ideaprueba/", 0777);
-        //Sube la Imagen
-        if (!move_uploaded_file($_FILES["foto"]["tmp_name"], "../images/ideas/ideaprueba/".basename($_FILES["foto"]["name"])))
-            $result[]="Error al subir la imagen";
-
-        //Sube el cv
-        if (!move_uploaded_file($_FILES["archivo"]["tmp_name"], "../images/ideas/ideaprueba/".basename($_FILES["archivo"]["name"])))
-            $result[]="Error al subir el Curriculum";
-
         $datos['categoria'] = array_search($datos['categoria'],$this->categorias)+1;
         $datos['enventa']=(isset($_REQUEST['vender']))?1:'NULL';
-        print_r($datos);
         //Crea objeto idea y atributos
         if(empty($result)){
         	$idea = new Idea;
@@ -148,12 +122,42 @@ EOF;
         	$idea->setEnVenta($datos['enventa']);
           $idea->setImporte_Solicitado($datos['recaudacion']);
         	$idea->setImporte_venta($datos['precio']);
-        	//$idea->setCv_Equipo($curr_file);
         	$idea->setId_Correo($_SESSION['mail']);
-          //$idea->setImagen($image_file);
-
         	try{
         		$idea->setIdea();
+        	}catch(Exception $e){
+        		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
+        		$_SESSION['data_error']=$e->getMessage();
+        		$result = '../errorpage.php';
+        	}
+
+          $newdir = "../images/ideas/idea".$idea->getId_idea()."/";
+          echo $newdir;
+          //Comprueba que la imagen sea un archivo de imagen
+          $image_file = $newdir . basename($_FILES["foto"]["name"]);
+          $imageFileType = strtolower(pathinfo($image_file,PATHINFO_EXTENSION));
+
+          if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" )
+              $result[] = "La imagen debe tener extensión: ( .jpg | .png | .jpeg | .gif )";
+
+          //Comprueba que el curriculum sea un pdf
+          $curr_file = $newdir . basename($_FILES["archivo"]["name"]);
+          $currFileType = strtolower(pathinfo($curr_file,PATHINFO_EXTENSION));
+
+          if($currFileType != "pdf") $result[] = "El curriculum debe tener extensión .pdf";
+
+          if (!file_exists($newdir) && !is_dir($newdir))
+            mkdir($newdir, 0777);
+          //Sube la Imagen
+          if (!move_uploaded_file($_FILES["foto"]["tmp_name"], $image_file))
+              $result[]="Error al subir la imagen";
+
+          //Sube el cv
+          if (!move_uploaded_file($_FILES["archivo"]["tmp_name"], $curr_file))
+              $result[]="Error al subir el Curriculum";
+
+          try{
+        		$idea->setFiles($curr_file,$image_file);
         	  $idea->closeConnection();
             $result = "../views/infoidea.php?id_idea=".$idea->getId_idea();
         	}catch(Exception $e){
