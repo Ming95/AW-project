@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="../css/formulario.css" />
 <?php
 	session_start();
 	if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:/views/login.php");
 ?>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="../css/formulario.css" />
+	<link rel="shortcut icon" href="../images/icon.png" />
 	<meta charset="utf-8">
 	<title>Crear Idea</title>
 </head>

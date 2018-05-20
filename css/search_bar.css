@@ -1,10 +1,10 @@
 
 .field {
-  padding-top: 100px;
   display:flex;
   left: 30px;
   width: 150px;
   margin: 20px;
+  margin-left: 130px;
 }
 
 .field>input[type=text],

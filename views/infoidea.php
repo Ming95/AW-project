@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+<link rel="shortcut icon" href="../images/icon.png" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/idea.css" />
 <link rel="stylesheet" type="text/css" href="../css/formulario.css" />
@@ -10,6 +11,8 @@
 	if(!isset($_GET['id_idea'])) throw new Exception('Idea no disponible');
 	$idea = new Idea();
 	$idea->load($_GET['id_idea']);
+
+	echo '<title>'.$idea->getNombre_Idea().'</title>';
 ?>
 </head>
 <body onload="myfunction1(this)">

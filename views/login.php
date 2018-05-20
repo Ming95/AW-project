@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/formulario.css" />
+	<link rel="shortcut icon" href="../images/icon.png" />
 	<title>Login</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>

@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta chaset="UTF-8">
-    <title>Footer page</title>
     <link rel="stylesheet" type="text/css" href="../css/foot_page.css"/>
 </head>
 
@@ -20,7 +19,7 @@
                     </p>
 
                 </div>
-                
+
                 <!--la caja column2 contiene las redes social a la que tenemos pensado linkear para la siguiente entrega. -->
                 <div class="column2">
                     <h1>Redes sociales</h1>
@@ -34,7 +33,7 @@
                         <img class="footerImg" src="/images/googlep.png"> <label> Siguenos en Google Plus </label>
                     </div>
                 </div>
-                
+
                 <!--la caja column3 contiene las páginas correspondientes sobre la información que puedan interesar a nuestro visitantes. -->
                 <div class="column3">
                     <h1>Atención al cliente</h1>

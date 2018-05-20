@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="shortcut icon" href="../images/icon.png" />
 <link rel="stylesheet" type="text/css" href="../css/styleforms.css"/>
 </head>
 <body>

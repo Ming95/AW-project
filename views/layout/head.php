@@ -11,7 +11,8 @@
     <header id="container">
         <div class="wrapper">
             <!--El logo de la pagina que la pinchar lleva a la pagina principal -->
-            <a class="logo" href="../index.php">SelfIdea</a>
+            <a href="../index.php">
+            <img class="logo" src="../images/selfidea.png" alt="Logotipo Selfidea"></a>
 
             <!--esta caja permite al usuario hacer login, registrarse o cerrar sesion. -->
             <div id="derecha">

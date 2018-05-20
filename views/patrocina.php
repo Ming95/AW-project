@@ -3,6 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
   <?php session_start();?>
+<link rel="shortcut icon" href="../images/icon.png" />
 <link rel="stylesheet" type="text/css" href="../css/styleforms.css"/>
 </head>
 <body>

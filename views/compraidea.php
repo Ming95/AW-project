@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="shortcut icon" href="../images/icon.png" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
 <?php session_start();?>

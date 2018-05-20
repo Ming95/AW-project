@@ -2,7 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>404</title>
-
+    <link rel="shortcut icon" href="../images/icon.png" />
     <link rel="stylesheet" href="../css/style.css" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css' />
 

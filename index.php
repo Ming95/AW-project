@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/top_ideas.css" />
     <!--Hoja de estilos para mostra los 3 eventos mas proximos -->
 	<link rel="stylesheet" type="text/css" href="./css/top_events.css" />
-
+	<link rel="shortcut icon" href="../images/icon.png" />
 	<meta charset="utf-8">
 	<title>SelfIdea</title>
 	<?php
@@ -64,7 +64,7 @@ entrega-->
 					?>
 			</ul>
 		</div>
-		<h1 id="title">SelfIdea</h1>
+		<img id="title" src="./images/selfidea.png" alt="Logotipo Selfidea">
 
         <!--La siguiente parte corresponde al boton de crear ideas -->
 		<div class="field" id="searchform">
