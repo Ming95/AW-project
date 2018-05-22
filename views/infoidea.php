@@ -7,15 +7,28 @@
 <script type="text/javascript" src="../js/utilidea.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
-	require "../models/idea.php";
-	require '../models/rating.php';
-	session_start();
-	if(!isset($_GET['id_idea'])) throw new Exception('Idea no disponible');
-	$idea = new Idea();
-	$idea->load($_GET['id_idea']);
 
-	$rat = new Rating();
-	$liked = isset($_SESSION['mail']) ? $rat->isLiked($_GET['id_idea'], $_SESSION['mail']) : false;
+
+	require_once "../models/idea.php";
+	require_once '../models/rating.php';
+	require_once '../models/UsuarioComentarioIdea.php';
+	session_start();
+	try{
+		$usuarioComentarioIdea = new UsuarioComentarioIdea();
+		$comentarios= $usuarioComentarioIdea->getAllFilteredAndOrderDESC("fecha_creacion","id_idea",$_GET['id_idea']);
+		$usuarioComentarioIdea->closeConnection();
+
+		$idea = new Idea();
+		$idea->load($_GET['id_idea']);
+
+		$rat = new Rating();
+		$liked = isset($_SESSION['mail']) ? $rat->isLiked($_GET['id_idea'], $_SESSION['mail']) : false;
+
+	}catch(Exception $e){
+		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
+		$_SESSION['data_error']=$e->getMessage();
+		header("Location:'../errorpage.php'");
+	}
 
 	echo '<title>'.$idea->getNombre_Idea().'</title>';
 ?>
@@ -65,7 +78,7 @@
 	<div id="panel">
 			<ul class="lista">
 				<li><a class="active"  id="lista1" href="#Descripcion" onclick="myfunction1(this)" >Descripción</a></li>
-				<li><a class="nactive" id="lista2"  href="#Comentario" onclick="location='../controllers/ComentarioController.php?id_idea=<?php echo $idea->getId_idea();?>&opcion=2'">Comentario</a></li>
+				<li><a class="nactive" id="lista2"  href="#Comentario" onclick="myfunction2(this)">Comentario</a></li>
 				<li><a class="nactive" id="lista3"  href="#Equipo" onclick="myfunction3(this)">Equipo</a></li>
 			</ul>
 
@@ -75,18 +88,14 @@
 		<!--		Comentarios			-->
 		<div id="datos2">
 			<div class="row">
-				<label class="texto"> Introduzca los comentarios:</label>
+				<div id= "div1"></div>
 			</div>
 			<div class="row">
-				<textarea class="textarea2" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+				<textarea class="input-text" id="subject" name="subject" placeholder="Escribe un comentario..." style="height:200px"></textarea>
 			</div>
 			<div class="row">
-			  <!--input type="submit" id= "button" class="button" value="Publicar" onclick="location='../controllers/ComentarioController.php?id_idea=<?php echo $_SESSION['data']['dato_idea'][0]['id_idea'];?>&opcion=1&comentario=obtenerComentario()'"/!-->
-			   <input type="submit" id= "button" class="button" value="Publicar" onclick="obtenerComentario(<?php echo $idea->getId_idea();?>)"/>
-			</div>
-			<div class="row">
-				<div id= "div1">
-				</div>
+			   <input type="submit" id= "button" class="boton-formulario" value="Publicar" onclick="obtenerComentario(<?php echo $idea->getId_idea();?>)"/>
+				 <input type="submit" class="boton-formulario2" value="Reportar incidencia" onclick = "location='../views/reportaincidencia.php'"/>
 			</div>
 		</div>
 		<!--		Curriculum			-->
@@ -99,7 +108,6 @@
 		myfunction2('<?php echo json_encode($comentarios)?>');
 	</script>
 
-		<input type="submit" class="boton-formulario2" value="Reportar incidencia" onclick = "location='../views/reportaincidencia.php'"/>
 	</div><!--panel-->
 </div><!--idea-->
 <?php include 'layout/foot_page.php';?>

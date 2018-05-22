@@ -29,12 +29,12 @@
 
 			var elemento3 = document.getElementById("datos3");
 			elemento3.style.display = 'none';
-	
+
 			document.getElementById("lista2").className = 'nactive';
 			document.getElementById("lista1").className = 'active';
 			document.getElementById("lista3").className = 'nactive';
 		}
-		
+
 		function insertaComentario(){
 			var parent = document.getElementById("div1");
 			var para = document.createElement("p");
@@ -45,22 +45,31 @@
 			var linea = document.createElement("hr");
 			parent.appendChild(linea);
 		}
-		
+
 		function leerComentario(){
 			var texto = document.getElementById("subject").value;
 			return texto;
 		}
-		
+
 		function mostrarComentarios(comentarios){
-			var types = JSON.parse(comentarios);
-			var parent = document.getElementById("div1");
+				var types = JSON.parse(comentarios);
+				var parent = document.getElementById("div1");
 			for (paso = 0; paso < types.length; paso++) {
+				if(paso == 0){
+					var linea = document.createElement("hr");
+					parent.appendChild(linea);
+				}
+				var para2 = document.createElement("p");
+				var texto2= types[paso].id_correo;
+				var node2 = document.createTextNode(texto2);
+				para2.appendChild(node2);
+				parent.appendChild(para2);
 				var para = document.createElement("p");
 				var texto= types[paso].fecha_creacion;
 				var node = document.createTextNode(texto);
 				para.appendChild(node);
 				parent.appendChild(para);
-				var para1 = document.createElement("p1");
+				var para1 = document.createElement("p");
 				var texto1= types[paso].comentario;
 				var node1 = document.createTextNode(texto1);
 				para1.appendChild(node1);
@@ -69,11 +78,10 @@
 				parent.appendChild(linea);
 			}
 		}
-		
-		function myf2(){
+
+		function myfunction2(coment){
 			var elemento1 = document.getElementById("datos1");
 			elemento1.style.display = 'none';
-
 			var elemento2 = document.getElementById("datos2");
 			elemento2.style.display = 'block';
 			var elemento3 = document.getElementById("datos3");
@@ -81,14 +89,11 @@
 			document.getElementById("lista2").className = 'active';
 			document.getElementById("lista1").className = 'nactive';
 			document.getElementById("lista3").className = 'nactive';
-		}
-			
-		function myfunction2(coment){
+
 			mostrarComentarios(coment);
-			myf2();
 		}
 
-		
+
 		function myfunction3(e){
 			var elemento1 = document.getElementById("datos1");
 			elemento1.style.display = 'none';
@@ -101,7 +106,7 @@
 			document.getElementById("lista1").className = 'nactive';
 			document.getElementById("lista3").className = 'active';
 		}
-		
+
 		function visible(elemento,esVisible) {
 			var elemento = document.getElementById(elemento);
 			if (!esVisible){
@@ -110,16 +115,16 @@
 				elemento.style.display = 'block';
 			}
 		}
-		
-	
+
+
  		function volver() {
 			window.history.back(-1);
 		}
-		
+
 		function cargarFecha(){
 			alert('hola');
 		}
-		 
+
 		function obtenerComentario(id_idea){
 			//location='../controllers/ComentarioController.php?id_idea=<?php echo $_SESSION['data']['dato_idea'][0]['id_idea'];?>&opcion=1&comentario=obtenerComentario()'"/>
 			window.location.href = '../controllers/ComentarioController.php?id_idea='+id_idea+'&opcion='+1+'&comentario='+leerComentario();
