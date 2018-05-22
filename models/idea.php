@@ -163,7 +163,8 @@ class Idea extends EntidadBase {
       $this->loadRecaudado();
       $this->loadPopularidad();
   	}
-
+    
+    //Inserta los datos en la db
   public function setIdea(){
         $query="INSERT INTO idea (nombre_idea, id_categoria, fecha_limite, desc_idea, enVenta, id_correo, importe_venta, cv_equipo, importe_solicitado, imagen)
                 VALUES('".$this->getNombre_Idea()."',
@@ -186,7 +187,7 @@ class Idea extends EntidadBase {
         $query="UPDATE idea SET importe_venta = NULL WHERE idea.importe_venta=0";
         if($this->db()->query($query) == false)
             throw new Exception('MySQL: Error al realizar la inserción SQL. Update');
-          
+
           //Consigue el ID de la BBDD
          $query = $this->getBy('nombre_idea', $this->getNombre_Idea());
 

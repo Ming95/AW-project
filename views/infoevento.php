@@ -1,73 +1,82 @@
+<!DOCTYPE html>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/evento.css" />
 <link rel="stylesheet" type="text/css" href="../css/styleforms.css" />
 <link rel="shortcut icon" href="../images/icon.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script>
-	function cambiarboton(){
-    var i=document.getElementById("boton").value = "suscrito";
+<?php
+	require "../models/evento.php";
+	require '../models/eventslist.php';
 
-}
-</script>
-<?php include 'layout/head.php'?>
+	if(!isset($_GET['id_evento'])) throw new Exception('Evento no disponible');
+	$evento = new Evento();
+	$evento->load($_GET['id_evento']);
+
+	echo '<title>'.$evento->getNombre().'</title>';
+?>
+</head>
+<body>
+<?php
+	include '../views/layout/head.php';
+	?>
 
 <div class="contenido">
 
 	<div class="evento">
 		<div class="imagen">
-		<?php $imagen = $_SESSION['data1']['dato_evento'][0]['imagen'];
+		<?php $imagen = $evento->getImagen();
 			  echo'<img src= "'.$imagen.'" alt="evento 2" style="width:100%">'?>
 		</div>
        <h1>
-            <?php echo  $_SESSION['data1']['dato_evento'][0]['nombre'];?>
+            <?php echo  $evento->getNombre();?>
         </h1>
 		<div class="descripcion" id="datos1"
 
 			<p>
-                <?php echo $_SESSION['data1']['dato_evento'][0]['desc_evento'];?>
+                <?php echo $evento->getDescripcion();?>
 			</p>
 		</div>
 	<input type="button"  class="button" value="Suscribete" id="boton" onclick="cambiarboton()">
 </div>
+<!-- LATERAL -->
+<div class="lateral">
+	<h2>Eventos relacionados</h2>
+<?php
+	$lista = new EventsList();
+	$lista->rectentEvents();
+	$eventos = $lista->getList();
+	$numEventos = count($eventos);
+	$tope = min(3,$numEventos);
 
-	<div class="lateral">
-	  <h2>Eventos relacionados</h2>
-		<div class="evento1">
-			<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][0]['id'];?>" target="_blank">
-			  <?php $imagen1 = $_SESSION['data1']['mas_eventos'][0]['imagen'];
-			  echo'<img src= "'.$imagen1.'" alt="evento 1" style="width:100%">'?>
-			  <div class="caption">
-				<p><a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][0]['id'];?>"><?php echo $_SESSION['data1']['mas_eventos'][0]['nombre'];?>
-			  </a></p>
-			  </div>
-			</a>
-		</div>
-		<br>
-		<div class="evento1">
-			<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][1]['id'];?>" target="_blank">
-			  <?php $imagen2 = $_SESSION['data1']['mas_eventos'][1]['imagen'];
-			  echo'<img src= "'.$imagen2.'" alt="evento 2" style="width:100%">'?>
-			  <div class="caption">
-				<p><a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][1]['id'];?>"><?php echo $_SESSION['data1']['mas_eventos'][1]['nombre'];?>
-			  </a></p>
-			  </div>
-			</a>
-		</div>
-		<br>
-		<div class="evento1">
-			<a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][2]['id'];?>" target="_blank">
-			  <?php $imagen3 = $_SESSION['data1']['mas_eventos'][2]['imagen'];
-			  echo'<img src= "'.$imagen3.'" alt="evento 3" style="width:100%">'?>
-			  <div class="caption">
-				<p><a href="../controllers/ConsultarEventoController.php?id_evento=<?php echo $_SESSION['data1']['mas_eventos'][2]['id'];?>"><?php echo $_SESSION['data1']['mas_eventos'][2]['nombre'];?>
-			  </a></p>
-			  </div>
-			</a>
-		</div>
-	  <p class="texto3"><a href="../views/MasEventos.php">Ver mas</a></p>
-	</div>
+	$i = 0;
+	while($i <$tope){
+		$id = $eventos[$i]["id"];
+		$imagen = $eventos[$i]['imagen'];
+		$nombre = $eventos[$i]['nombre'];
+		$i++;
+		echo '<div class="evento1">';
+		echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
+		echo '<img src= "'.$imagen.'" alt="evento 1" style="width:100%">';
+		echo '<div class="caption">';
+		echo '<p><a href="../views/infoevento.php?id_evento='.$id.'">'.$nombre.'</a></p></div></a></div>';
+
+	}
+
+
+?>
+<p class="texto3"><a href="../views/masEventos.php">Ver mas</a></p>
+</div><!-- LATERAL -->
 
 <div class="pie">
+</div>
+</div>
+
 	<?php include 'layout/foot_page.php';?>
-</div>
-</div>
+<script>
+	function cambiarboton(){
+    var i=document.getElementById("boton").value = "Suscrito!";
+
+}
+</script>
+</body>

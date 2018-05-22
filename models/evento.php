@@ -66,6 +66,22 @@ class Evento extends EntidadBase {
     $this->max_asistentes = $max_asistentes;
   }
 
+  //Carga los campos desde db
+  public function load($id){
+      $req=$this->db()->query("SELECT *  FROM evento
+                              WHERE evento.id = '".$id."'");
+      if($req==false)
+        throw new Exception('MySQL: Error al realizar la consulta SQL');
+      $filas = $this->showData($req);
+
+      $this->setId($filas[0]['id']);
+      $this->setNombre($filas[0]['nombre']);
+      $this->setFecha($filas[0]['fecha']);
+      $this->setDescripcion($filas[0]['desc_evento']);
+      $this->setNum_asistentes($filas[0]['num_usuarios']);
+      $this->setMax_asistentes($filas[0]['max_usuarios']);
+      $this->setImagen($filas[0]['imagen']);
+    }
 
   public function setEvento(){
         $query="INSERT INTO evento (id,nombre,fecha,imagen,desc_evento,num_usuarios,max_usuarios)

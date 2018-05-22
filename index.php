@@ -53,7 +53,7 @@ entrega-->
 				//crea categorias
 					$i =0;
 					while(isset($categorias[$i])){
-						echo '<li><a href="/views/category.php?cat=';
+						echo '<li><a href="/views/masIdeas.php?cat=';
 						echo $categorias[$i];
 						echo '">';
 						echo $categorias[$i];
@@ -81,7 +81,8 @@ entrega-->
 		<h2>Top ideas</h2>
 		<?php
 		$lista = new IdeasList();
-		$lista->topRated(3);
+		$lista->topRated();
+		$lista->showNList(3);
 		?>
 	</div>
 
@@ -91,7 +92,8 @@ entrega-->
 		<h2>Top eventos</h2>
 		<?php
 		$lista2 = new EventsList();
-		$lista2->rectentEvents(3);
+		$lista2->rectentEvents();
+		$lista2->showNList(3);
 		?>
 	</div>
 
