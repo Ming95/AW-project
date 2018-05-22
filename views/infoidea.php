@@ -58,18 +58,19 @@
 					<?php
 					if($idea->getEnVenta())
 							echo '<input type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php\'"/>';
-					if($liked){
-				    echo '<form action="../controllers/dislike.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'" method="post">';
-				    echo '<button class="boton-formulario"><i class="fa fa-thumbs-up"></i></button>';
-				    echo '</form>';
-				  }
-				  else{
-				    echo isset($_SESSION['mail'])?
-				    '<form action="../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'" method="post">':
-				    '<form action="../views/login.php" method="post">';
-				    echo '<button class="boton-formulario2"><i class="fa fa-thumbs-up"></i></button>';
-				    echo '</form><br><br>';
-				  }
+
+			    if(!isset($_SESSION['mail']))
+						echo '<button class="boton-formulario"
+						onclick="location.href=\'../views/login.php\'">
+						<i class="fa fa-thumbs-up"></i></button>';
+					else if($liked)
+						echo '<button class="boton-formulario"
+						onclick="location.href=\'../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'&liked='.$liked.'\'">
+						<i class="fa fa-thumbs-up"></i></button>';
+					else
+						echo '<button class="boton-formulario2"
+						onclick="location.href=\'../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'&liked='.$liked.'\'">
+						<i class="fa fa-thumbs-up"></i></button>';
 					?>
 
 				</div><!--lateral-->

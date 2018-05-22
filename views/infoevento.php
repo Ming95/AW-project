@@ -8,10 +8,15 @@
 <?php
 	require "../models/evento.php";
 	require '../models/eventslist.php';
+	require '../models/subscriptions.php';
+	session_start();
 
 	if(!isset($_GET['id_evento'])) throw new Exception('Evento no disponible');
 	$evento = new Evento();
 	$evento->load($_GET['id_evento']);
+
+	$sub = new Subscription();
+	$subscribed = isset($_SESSION['mail']) ? $sub->isSub($_GET['id_evento'], $_SESSION['mail']) : 0;
 
 	echo '<title>'.$evento->getNombre().'</title>';
 ?>
@@ -37,7 +42,17 @@
                 <?php echo $evento->getDescripcion();?>
 			</p>
 		</div>
-	<input type="button"  class="button" value="Suscribete" id="boton" onclick="cambiarboton()">
+		<?php
+			if(!isset($_SESSION['mail']))
+				echo '<input type="button"  class="button" value="Suscribete" id="boton"
+				onclick="location.href=\'../views/login.php\'">';
+			else if($subscribed)
+						echo '<input type="button"  class="button" value="Suscrito!" id="boton"
+						onclick="location.href=\'../controllers/suscribe.php?id='.$evento->getId().'&mail='.$_SESSION['mail'].'&sub='.$subscribed.'\'">';
+			else echo '<input type="button"  class="button" value="Suscribete" id="boton"
+				onclick="location.href=\'../controllers/suscribe.php?id='.$evento->getId().'&mail='.$_SESSION['mail'].'&sub='.$subscribed.'\'">';
+			?>
+
 </div>
 <!-- LATERAL -->
 <div class="lateral">
@@ -76,7 +91,6 @@
 <script>
 	function cambiarboton(){
     var i=document.getElementById("boton").value = "Suscrito!";
-
-}
+	}
 </script>
 </body>
