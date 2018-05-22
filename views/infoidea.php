@@ -8,9 +8,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
 	require "../models/idea.php";
+	require '../models/rating.php';
+	session_start();
 	if(!isset($_GET['id_idea'])) throw new Exception('Idea no disponible');
 	$idea = new Idea();
 	$idea->load($_GET['id_idea']);
+
+	$rat = new Rating();
+	$liked = isset($_SESSION['mail']) ? $rat->isLiked($_GET['id_idea'], $_SESSION['mail']) : false;
 
 	echo '<title>'.$idea->getNombre_Idea().'</title>';
 ?>
@@ -40,8 +45,20 @@
 					<?php
 					if($idea->getEnVenta())
 							echo '<input type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php\'"/>';
+					if($liked){
+				    echo '<form action="../controllers/dislike.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'" method="post">';
+				    echo '<button class="boton-formulario"><i class="fa fa-thumbs-up"></i></button>';
+				    echo '</form>';
+				  }
+				  else{
+				    echo isset($_SESSION['mail'])?
+				    '<form action="../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'" method="post">':
+				    '<form action="../views/login.php" method="post">';
+				    echo '<button class="boton-formulario2"><i class="fa fa-thumbs-up"></i></button>';
+				    echo '</form><br><br>';
+				  }
 					?>
-					<button class="boton-formulario2"><i class="fa fa-thumbs-up"></i></button>
+
 				</div><!--lateral-->
 			</div><!--acciones-->
 			<!--		Descripcion			-->
