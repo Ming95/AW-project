@@ -18,6 +18,7 @@
             <h1>Oops!</h1>
             <?php
                 session_start();
+                if(isset($_SESSION['data_error']))
                 echo '<label class="texto2">'.$_SESSION['data_error'].'</label>';
             ?>
         </div>

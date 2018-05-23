@@ -9,8 +9,8 @@
 
 <body>
 	<?php
-			include 'layout/head.php';
-			include '../controllers/FormularioRegistro.php';
+			include './layout/head.php';
+			require '../controllers/FormularioRegistro.php';
 
 			$form = new FormularioRegistro();
 			$form->gestiona();

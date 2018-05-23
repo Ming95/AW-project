@@ -60,7 +60,7 @@
 							echo '<input type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php\'"/>';
 
 			    if(!isset($_SESSION['mail']))
-						echo '<button class="boton-formulario"
+						echo '<button class="boton-formulario2"
 						onclick="location.href=\'../views/login.php\'">
 						<i class="fa fa-thumbs-up"></i></button>';
 					else if($liked)
