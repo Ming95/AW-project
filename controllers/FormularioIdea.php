@@ -112,13 +112,14 @@ EOF;
 
         $datos['categoria'] = array_search($datos['categoria'],$this->categorias)+1;
         $datos['enventa']=(isset($_REQUEST['vender']))?1:'NULL';
+        $desc = nl2br(htmlentities($datos['descripcion'], ENT_QUOTES, 'UTF-8'));
         //Crea objeto idea y atributos
         if(empty($result)){
         	$idea = new Idea;
         	$idea->setNombre_Idea($datos['nombre']);
         	$idea->setId_Categoria($datos['categoria']);
         	$idea->setFecha_Limite($datos['fecha']);
-        	$idea->setDesc_idea($_POST['descripcion']);
+        	$idea->setDesc_idea($desc);
         	$idea->setEnVenta($datos['enventa']);
           $idea->setImporte_Solicitado($datos['recaudacion']);
         	$idea->setImporte_venta($datos['precio']);
@@ -132,7 +133,6 @@ EOF;
         	}
 
           $newdir = "../images/ideas/idea".$idea->getId_idea()."/";
-          echo $newdir;
           //Comprueba que la imagen sea un archivo de imagen
           $image_file = $newdir . basename($_FILES["foto"]["name"]);
           $imageFileType = strtolower(pathinfo($image_file,PATHINFO_EXTENSION));

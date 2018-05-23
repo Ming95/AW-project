@@ -126,14 +126,14 @@ class Idea extends EntidadBase {
                             FROM idea JOIN usuario_importe_idea on (idea.id_idea = usuario_importe_idea.id_idea)
                             WHERE idea.id_idea = ".$this->getId_idea()." GROUP BY idea.id_idea");
     if($req==false)
-      throw new Exception('MySQL: Error al realizar la consulta SQL');
+      throw new Exception('MySQL: Error al cargar la recaudación');
     $filas = $this->showData($req);
     $this->setRecaudado((!count($filas))?0:$filas[0]['recaudado']);
   }
   private function loadPopularidad(){
     $req=$this->db()->query("SELECT COUNT(*) AS pop FROM likes WHERE likes.id_idea = ".$this->getId_idea()."");
     if($req==false)
-      throw new Exception('MySQL: Error al realizar la consulta SQL');
+      throw new Exception('MySQL: Error al cargar la popularidad');
     $filas = $this->showData($req);
     $this->setPopularidad((!count($filas))?0:$filas[0]['pop']);
   }
@@ -144,7 +144,7 @@ class Idea extends EntidadBase {
                               on (idea.id_categoria=categorias.id_categoria)
                               WHERE idea.id_idea = ".$id." GROUP BY idea.id_idea");
       if($req==false)
-        throw new Exception('MySQL: Error al realizar la consulta SQL');
+        throw new Exception('MySQL: Error al cargar la idea');
       $filas = $this->showData($req);
 
       $this->setId_idea($filas[0]['id_idea']);
@@ -163,7 +163,7 @@ class Idea extends EntidadBase {
       $this->loadRecaudado();
       $this->loadPopularidad();
   	}
-    
+
     //Inserta los datos en la db
   public function setIdea(){
         $query="INSERT INTO idea (nombre_idea, id_categoria, fecha_limite, desc_idea, enVenta, id_correo, importe_venta, cv_equipo, importe_solicitado, imagen)
