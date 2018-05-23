@@ -10,8 +10,7 @@
 
 	include './layout/head.php';
 	require '../models/ideaslist.php';
-
-	if(!isset($_GET['cat']));
+	require '../models/categorias.php';
 
 	$cat = $_GET['cat'];
 
@@ -19,7 +18,10 @@
 	$lista->categoria($cat);
 	$ideas = $lista->getList();
 	$numIdeas = count($ideas);
-	echo '<title>'.$cat.'</title>';
+
+	$categorias = new Categorias();
+
+	echo '<title>'.$categorias->getValue($cat).'</title>';
 	echo '</head><body><div class="contenido">';
 
 	$tope = min(3,$numIdeas);

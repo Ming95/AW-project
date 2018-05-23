@@ -54,7 +54,7 @@ entrega-->
 					$i =0;
 					while(isset($categorias[$i])){
 						echo '<li><a href="/views/masIdeas.php?cat=';
-						echo $categorias[$i];
+						echo $i+1;
 						echo '">';
 						echo $categorias[$i];
 						echo '</a></li>';

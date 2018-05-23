@@ -32,7 +32,7 @@ class IdeasList extends EntidadBase {
   public function categoria($cat){
     $req=$this->db()->query("SELECT * FROM idea JOIN categorias
                             on(idea.id_categoria = categorias.id_categoria)
-                            WHERE categorias.valor = '".$cat."'");
+                            WHERE idea.id_categoria = '".$cat."'");
     if($req==false)
       throw new Exception('MySQL: Error al realizar la consulta SQL: no se han podido mostrar las categorias');
     $this->list = $this->showData($req);
