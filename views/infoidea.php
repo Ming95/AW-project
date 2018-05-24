@@ -96,7 +96,8 @@
 			</div>
 			<div class="row">
 			   <input type="submit" id= "button" class="boton-formulario" value="Publicar" onclick="obtenerComentario(<?php echo $idea->getId_idea();?>)"/>
-				 <input type="submit" class="boton-formulario2" value="Reportar incidencia" onclick = "location='../views/reportaincidencia.php'"/>
+				<?php echo '<input type="submit" class="boton-formulario2" value="Reportar incidencia" onclick = "location=\'../views/reportaincidencia.php?id_idea='.$idea->getId_idea().'\'"/>'
+                ?>
 			</div>
 		</div>
 		<!--		Curriculum			-->
