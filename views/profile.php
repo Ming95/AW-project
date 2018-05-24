@@ -1,22 +1,68 @@
 <!DOCTYPE html>
 <?php
 	session_start();
-	if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:/views/login.php");
+	if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:./login.php");
 ?>
 <head>
   <meta charset="utf-8">
 	<link rel="shortcut icon" href="../images/icon.png" />
   <link rel="stylesheet" type="text/css" href="../css/formulario.css" />
   <link rel="stylesheet" type="text/css" href="../css/profile.css" />
+
   <title>Mi perfil</title>
 </head>
 <body>
-<?php include './layout/head.php'; ?>
+<?php
+		include './layout/head.php';
+		require '../models/usuario.php';
+		require '../models/ideaslist.php';
+
+		$user = new Usuario();
+		$user->load($_SESSION['mail']);
+		$misideas = new IdeasList();
+		$misideas->perfil($user->getIdCorreo());
+		$aportaciones = $user->aportaciones();
+		$eventos = $user->eventos();
+/*
+		echo $user->getNombre();
+		echo $user->getPassword();
+		echo $user->isAdmin();
+		echo $user->getIdCorreo();
+*/
+		/*
+		cambiar nombre de usuario
+		$user->cambiarNombre("Nuevo Nombre");
+		*/
+		/*
+		cambiar la contraseña del usuario
+		if(!$user->cambiarPass(SHA1("Nueva pass")))
+				echo "<p class='error'>error, las contraseñas coinciden</p>";
+		*/
+		/*
+		Mostrar las ideas del usuario: Se puede hacer a mano llamando a:
+		$misideas->getList(); que retorna el array con los datos, o:
+		$misideas->showNList(0); que imprime directamente las ideas:
+ 			Se puede crear una nueva hoja css para mostrar la lista o usar:
+			<link rel="stylesheet" type="text/css" href="../css/top_events.css" />
+
+		*/
+
+		/*
+		array de ideas a las que el usuario a aportado
+		print_r($aportaciones);
+		*/
+
+		/*
+		array de eventos a los que el usuario asistira
+		print_r($eventos);
+		*/
+
+
+?>
 <h1 class="error">WORK IN PROGRESS</h1>
   <!--Datos de usuario-->
 <div class="lista-perfil">
     <form action="cambiarnombre.php" class="formulario">
-        <img src="/images/user_icon.png"  alt="Profile image style="width=100; height=100; id="profileimage">
         <div class="campos-formulario">
           <h4>Nombre completo:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>
           <h4>Email:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>

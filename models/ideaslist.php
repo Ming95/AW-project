@@ -39,12 +39,12 @@ class IdeasList extends EntidadBase {
   }
   //Muestra las ideas de un determinado usuario
   public function perfil($mail){
-  /*  $req=$this->db()->query("SELECT * FROM post JOIN categories on(post.id_category = categories.id_category)
-                                JOIN user on(user.mail = post.mail) WHERE post.mail= '".$mail."'");
+    $req=$this->db()->query("SELECT * FROM idea JOIN categorias
+                            on(idea.id_categoria = categorias.id_categoria)
+                            WHERE idea.id_correo = '".$mail."'");
     if($req==false)
-      throw new Exception('MySQL: Error al realizar la consulta SQL');
-    $filas = $this->showData($req);
-    $this->showAllList($filas);*/
+      throw new Exception('MySQL: Error al realizar la consulta SQL: no se han podido mostrar las ideas del usuario');
+    $this->list = $this->showData($req);
   }
 
   //Muestra todas las ideas pasadas por parametro

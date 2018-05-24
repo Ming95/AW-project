@@ -19,7 +19,6 @@ class UsuarioImporteIdea extends EntidadBase {
 	public function setId_idea($id_idea) {
 		$this->id_idea = $id_idea;
 	}
-
 	public function getId_correo() {
 		return $this->id_correo;
 	}
@@ -40,7 +39,7 @@ class UsuarioImporteIdea extends EntidadBase {
           			  '".$this->getImporte_aportado()."');";
          if($this->db()->query($query) == false)
 			throw new Exception('MySQL: Error al realizar la inserción SQL');
-	}
+	   }
   }
 
 ?>
