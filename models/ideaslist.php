@@ -46,15 +46,32 @@ class IdeasList extends EntidadBase {
       throw new Exception('MySQL: Error al realizar la consulta SQL: no se han podido mostrar las ideas del usuario');
     $this->list = $this->showData($req);
   }
+  //consulta ideas relacionadas
+  public function ideasRelacionadas($id, $cat){
+    $req=$this->db()->query("SELECT * FROM idea WHERE
+                              idea.id_categoria = '".$cat."' AND idea.id_idea != '".$id."'
+                              ORDER BY idea.fecha_limite ASC");
+    if($req==false)
+      throw new Exception('MySQL: Error al consultar topIdeas por categoria');
+    $filas = $this->showData($req);
+    if(count($filas)) $this->list = $filas;
+    else {
+      $req=$this->db()->query("SELECT * FROM idea WHERE
+                                idea.id_idea != '".$id."'
+                                ORDER BY idea.fecha_limite ASC");
+      if($req==false)
+        throw new Exception('MySQL: Error al consultar topIdeas por fecha');
+      $this->list = $this->showData($req);
+    }
+  }
 
   //Muestra todas las ideas pasadas por parametro
   public function showNList($num){
     if(!isset($this->list)) $this->rectentEvents();
     $posts=count($this->list);
-    $height=600+(floor(($posts-1)/3))*450;
-    if(!$posts)$height=580;
     $top = ($num == 0) ? $posts : min($num, $posts);
-    echo '<div id=topentradas style="height:'.$height.'px">';
+
+    echo '<div id=topentradas>';
     echo '<ul>';
           $i =0;
           while($i<$top){
@@ -67,7 +84,6 @@ class IdeasList extends EntidadBase {
             echo '<img class ="previewImg" src= "'.$imagen.'">';
             echo '<p class= "description">'.$nombre.'</p></a></div>';
             $i++;
-
           }
     echo '</ul></div>';
   }
