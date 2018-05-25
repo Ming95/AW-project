@@ -11,15 +11,16 @@
 
 	require_once "../models/idea.php";
 	require_once '../models/rating.php';
-	require_once '../models/UsuarioComentarioIdea.php';
+	require_once '../models/comentario.php';
 	session_start();
 	try{
-		$usuarioComentarioIdea = new UsuarioComentarioIdea();
-		$comentarios= $usuarioComentarioIdea->getAllFilteredAndOrderDESC("fecha_creacion","id_idea",$_GET['id_idea']);
-		$usuarioComentarioIdea->closeConnection();
+
 
 		$idea = new Idea();
 		$idea->load($_GET['id_idea']);
+
+		$comentario = new Comentario();
+		$comentarios= $comentario->getLista($idea->getId_idea());
 
 		$rat = new Rating();
 		$liked = isset($_SESSION['mail']) ? $rat->isLiked($_GET['id_idea'], $_SESSION['mail']) : false;
@@ -91,14 +92,11 @@
 			<div class="row">
 				<div id= "div1"></div>
 			</div>
-			<div class="row">
-				<textarea class="input-text" id="subject" name="subject" placeholder="Escribe un comentario..." style="height:200px"></textarea>
-			</div>
-			<div class="row">
-			   <input type="submit" id= "button" class="boton-formulario" value="Publicar" onclick="obtenerComentario(<?php echo $idea->getId_idea();?>)"/>
-				<?php echo '<input type="submit" class="boton-formulario2" value="Reportar incidencia" onclick = "location=\'../views/reportaincidencia.php?id_idea='.$idea->getId_idea().'\'"/>'
-                ?>
-			</div>
+			<form method="post" action="../controllers/comenta.php?id=<?php echo $idea->getId_idea();?>" style="display: inline;">
+				<textarea class="input-text" name="comment" placeholder="Escribe un comentario..." style="height:200px"></textarea></br>
+		   	<input type="submit" id= "button" class="boton-formulario" value="Publicar"/>
+				</form>
+				<button class="boton-formulario2" onclick = "window.location.href='../views/reportaincidencia.php?id_idea=<?php echo $idea->getId_idea();?>'">Reportar incidencia</button>
 		</div>
 		<!--		Curriculum			-->
 		<div id="datos3" >
