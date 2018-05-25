@@ -3,9 +3,15 @@ body {
 	font-family: sans-serif;
 	background-color: #f7f7f7;
 }
+#todo{
+	margin-left: 3%;
+	margin-right: auto;
+}
 #idea{
-	margin-left: 200px;
-	margin-right: 200px;
+	border-radius: 2px;
+	box-shadow: 0px 0px 11px -3px rgba(0,0,0,0.39);
+	float: left;
+	min-width: 1182px;
 	margin-bottom: 25px;
 	padding-bottom: 20px;
 	background-color: #fff;
@@ -23,37 +29,99 @@ Cabecera
 }
 #cabecera{
 	padding-top: 50px;
-	margin-left: 250px;
+	margin-left: 90px;
+	margin-bottom: 30px;
 }
 /*
 Acciones
 */
 #acciones-idea{
-	float: none;
-	margin-left: 200px;
+	margin-left: 70px;
 }
-
+#bsecun{
+	margin-top: 30px;
+}
 #main-img{
-	max-width: 700px;
 	float: left;
+	max-width: 700px;
+	max-height: 700px;
 }
-
+#buy{
+	margin-left: 20px;
+	width: 200px;
+}
+#patrocinar{
+	margin-top: 10px;
+	width:300px;
+}
+#like{
+	margin-right: 0;
+}
 #lateral{
-	padding-top: 80px;
-	margin-left: 725px;
+	margin-left: 40px;
+	float: left;
+	padding-top: 30px;
 }
 .numInfo{
+	margin-bottom: 5px;
 	color: #f50;
-	font-size: 30px;
-	margin-bottom: 0;
+	font-size: 25px;
 
 }
 .numInfo2{
-	font-size: 30px;
-	margin-bottom: 0;
+	margin-bottom: 5px;
+	font-size: 25px;
 }
 .textInfo{
+	margin-bottom: 25px;
 	color: #555;
+}
+/*
+relacionadas
+*/
+#relacionadas{
+	border-radius: 2px;
+	box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+	margin-left: 4%;
+	float: left;
+	background-color: white;
+	min-width: 320px;
+	height: 450px;
+	margin-bottom: 20px;
+}
+.previewImg{
+	width: 320px;
+}
+.namerel{
+	max-height: 24px;
+	overflow: hidden;
+	text-decoration: none;
+	color: black;
+	margin-left: 20px;
+	font-size: 21px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.catrel{
+	margin-top: 0px;
+	text-decoration: none;
+	color: #555;
+	margin-left: 20px;
+	font-size: 14px;
+	max-width: 280px;
+	max-height: 45px;
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+.descrel{
+	text-decoration: none;
+	color: black;
+	margin-left: 20px;
+	font-size: 14px;
+	max-width: 280px;
+	max-height: 45px;
+	overflow: hidden;
+	margin-bottom: 25px;
 }
 /*
 panel

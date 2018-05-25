@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/idea.css" />
 <link rel="stylesheet" type="text/css" href="../css/formulario.css" />
-<link rel="stylesheet" type="text/css" href="../css/top_ideas.css" />
 <script type="text/javascript" src="../js/utilidea.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
@@ -43,7 +42,8 @@
 <body onload="myfunction1(this)">
 
 <?php include '../views/layout/head.php';
-		echo '<div id="idea">
+		echo '<div id="todo">
+					<div id="idea">
 					<div id="cabecera">
 					<h1 id="title">'.$idea->getNombre_Idea().'</h1>
 					<h2 id="subtitle">'.$idea->getCategoria().'<h2></div>
@@ -62,25 +62,27 @@
 					'<p class="numInfo2">'.$idea->getDiasFin().'</p>'.
 					'<p class="textInfo">días más</p>'
 					;?>
-					<input type="submit" class="boton-formulario" value="Patrocinar" onclick = "location='../views/patrocina.php'"/>
+					<input type="submit" class="boton-formulario" id="patrocinar" value="Patrocinar" onclick = "location='../views/patrocina.php'"/><br>
+					<div id="bsecun">
 					<?php
-					if($idea->getEnVenta())
-							echo '<input type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php\'"/>';
 
 			    if(!isset($_SESSION['mail']))
-						echo '<button class="boton-formulario2"
+						echo '<button id="like" class="boton-formulario2"
 						onclick="location.href=\'../views/login.php\'">
 						<i class="fa fa-thumbs-up"></i></button>';
 					else if($liked)
-						echo '<button class="boton-formulario"
+						echo '<button id="like" class="boton-formulario"
 						onclick="location.href=\'../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'&liked='.$liked.'\'">
 						<i class="fa fa-thumbs-up"></i></button>';
 					else
-						echo '<button class="boton-formulario2"
+						echo '<button id="like" class="boton-formulario2"
 						onclick="location.href=\'../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'&liked='.$liked.'\'">
 						<i class="fa fa-thumbs-up"></i></button>';
-					?>
 
+					if($idea->getEnVenta())
+							echo '<input id="buy" type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php\'"/>';
+					?>
+				</div><!--bsecun-->
 				</div><!--lateral-->
 			</div><!--acciones-->
 			<?php //$ilist->showNList(3);?>
@@ -118,5 +120,25 @@
 
 	</div><!--panel-->
 </div><!--idea-->
+<?php
+$i=0;
+	while($i<3){
+		$id = $irel[$i]["id_idea"];
+		$imagen = $irel[$i]['imagen'];
+		$nombre = $irel[$i]['nombre_idea'];
+		$cat = $irel[$i]['valor'];
+		$desc = $irel[$i]['desc_idea'];
+
+		echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
+		echo '<div id="relacionadas">';
+		echo '<img class ="previewImg" src= "'.$imagen.'">';
+		echo '<p class="namerel">'.$nombre.'</p>';
+		echo '<p class="catrel">'.$cat.'</p>';
+		echo '<p class="descrel">'.$desc.'</p>';
+		echo '</div></a>';
+		$i++;
+}?>
+
+</div><!--todo-->
 <?php include 'layout/foot_page.php';?>
 </body>

@@ -48,16 +48,16 @@ class IdeasList extends EntidadBase {
   }
   //consulta ideas relacionadas
   public function ideasRelacionadas($id, $cat){
-    $req=$this->db()->query("SELECT * FROM idea WHERE
-                              idea.id_categoria = '".$cat."' AND idea.id_idea != '".$id."'
+    $req=$this->db()->query("SELECT * FROM idea JOIN categorias on(idea.id_categoria = categorias.id_categoria)
+                              WHERE idea.id_categoria = '".$cat."' AND idea.id_idea != '".$id."'
                               ORDER BY idea.fecha_limite ASC");
     if($req==false)
       throw new Exception('MySQL: Error al consultar topIdeas por categoria');
     $filas = $this->showData($req);
     if(count($filas)) $this->list = $filas;
     else {
-      $req=$this->db()->query("SELECT * FROM idea WHERE
-                                idea.id_idea != '".$id."'
+      $req=$this->db()->query("SELECT * FROM idea JOIN categorias on(idea.id_categoria = categorias.id_categoria)
+                                WHERE idea.id_idea != '".$id."'
                                 ORDER BY idea.fecha_limite ASC");
       if($req==false)
         throw new Exception('MySQL: Error al consultar topIdeas por fecha');
