@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/idea.css" />
 <link rel="stylesheet" type="text/css" href="../css/formulario.css" />
+<link rel="stylesheet" type="text/css" href="../css/top_ideas.css" />
 <script type="text/javascript" src="../js/utilidea.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
@@ -12,6 +13,7 @@
 	require_once "../models/idea.php";
 	require_once '../models/rating.php';
 	require_once '../models/comentario.php';
+	require_once '../models/ideaslist.php';
 	session_start();
 	try{
 
@@ -25,6 +27,10 @@
 		$rat = new Rating();
 		$liked = isset($_SESSION['mail']) ? $rat->isLiked($_GET['id_idea'], $_SESSION['mail']) : false;
 
+		$ilist = new IdeasList();
+		$ilist->ideasRelacionadas($idea->getId_idea(), $idea->getId_categoria());
+		$irel = $ilist->getList();
+
 	}catch(Exception $e){
 		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
 		$_SESSION['data_error']=$e->getMessage();
@@ -35,6 +41,7 @@
 ?>
 </head>
 <body onload="myfunction1(this)">
+
 <?php include '../views/layout/head.php';
 		echo '<div id="idea">
 					<div id="cabecera">
@@ -76,6 +83,7 @@
 
 				</div><!--lateral-->
 			</div><!--acciones-->
+			<?php //$ilist->showNList(3);?>
 			<!--		Descripcion			-->
 	<div id="panel">
 			<ul class="lista">
