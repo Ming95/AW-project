@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="../css/idea.css" />
 <link rel="stylesheet" type="text/css" href="../css/formulario.css" />
 <script type="text/javascript" src="../js/utilidea.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 <?php
 
 
@@ -69,15 +69,15 @@
 			    if(!isset($_SESSION['mail']))
 						echo '<button id="like" class="boton-formulario2"
 						onclick="location.href=\'../views/login.php\'">
-						<i class="fa fa-thumbs-up"></i></button>';
+						<i class="far fa-heart"></i></button>';
 					else if($liked)
-						echo '<button id="like" class="boton-formulario"
+						echo '<button id="like" class="boton-formulario2"
 						onclick="location.href=\'../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'&liked='.$liked.'\'">
-						<i class="fa fa-thumbs-up"></i></button>';
+						<i class="fas fa-heart"></i></button>';
 					else
 						echo '<button id="like" class="boton-formulario2"
 						onclick="location.href=\'../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'&liked='.$liked.'\'">
-						<i class="fa fa-thumbs-up"></i></button>';
+						<i class="far fa-heart"></i></button>';
 
 					if($idea->getEnVenta())
 							echo '<input id="buy" type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php\'"/>';
@@ -90,8 +90,8 @@
 	<div id="panel">
 			<ul class="lista">
 				<li><a class="active"  id="lista1" href="#Descripcion" onclick="myfunction1(this)" >Descripción</a></li>
-				<li><a class="nactive" id="lista2"  href="#Comentario" onclick="myfunction2(this)">Comentario</a></li>
 				<li><a class="nactive" id="lista3"  href="#Equipo" onclick="myfunction3(this)">Equipo</a></li>
+				<li><a class="nactive" id="lista2"  href="#Comentarios" onclick="myfunction2(this)">Comentarios</a></li>
 			</ul>
 
 		<div id="datos1">

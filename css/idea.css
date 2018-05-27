@@ -8,6 +8,7 @@ body {
 	margin-right: auto;
 }
 #idea{
+	min-height: 1372px;
 	border-radius: 2px;
 	box-shadow: 0px 0px 11px -3px rgba(0,0,0,0.39);
 	float: left;
@@ -48,19 +49,22 @@ Acciones
 }
 #buy{
 	margin-left: 20px;
-	width: 200px;
+	width: 140px;
 }
 #patrocinar{
 	margin-top: 10px;
 	width:300px;
 }
+.fa, .fas{
+	color: #f05;
+}
 #like{
+	width:40px;
 	margin-right: 0;
 }
 #lateral{
 	margin-left: 40px;
 	float: left;
-	padding-top: 30px;
 }
 .numInfo{
 	margin-bottom: 5px;
@@ -82,7 +86,7 @@ relacionadas
 #relacionadas{
 	border-radius: 2px;
 	box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
-	margin-left: 4%;
+	margin-left: 1%;
 	float: left;
 	background-color: white;
 	min-width: 320px;
@@ -169,127 +173,3 @@ panel
 	margin-left: 10px;
 	color: #444;
 }
-
-/*
-div.datos1 {
-	width: 100%;
-	height:75%;
-}
-
-div.datos2 {
-	width: 100%;
-	display:none;
-	border: 1px solid #ccc;
-	height:50%;
-	overflow-y: scroll;
-
-}
-
-div.datos3 {
-	width: 100%;
-	display:none;
-	height:75%;
-}
-
-.gallery .main-img{
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-}
-
-.textarea1{
-    width: auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-	bottom:0px;
-	height:40%;
-	font-size: 14px;
-	color:#9B9A9A;
-}
-
-
-
-.texto{
-	font-size: 18px;
-	color:#9B9A9A;
-}
-
-.label {
-    color: white;
-    padding: 12px;
-    font-family: Arial;
-	border-radius:6px;
-}
-
-.other {
-background-color: #000;
-color: gray;
-}
-
-.texto3{
-	font-size: 18px;
-	color:#9B9A9A;
-	text-align:center;
-}
-
-.responsive {
-    padding: 6px 6px;
-	margin:auto;
-    width: 89.99999%;
-}
-
-.button {
-    width: 250px;
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 18px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #FE9A22;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    margin-bottom:12px;
-    margin-top:6px;
-}
-.icon-transp{
-	margin-top:15px;
-	font-size:36px;
-	background: transparent;
-	border: none !important;
-}
-
-.button:hover {background-color: #FE7F22}
-
-.button:active {
-  background-color: #FE9A22;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
-.label {
-    color: white;
-    padding: 12px;
-    font-family: Arial;
-	border-radius:6px;
-}
-
-.fa-thumbs-o-up:before{content:"\f087"}
-
-.icon-transp{
-	margin-top:15px;
-	font-size:36px;
-	background: transparent;
-	border: none !important;
-}
-
-
-.gallery .side-img{
-    border-radius: 15px;
-    width: 150px;
-    height:auto;
-}
-*/

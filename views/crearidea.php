@@ -6,6 +6,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/formulario.css" />
+	<link rel="stylesheet" type="text/css" href="../css/crearidea.css" />
 	<link rel="shortcut icon" href="../images/icon.png" />
 	<meta charset="utf-8">
 	<title>Crear Idea</title>

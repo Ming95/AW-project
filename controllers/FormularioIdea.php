@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="../css/crearidea.css" />
 <?php
 include 'Form.php';
 include '../models/Idea.php';
