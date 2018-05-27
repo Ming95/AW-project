@@ -2,8 +2,10 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
+<link rel="shortcut icon" href="./images/icon.png" />
 <link rel="stylesheet" type="text/css" href="./css/errorpage.css" />
 <script type="text/javascript" src="../js/utilidea.js"></script>
+<title>Oops!</title>
 </head>
 <body>
 

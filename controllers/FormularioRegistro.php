@@ -60,7 +60,6 @@ EOF;
       				$user->setIdCorreo($mail);
       				$user->setPassword($password);
       				$user->setNombre($username);
-      				$user->setImagen('/images/user_icon.png');
       				$user->setAdmin(0);
       				//Registra el usuario en la base de datos
       				$user->signupUser();
