@@ -15,6 +15,9 @@ class IdeasList extends EntidadBase {
   public function getList(){
     return $this->list;
   }
+  public function getAll(){
+    return $this->getAllOrderByAsc('fecha_limite');
+  }
   /*Muestra las ideas mas valoradas por orden
     Parametro $num:
       - Muestra el numero de elementos indicados.
@@ -46,6 +49,7 @@ class IdeasList extends EntidadBase {
       throw new Exception('MySQL: Error al realizar la consulta SQL: no se han podido mostrar las ideas del usuario');
     $this->list = $this->showData($req);
   }
+
   //consulta ideas relacionadas
   public function ideasRelacionadas($id, $cat){
     $req=$this->db()->query("SELECT * FROM idea JOIN categorias on(idea.id_categoria = categorias.id_categoria)

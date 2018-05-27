@@ -114,6 +114,14 @@ class Idea extends EntidadBase {
     $this->diasFin = $diasFin;
   }
 
+  public function delete(){
+    $req=$this->db()->query("DELETE FROM likes
+                              WHERE likes.id_idea = '".$this->getId_idea()."'");
+    $req=$this->db()->query("DELETE FROM idea
+                            WHERE idea.id_idea = '".$this->getId_idea()."'");
+    if($req==false)
+      throw new Exception('MySQL: Error al eliminar idea');
+  }
   private function diffFechas($fecha){
 		$date1 = new DateTime($fecha);
 		$date2 = new DateTime("now");

@@ -8,8 +8,8 @@ class usuarioIncidencia extends EntidadBase {
         parent::__construct($this->table, $class);
     }
 
-  public function getLista($id){
-    return $this->getAllFilteredAndOrderDESC("id_idea",$id);
+  public function getLista(){
+    return $this->getAllOrderByAsc("id_idea");
   }
 
 	public function nuevaIncidencia($id, $incidencia, $mail){

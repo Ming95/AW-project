@@ -8,8 +8,12 @@ class Comentario extends EntidadBase {
         parent::__construct($this->table, $class);
     }
 
-  public function getLista($id){
+  public function getListaIdea($id){
     return $this->getAllFilteredAndOrderDESC("fecha_creacion","id_idea",$id);
+  }
+  
+  public function getListaUsuario($mail){
+    return $this->getAllFilteredAndOrderDESC("fecha_creacion","id_correo",$mail);
   }
 
 	public function newComentario($id, $comentario, $mail, $fecha){

@@ -161,7 +161,8 @@ class EntidadBase{
 
     public function deleteBy($column,$value){
         $query=$this->db()->query("DELETE FROM $this->table WHERE $column = '$value'");
-        return $query;
+    		if($query==false)
+    			throw new Exception('MYSQL: Error al eliminar el usuario');
     }
 
 

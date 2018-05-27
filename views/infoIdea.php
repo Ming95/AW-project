@@ -21,7 +21,7 @@
 		$idea->load($_GET['id_idea']);
 
 		$comentario = new Comentario();
-		$comentarios= $comentario->getLista($idea->getId_idea());
+		$comentarios= $comentario->getListaIdea($idea->getId_idea());
 
 		$rat = new Rating();
 		$liked = isset($_SESSION['mail']) ? $rat->isLiked($_GET['id_idea'], $_SESSION['mail']) : false;
@@ -122,7 +122,8 @@
 </div><!--idea-->
 <?php
 $i=0;
-	while($i<3){
+$top = min(count($irel),3);
+	while($i<$top){
 		$id = $irel[$i]["id_idea"];
 		$imagen = $irel[$i]['imagen'];
 		$nombre = $irel[$i]['nombre_idea'];

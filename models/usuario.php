@@ -67,6 +67,11 @@ class Usuario extends EntidadBase {
         return 1;
     }
 
+    public function getAll(){
+        if(!$this->isAdmin())return 0;
+        else return $this->getAllOrderByAsc('id_correo');
+    }
+
     //Carga los campos desde db
     public function load($mail){
         $req=$this->db()->query("SELECT *  FROM usuario
@@ -79,7 +84,7 @@ class Usuario extends EntidadBase {
         $this->password = $filas[0]['password'];
         $this->setNombre($filas[0]['nombre']);
         $this->setAdmin($filas[0]['admin']);
-      }
+    }
 
     //Carga los campos desde db
     public function aportaciones(){
@@ -92,19 +97,37 @@ class Usuario extends EntidadBase {
           throw new Exception('MySQL: Error al cargar las aportaciones del usuario');
         $filas = $this->showData($req);
         return $filas;
-      }
+    }
 
-      //Carga los campos desde db
-      public function eventos(){
-          $req=$this->db()->query("SELECT * FROM usuario_asiste_evento
-                                    JOIN evento ON (evento.id = usuario_asiste_evento.id_evento)
-                                    WHERE usuario_asiste_evento.mail = '".$this->getIdCorreo()."'");
-          if($req==false)
-            throw new Exception('MySQL: Error al cargar los eventos del usuario');
-          $filas = $this->showData($req);
-          return $filas;
-        }
-
+    //Carga los campos desde db
+    public function eventos(){
+        $req=$this->db()->query("SELECT * FROM usuario_asiste_evento
+                                  JOIN evento ON (evento.id = usuario_asiste_evento.id_evento)
+                                  WHERE usuario_asiste_evento.mail = '".$this->getIdCorreo()."'");
+        if($req==false)
+          throw new Exception('MySQL: Error al cargar los eventos del usuario');
+        $filas = $this->showData($req);
+        return $filas;
+    }
+    /*
+      Borra cuenta de usuario
+    */
+    public function deleteAccount(){
+      $req=$this->db()->query("DELETE FROM usuario_comentario_idea
+                                WHERE usuario_comentario_idea.id_correo = '".$this->getIdCorreo()."'");
+      $req=$this->db()->query("DELETE FROM usuario_incidencia_idea
+                                WHERE usuario_incidencia_idea.id_correo = '".$this->getIdCorreo()."'");
+      $req=$this->db()->query("DELETE FROM usuario_importe_idea
+                                WHERE usuario_importe_idea.id_correo = '".$this->getIdCorreo()."'");
+      $req=$this->db()->query("DELETE FROM likes
+                                WHERE likes.mail = '".$this->getIdCorreo()."'");
+      $req=$this->db()->query("DELETE FROM idea
+                                WHERE idea.id_correo = '".$this->getIdCorreo()."'");
+      $req=$this->db()->query("DELETE FROM usuario_asiste_evento
+                                WHERE usuario_asiste_evento.mail = '".$this->getIdCorreo()."'");
+      $this->deleteBy('id_correo',$this->getIdCorreo());
+      header("Location: '../views/logout.php'");
+    }
     /*
       Guarda el usuario en la base de datos
     */
@@ -117,6 +140,6 @@ class Usuario extends EntidadBase {
 
         if($this->db()->query($query) == false)
   			   throw new Exception('MySQL: Error al crear usuario');
-      }
+    }
 }
 ?>

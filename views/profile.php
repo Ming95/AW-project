@@ -16,13 +16,19 @@
 		include './layout/head.php';
 		require '../models/usuario.php';
 		require '../models/ideaslist.php';
-
+		require '../models/comentario.php';
+		require '../models/idea.php';
+		require '../models/usuarioIncidencia.php';
+try{
 		$user = new Usuario();
 		$user->load($_SESSION['mail']);
 		$misideas = new IdeasList();
 		$misideas->perfil($user->getIdCorreo());
 		$aportaciones = $user->aportaciones();
 		$eventos = $user->eventos();
+		$comentario = new Comentario();
+		$comentarios= $comentario->getListaUsuario($user->getIdCorreo());
+
 /*
 		echo $user->getNombre();
 		echo $user->getPassword();
@@ -33,11 +39,18 @@
 		cambiar nombre de usuario
 		$user->cambiarNombre("Nuevo Nombre");
 		*/
+
 		/*
 		cambiar la contraseña del usuario
 		if(!$user->cambiarPass(SHA1("Nueva pass")))
 				echo "<p class='error'>error, las contraseñas coinciden</p>";
 		*/
+
+		/*
+		Borra la cuenta del usuario, sus ideas, sus comentarios, sus likes...
+		$user->deleteAccount();
+		*/
+
 		/*
 		Mostrar las ideas del usuario: Se puede hacer a mano llamando a:
 		$misideas->getList(); que retorna el array con los datos, o:
@@ -53,23 +66,71 @@
 		*/
 
 		/*
+		Eliminar idea:
+		$idea = new Idea();
+		$id = '2';
+		$idea->load($id);
+		$idea->delete();
+		*/
+
+		/*
 		array de eventos a los que el usuario asistira
 		print_r($eventos);
 		*/
 
+		/*
+		array de comentarios del usuario ordenados por fecha
+		print_r($comentarios);
+		*/
 
+		/*
+		Eliminar un comentario:
+		$i=x
+		$comentario->deleteById($comentarios[$i]['id']);
+		*/
+/*********************************************/
+
+	if($user->isAdmin()){
+		$inc = new usuarioIncidencia();
+		$incidencias = $inc->getLista();
+
+		$allideas = new IdeasList();
+		$allist = $allideas->getAll();
+
+		$userlist = $user->getAll();
+
+		/*
+		array con todas las incidencias de la web ordenadas por ideas
+		print_r($incidencias);
+		*/
+
+		/*
+		array con todas las ideas.
+		print_r($allist);
+		*/
+
+		/*
+		array con todos los usuarios.
+		print_r($userlist);
+		*/
+	}
+}catch(Exception $e){
+	error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
+	$_SESSION['data_error']=$e->getMessage();
+	header("Location:/errorpage.php");
+}
 ?>
 <h1 class="error">WORK IN PROGRESS</h1>
   <!--Datos de usuario-->
 <div class="lista-perfil">
     <form action="cambiarnombre.php" class="formulario">
         <div class="campos-formulario">
+					<h4>Email:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['mail']}" ?>" disabled><br>
           <h4>Nombre completo:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>
-          <h4>Email:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>
           <h4>Contraseña:</h4> <input class ="input-box" type="password" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"readonly><br>
         </div>
         <div class="submit-formulario">
-          <input type="submit" value="BORRAR CUENTA" class ="boton-formulario">
+          <input type="submit" value="BORRAR CUENTA" class ="boton-formulario2">
           <input type="submit" value="GUARDAR Y ACTUALIZAR" class ="boton-formulario">
         </div>
   </form>
