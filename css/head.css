@@ -1,51 +1,52 @@
-#main-header {
-	background: #BDBDBD;
-	color: #000000;
-	height: 90px;
-}	
-	#main-header a {
-		color: #000000;
-	}
- 
-/*
- * Logo
- */
-#logo-header {
-	float: left;
-	padding: 15px 0 0 20px;
-	text-decoration: none;
+#container{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    width: 100%;
+    overflow: hidden;
+    background-color: #252932;
+    margin-bottom: 20px;
 }
-	#logo-header:hover {
-		color: #0b76a6;
-	}
-	
-	#logo-header .site-name {
-		display: block;
-		font-weight: 700;
-		font-size: 1.2em;
-	}
-	
-	#logo-header .site-desc {
-		display: block;
-		font-weight: 300;
-		font-size: 0.8em;
-		color: #999;
-	}
-	
-.user li a{
-	background-color:rgb(26, 188, 156);
-	color:#FFFFFF;
-	text-decoration: none;
-	padding: 10px 15px;
-	display:block;
+.sesion{
+    float:right;
 }
 
-.user > li{
-	float: right;
+.logo{
+    color:#f2f2f2;
+    width: 200px;
+    font-size: 50px;
+    line-height: 300px;
+    float:left;
 }
 
-.user li ul{
-	display:none;
-	position:relative;
-	min-width:140px;
+.derecha{
+    float:right;
+}
+
+.wrapper{
+    width: 90%;
+    max-width: 1000px;
+    margin:auto;
+}
+
+.sesion{
+    padding-top: 40px;
+    color:#f2f2f2;
+}
+div a:link{
+    text-decoration: none;
+}
+
+div a:visited{
+    text-decoration: none;
+}
+
+label a:link{
+    color:#f2f2f2;
+    font-size: 20px;
+    text-decoration: none;
+}
+label a:visited{
+    color:#f2f2f2;
+    font-size: 20px;
+    text-decoration: none;
 }

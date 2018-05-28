@@ -1,1 +1,2 @@
-ErrorDocument 404 /not-found-page.html
+ErrorDocument 404 /errorpage.php
+AddDefaultCharset utf-8

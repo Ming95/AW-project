@@ -2,6 +2,7 @@ body {
 	background-color: #FFFFFF;
 }
 div#contenedor {
+	font-family: sans-serif;
 	width: auto;
 	margin: auto;
 	margin-top: 0px;
@@ -10,17 +11,11 @@ div#contenedor {
 div#front {
 	width: auto;
 	height: 900px;
-	background-image: url("../images/main.jpg");
-	background-size: 100% 100%;
+	min-height: 100%;
+	background: linear-gradient( rgba(255, 85, 0, 0.05), rgba(0, 0, 0, 0.65) ), url("../images/main.jpg");
+    background-position: center;
+	background-size: cover;
 
-}
-
-h1 {
-	margin: 20px;
-	font-size: 450%;
-	text-align: left;
-	line-height: 600px;
-	color:#fff;
 }
 
 div.login {
@@ -30,15 +25,22 @@ div.login {
 
 }
 
-a{
+img#title {
+    width: 700px;
+		margin-top: 180px;
+}
+
+
+a.reg{
 	color: #FFFFFF;
 	font-size: 18px;
+	margin-right: 10px;
 	text-decoration:none;
 }
 
 .Create_button{
 	padding:0.8em 5em;
-	background-color:#FF8000;
+	background-color:#F50;
 	color:white;
 	border:1px solid black;
 }

@@ -1,24 +1,35 @@
-<?php
-	echo"<header id="."main-header".">";
-		session_start();
-		//var_dump($_SESSION["logged"]);
-		//var_dump($_SESSION["login"]);
-		//$log = $_SESSION["logged"];//la variable login viene de modelo.
-		echo"<a id="."logo-header"." href="."../index.php".">";
-			echo"<span class="."site-name".">SelfIdea</span>";
-		echo"</a>";
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<link rel="stylesheet" type="text/css" href="../css/head.css" />
 
-		echo"<nav>";
-			echo"<ul class="."user".">";
-				if (isset($_SESSION["logged"]) && ($_SESSION["logged"]===true)) {
-					echo"<li>Bienvenido, {$_SESSION['login']} <a href='/views/logout.php'>Cerrar Sesion</a></li>";
-				}else{
-					//echo"<li><a href="."../views/login.php".">SignUp"."</a></li>";
-					echo "<li><a href='/views/login.php'>Login</a> / <a href='/views/signup.php'>Registro</a></li>";
-				}
-			echo"</ul>";
-		echo"</nav>";
-	echo"</header>";
+<script type="text/javascript" src="../js/utilidea.js"></script>
+</head>
+<body>
+    <?php if(!isset($_SESSION)) { session_start(); } ?>
+    <!--header es el contenedor principal -->
+    <header id="container">
+        <div class="wrapper">
+            <!--El logo de la pagina que la pinchar lleva a la pagina principal -->
+            <a href="../index.php">
+            <img class="logo" src="../images/selfidea.png" alt="Logotipo Selfidea"></a>
 
-	echo"<hr>";
-?>
+            <!--esta caja permite al usuario hacer login, registrarse o cerrar sesion. -->
+            <div id="derecha">
+                <?php
+                    if (isset($_SESSION["logged"]) && ($_SESSION["logged"]===true)) {
+                        echo"<label class="."sesion".">Bienvenido, {$_SESSION['login']} <a href='/views/logout.php'>Cerrar Sesion</a></label>";
+
+                    }else{
+                        //echo"<li><a href="."../views/login.php".">SignUp"."</a></li>";
+                        echo "<label class="."sesion"."><a href='../views/login.php'>Login</a> / <a href='../views/signup.php'>Registro</a></li>";
+                    }
+                ?>
+            </div>
+        </div>
+    </header>
+
+</body>
+
+</html>
