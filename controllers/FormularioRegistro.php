@@ -1,6 +1,6 @@
 <?php
 include 'Form.php';
-include '../models/Usuario.php';
+include $_SERVER['DOCUMENT_ROOT']."/models/Usuario.php";
 class FormularioRegistro extends Form
 {
     public function __construct() {
