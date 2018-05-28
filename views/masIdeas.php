@@ -68,7 +68,7 @@
 
 			if($i%3==0) echo '<div class="row">';
 			echo '<div class="evento1">';
-			echo '<a href="../views/infoIdea.php?id_idea='.$id.'" target="_blank">';
+			echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
 			echo '<img src= "'.$imagen.'" alt="imagen de '.$nombre.'" style="width:100%">';
 			echo '<div class="caption">';
 			echo '<p>'.$nombre.'</p></a></div></div>';
