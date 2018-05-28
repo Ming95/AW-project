@@ -129,6 +129,13 @@ class Idea extends EntidadBase {
 		return ($diff->days);
 	}
 
+  public function patrocinar($mail, $aporta){
+    $query="INSERT INTO usuario_importe_idea (id_idea, id_correo, importe_aportado)
+            VALUES ('".$this->getId_idea()."', '".$mail."', '".$aporta."')";
+    if($this->db()->query($query) == false)
+        throw new Exception('MySQL: Error al realizar la aportacion');
+  }
+
   private function loadRecaudado(){
     $req=$this->db()->query("SELECT SUM(usuario_importe_idea.importe_aportado)AS recaudado
                             FROM idea JOIN usuario_importe_idea on (idea.id_idea = usuario_importe_idea.id_idea)

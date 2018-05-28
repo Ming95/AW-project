@@ -76,7 +76,7 @@ class FormularioIdea extends Form
   				Selecciona una imagen que describa tu idea.
   				<input type="file" name="foto" required>
   			</div>
-  			<h4>CV del equipo</h4>
+  			<h4>Curriculum del equipo</h4>
   			<div class="input-file">
   				Selecciona el currículum de los miembros de tu equipo.
   				<input type="file" name="archivo" required>

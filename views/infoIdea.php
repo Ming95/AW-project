@@ -60,11 +60,11 @@
 					'<p class="textInfo">personas han valorado esta idea</p>'.
 
 					'<p class="numInfo2">'.$idea->getDiasFin().'</p>'.
-					'<p class="textInfo">días más</p>'
-					;?>
-					<input type="submit" class="boton-formulario" id="patrocinar" value="Patrocinar" onclick = "location='../views/patrocina.php'"/><br>
-					<div id="bsecun">
-					<?php
+					'<p class="textInfo">días más</p>'.
+
+					'<input type="submit" class="boton-formulario" id="patrocinar" value="Patrocinar" onclick = "location=\'../views/patrocina.php?id='.$idea->getId_idea().'\'"/><br>'.
+					'<div id="bsecun">';
+
 
 			    if(!isset($_SESSION['mail']))
 						echo '<button id="like" class="boton-formulario2"
