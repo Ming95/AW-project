@@ -121,6 +121,14 @@ class Idea extends EntidadBase {
     $this->nombreUsu = $nombreUsu;
   }
 
+  public function comprar($mail){
+    $req=$this->db()->query($sql = "UPDATE idea SET id_correo = '".$mail."'
+                                      WHERE idea.id_idea = '".$this->getId_idea()."'");
+    if($req==false)
+      throw new Exception('MySQL: Error al eliminar idea');
+    return true;
+  }
+
   public function delete(){
     $req=$this->db()->query("DELETE FROM likes
                               WHERE likes.id_idea = '".$this->getId_idea()."'");

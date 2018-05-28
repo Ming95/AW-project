@@ -80,7 +80,7 @@
 						<i class="far fa-heart"></i></button>';
 
 					if($idea->getEnVenta())
-							echo '<input id="buy" type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php\'"/>';
+							echo '<input id="buy" type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php?id='.$idea->getId_idea().'\'"/>';
 					?>
 				</div><!--bsecun-->
 				</div><!--lateral-->
@@ -127,7 +127,7 @@
 		</div>
 		<!--		Curriculum			-->
 		<div id="datos3" >
-			<p>Idea creada por:</p>
+			<p>Esta idea pertenece a:</p>
 			<h2><?php echo $idea->getNombreUsu();?></h2>
 			<p>Si quieres conocer más acerca de los desarrolladores del proyecto, puedes
 			<a href="<?php echo $idea->getCv_equipo();?>" target='_blank' title="Curriculum PDF">descargar</a> el currículum del equipo.</p>
