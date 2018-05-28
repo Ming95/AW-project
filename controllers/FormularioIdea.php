@@ -1,6 +1,6 @@
 <?php
-include 'Form.php';
-include '../models/Idea.php';
+require 'Form.php';
+require '../models/idea.php';
 require '../models/categorias.php';
 class FormularioIdea extends Form
 {
@@ -104,16 +104,17 @@ EOF;
     protected function procesaFormulario($datos)
     {
         $result = array();
-
         //Comprueba campos del formulario
         if(($datos['nombre']==null) || ($datos['recaudacion']==null) || ($datos['descripcion']==null))
             $result[] = "Lo sentimos, parece haber un problema con los datos enviados.";
 
         $datos['categoria'] = array_search($datos['categoria'],$this->categorias)+1;
-        $datos['enventa']=(isset($_REQUEST['vender']))?1:'NULL';
+        $datos['enventa']=(isset($_REQUEST['vender']))?'1':'0';
+        $datos['precio']=(isset($_REQUEST['precio']))?$_REQUEST['precio']:'0';
         $desc = nl2br(htmlentities($datos['descripcion'], ENT_QUOTES, 'UTF-8'));
         //Crea objeto idea y atributos
         if(empty($result)){
+          try{
         	$idea = new Idea;
         	$idea->setNombre_Idea($datos['nombre']);
         	$idea->setId_Categoria($datos['categoria']);
@@ -123,13 +124,8 @@ EOF;
           $idea->setImporte_Solicitado($datos['recaudacion']);
         	$idea->setImporte_venta($datos['precio']);
         	$idea->setId_Correo($_SESSION['mail']);
-        	try{
-        		$idea->setIdea();
-        	}catch(Exception $e){
-        		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
-        		$_SESSION['data_error']=$e->getMessage();
-        		$result = '../errorpage.php';
-        	}
+
+        	$idea->setIdea();
 
           $newdir = "../images/ideas/idea".$idea->getId_idea()."/";
           //Comprueba que la imagen sea un archivo de imagen
@@ -155,16 +151,15 @@ EOF;
           if (!move_uploaded_file($_FILES["archivo"]["tmp_name"], $curr_file))
               $result[]="Error al subir el Curriculum";
 
-          try{
-        		$idea->setFiles($curr_file,$image_file);
-        	  $idea->closeConnection();
-            $result = "../views/infoidea.php?id_idea=".$idea->getId_idea();
-        	}catch(Exception $e){
-        		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
-        		$_SESSION['data_error']=$e->getMessage();
-        		$result = '../errorpage.php';
-        	}
-        }
+      		$idea->setFiles($curr_file,$image_file);
+      	  $idea->closeConnection();
+          $result = "../views/infoIdea.php?id_idea=".$idea->getId_idea();
+      	}catch(Exception $e){
+      		error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
+      		$_SESSION['data_error']=$e->getMessage();
+      		$result = '../errorpage.php';
+      	}
+      }
         return $result;
     }
 }
