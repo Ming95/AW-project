@@ -85,7 +85,6 @@
 				</div><!--bsecun-->
 				</div><!--lateral-->
 			</div><!--acciones-->
-			<?php //$ilist->showNList(3);?>
 			<!--		Descripcion			-->
 	<div id="panel">
 			<ul class="lista">
@@ -100,7 +99,25 @@
 		<!--		Comentarios			-->
 		<div id="datos2">
 			<div class="row">
-				<div id= "div1"></div>
+				<div id= "div1">
+<?php
+					$i=0;
+					$top = count($comentarios);
+						while($i<$top){
+							$nombre = $comentarios[$i]['nombre'];
+							$fecha = $idea->diffFechas($comentarios[$i]['fecha_creacion']);
+							$fecha = ($fecha == 0)?'Hoy':'Hace '.$fecha.' días';
+							$text = $comentarios[$i]['comentario'];
+							echo '<div class=comen>
+										<p><span class="comname">'.$nombre.'</span>
+										<span class="comfech">'.$fecha.'</span></p>
+										<p class="comtext">'.$text.'</p>
+										</div>
+							';
+							$i++;
+					}
+?>
+				</div>
 			</div>
 			<form method="post" action="../controllers/comenta.php?id=<?php echo $idea->getId_idea();?>" style="display: inline;">
 				<textarea class="input-text" name="comment" placeholder="Escribe un comentario..." style="height:200px"></textarea></br>
@@ -110,8 +127,10 @@
 		</div>
 		<!--		Curriculum			-->
 		<div id="datos3" >
-			<label class="texto">Pulse aquí para descargar el CV del equipo</label>
-			<a href="../CV_equipo.doc" target='_blank' title="Click here to open a Word document"><?php echo $idea->getCv_equipo();?></a>
+			<p>Idea creada por:</p>
+			<h2><?php echo $idea->getNombreUsu();?></h2>
+			<p>Si quieres conocer más acerca de los desarrolladores del proyecto, puedes
+			<a href="<?php echo $idea->getCv_equipo();?>" target='_blank' title="Curriculum PDF">descargar</a> el currículum del equipo.</p>
 		</div>
 
 	<script type="text/javascript">
@@ -133,9 +152,12 @@ $top = min(count($irel),3);
 		echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
 		echo '<div id="relacionadas">';
 		echo '<img class ="previewImg" src= "'.$imagen.'">';
+		echo '<div class ="textrel">';
 		echo '<p class="namerel">'.$nombre.'</p>';
 		echo '<p class="catrel">'.$cat.'</p>';
 		echo '<p class="descrel">'.$desc.'</p>';
+		echo '</div>';
+		echo '<p class="readmore">Leer más</p>';
 		echo '</div></a>';
 		$i++;
 }?>

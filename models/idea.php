@@ -13,6 +13,7 @@ class Idea extends EntidadBase {
   private $cv_equipo;
   private $importe_solicitado;
   private $imagen;
+  private $nombreUsu;
   private $categoria;
   private $recaudado;
   private $diasFin;
@@ -113,6 +114,12 @@ class Idea extends EntidadBase {
   public function setDiasFin($diasFin) {
     $this->diasFin = $diasFin;
   }
+  public function getNombreUsu() {
+    return $this->nombreUsu;
+  }
+  public function setNombreUsu($nombreUsu) {
+    $this->nombreUsu = $nombreUsu;
+  }
 
   public function delete(){
     $req=$this->db()->query("DELETE FROM likes
@@ -122,7 +129,7 @@ class Idea extends EntidadBase {
     if($req==false)
       throw new Exception('MySQL: Error al eliminar idea');
   }
-  private function diffFechas($fecha){
+  public function diffFechas($fecha){
 		$date1 = new DateTime($fecha);
 		$date2 = new DateTime("now");
 		$diff = $date1->diff($date2);
@@ -157,6 +164,7 @@ class Idea extends EntidadBase {
   public function load($id){
       $req=$this->db()->query("SELECT *  FROM idea JOIN categorias
                               on (idea.id_categoria=categorias.id_categoria)
+                              JOIN usuario on (usuario.id_correo = idea.id_correo)
                               WHERE idea.id_idea = ".$id." GROUP BY idea.id_idea");
       if($req==false)
         throw new Exception('MySQL: Error al cargar la idea');
@@ -174,6 +182,7 @@ class Idea extends EntidadBase {
       $this->setImporte_Solicitado($filas[0]['importe_solicitado']);
       $this->setImagen($filas[0]['imagen']);
       $this->setCategoria($filas[0]['valor']);
+      $this->setNombreUsu($filas[0]['nombre']);
       $this->setDiasFin($this->diffFechas($this->getFecha_Limite()));
       $this->loadRecaudado();
       $this->loadPopularidad();

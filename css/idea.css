@@ -95,6 +95,14 @@ relacionadas
 }
 .previewImg{
 	width: 320px;
+	position: absolute;
+}
+.textrel{
+	padding-top: 10px;
+	background-color: white;
+	position: relative;
+  margin-top: 230px;
+  height: 178px;
 }
 .namerel{
 	max-height: 24px;
@@ -117,13 +125,21 @@ relacionadas
 	overflow: hidden;
 	margin-bottom: 25px;
 }
+.readmore{
+  margin-top: 0;
+  text-decoration:  none;
+  color: #f50;
+  text-align:  right;
+  margin-right: 24px;
+  font-size: 16px;
+}
 .descrel{
 	text-decoration: none;
 	color: black;
 	margin-left: 20px;
 	font-size: 14px;
 	max-width: 280px;
-	max-height: 45px;
+	max-height: 83px;
 	overflow: hidden;
 	margin-bottom: 25px;
 }
@@ -139,7 +155,32 @@ panel
 	min-height: 500px;
 	padding-bottom: 20px;
 }
-
+/*
+--------Comentarios
+*/
+.comen{
+	padding: 10px;
+	padding-left: 20px;
+	margin-bottom: 10px;
+	width: 840px;
+}
+.comname{
+	font-weight: bold;
+	margin-right: 10px;
+	color:  black;
+	font-size: 16px;
+}
+.comfech{
+	font-size: 14px;
+}
+.comtext{
+	padding-left: 10px;
+	color:  black;
+	font-size: 15px;
+}
+/*
+-------End Comentarios
+*/
 .lista{
   list-style-type: none;
 	margin-top: 100px;
@@ -168,6 +209,7 @@ panel
 }
 
 #datos1,#datos2,#datos3{
+	width: 840px;
 	min-height: 400px;
 	margin-top: 40px;
 	margin-left: 10px;
