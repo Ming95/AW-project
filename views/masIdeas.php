@@ -33,7 +33,7 @@
 		$i++;
 		echo '<div class="diapositiva">';
 		echo '<div class="numbertext">'.$i.' / '.$tope.'</div>';
-		echo '<a style="margin:150px;" href="../views/infoidea.php?id_idea='.$id.'">';
+		echo '<a style="margin:150px;" href="../views/infoIdea.php?id_idea='.$id.'">';
 		echo '<img src= "'.$imagen.'" alt="idea 1" style="max-height: 500px;">';
 		echo '<p class="text"">'.$nombre.'</p></a></div>';
 
@@ -68,7 +68,7 @@
 
 			if($i%3==0) echo '<div class="row">';
 			echo '<div class="evento1">';
-			echo '<a href="../views/infoidea.php?id_idea='.$id.'" target="_blank">';
+			echo '<a href="../views/infoIdea.php?id_idea='.$id.'" target="_blank">';
 			echo '<img src= "'.$imagen.'" alt="imagen de '.$nombre.'" style="width:100%">';
 			echo '<div class="caption">';
 			echo '<p>'.$nombre.'</p></a></div></div>';
