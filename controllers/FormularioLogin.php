@@ -1,6 +1,6 @@
 <?php
-include 'Form.php';
-include $_SERVER['DOCUMENT_ROOT']."/models/usuario.php";
+require 'Form.php';
+require $_SERVER['DOCUMENT_ROOT']."/models/usuario.php";
 class FormularioLogin extends Form
 {
     public function __construct() {
