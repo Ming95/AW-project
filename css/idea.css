@@ -165,6 +165,7 @@ panel
 	width: 840px;
 }
 .comname{
+	word-break: break-all;
 	font-weight: bold;
 	margin-right: 10px;
 	color:  black;
@@ -174,6 +175,7 @@ panel
 	font-size: 14px;
 }
 .comtext{
+	word-break: break-all;
 	padding-left: 10px;
 	color:  black;
 	font-size: 15px;

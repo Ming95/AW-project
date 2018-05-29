@@ -123,7 +123,7 @@
 				<textarea class="input-text" name="comment" placeholder="Escribe un comentario..." style="height:200px"></textarea></br>
 		   	<input type="submit" id= "button" class="boton-formulario" value="Publicar"/>
 				</form>
-				<button class="boton-formulario2" onclick = "window.location.href='../views/reportaincidencia.php?id_idea=<?php echo $idea->getId_idea();?>'">Reportar incidencia</button>
+				<button class="boton-formulario2" onclick = "window.location.href='../views/reportaincidencia.php?id=<?php echo $idea->getId_idea();?>'">Reportar incidencia</button>
 		</div>
 		<!--		Curriculum			-->
 		<div id="datos3" >

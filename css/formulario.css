@@ -88,6 +88,7 @@ body {
   color: #444;
 }
 .input-text {
+	  min-height: 250px;
     resize:vertical;
     font-size:11pt;
     border: 1px solid #000;
