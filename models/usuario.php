@@ -57,8 +57,9 @@ class Usuario extends EntidadBase {
 
     //cambiar contrasenia de usuario en db
     public function cambiarPass($nuevaPass){
+		$encryptedNuevaPass=SHA1($nuevaPass);
         if($nuevaPass==$this->getPassword()) return 0;
-        $query="UPDATE usuario SET password='".$nuevaPass."'
+        $query="UPDATE usuario SET password='".$encryptedNuevaPass."'
                 WHERE usuario.id_correo = '".$this->getIdCorreo()."'";
 
         if($this->db()->query($query) == false)
