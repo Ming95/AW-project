@@ -102,6 +102,6 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 </script>
-<?php include 'layout/foot_page.php';?>
+<?php include './layout/foot_page.php';?>
 </body>
 </html>

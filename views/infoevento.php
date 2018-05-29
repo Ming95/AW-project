@@ -23,7 +23,7 @@
 </head>
 <body>
 <?php
-	include '../views/layout/head.php';
+	include './layout/head.php';
 	?>
 
 <div class="contenido">
@@ -87,7 +87,7 @@
 </div>
 </div>
 
-	<?php include 'layout/foot_page.php';?>
+	<?php include './layout/foot_page.php';?>
 <script>
 	function cambiarboton(){
     var i=document.getElementById("boton").value = "Suscrito!";

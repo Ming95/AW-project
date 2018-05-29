@@ -13,11 +13,11 @@
 
 <body>
 	<?php
-			include 'layout/head.php';
+			include './layout/head.php';
 			include '../controllers/FormularioCompra.php';
 			$form = new FormularioCompra();
 			$form->gestiona();
-			include 'layout/foot_page.php';
+			include './layout/foot_page.php';
 	?>
 
 </body>

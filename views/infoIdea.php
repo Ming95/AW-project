@@ -41,7 +41,7 @@
 </head>
 <body onload="myfunction1(this)">
 
-<?php include '../views/layout/head.php';
+<?php include './layout/head.php';
 		echo '<div id="todo">
 					<div id="idea">
 					<div id="cabecera">
@@ -163,5 +163,5 @@ $top = min(count($irel),3);
 }?>
 
 </div><!--todo-->
-<?php include 'layout/foot_page.php';?>
+<?php include './layout/foot_page.php';?>
 </body>

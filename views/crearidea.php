@@ -13,13 +13,13 @@
 </head>
 <body>
 	<?php
-			include 'layout/head.php';
+			include './layout/head.php';
 			include '../controllers/FormularioIdea.php';
 
 			$form = new FormularioIdea();
 			$form->gestiona();
 
-			include 'layout/foot_page.php';
+			include './layout/foot_page.php';
 	?>
 </body>
 </html>
