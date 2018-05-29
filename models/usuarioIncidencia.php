@@ -9,7 +9,17 @@ class usuarioIncidencia extends EntidadBase {
     }
 
   public function getLista(){
-    return $this->getAllOrderByAsc("id_idea");
+    $req=$this->db()->query("SELECT * FROM $this->table
+      JOIN idea on (idea.id_idea = usuario_incidencia_idea.id_idea) ORDER by 'id_idea' ASC ");
+    if($req==false){
+     throw new Exception('MySQL: Error al realizar la consulta SQL');
+   }
+       $filas = $this->showData($req);
+       return $filas;
+  }
+
+  public function delete($id){
+    $this->deleteById($id);
   }
 
 	public function nuevaIncidencia($id, $incidencia, $mail){

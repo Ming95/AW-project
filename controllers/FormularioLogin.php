@@ -55,6 +55,7 @@ EOF;
           $_SESSION["logged"]	= true;
           $_SESSION['login'] = $consulta[0]['nombre'];
           $_SESSION['mail'] = $consulta[0]['id_correo'];
+          $_SESSION['admin'] = $consulta[0]['admin'];
           $_SESSION['intentos'] = 0;
           $result = '../index.php';
         }
