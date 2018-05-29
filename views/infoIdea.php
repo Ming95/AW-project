@@ -94,7 +94,7 @@
 			</ul>
 
 		<div id="datos1">
-			<p class="textarea1" name="textarea1" id="textarea1" disabled> <?php echo $idea->getDesc_idea();?></p>
+			<p class="comtext" disabled> <?php echo $idea->getDesc_idea();?></p>
 		</div>
 		<!--		Comentarios			-->
 		<div id="datos2">
