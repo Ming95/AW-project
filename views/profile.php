@@ -122,8 +122,14 @@ try{
 ?>
 <h1 class="error">WORK IN PROGRESS</h1>
   <!--Datos de usuario-->
-<div class="lista-perfil">
-    <form action="cambiarnombre.php" class="formulario">
+  <div class="profile-settings">
+		<div class="lista-perfil">	
+          <input type="submit" class="boton-formulario" id="modificarPersonalInfo" value="MODIFICAR DATOS PERSONALES" onclick = "location='cambiarPersonalInfo.php'"/>
+		 </div>
+		 <div class="lista-perfil">
+		  <input type="submit" class="boton-formulario" id="modificarPass" value="MODIFICAR CONTRASEÑA" onclick = "location='cambiarPass.php'"/>
+		  </div>
+    <!--form action="cambiarnombre.php" class="formulario">
         <div class="campos-formulario">
 					<h4>Email:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['mail']}" ?>" disabled><br>
           <h4>Nombre completo:</h4> <input class ="input-box" type="text" name="fname" value="<?php echo "{$_SESSION['login']}" ?>"><br>
@@ -133,9 +139,9 @@ try{
           <input type="submit" value="BORRAR CUENTA" class ="boton-formulario2">
           <input type="submit" value="GUARDAR Y ACTUALIZAR" class ="boton-formulario">
         </div>
-  </form>
-</div>
-<div class="profile-settings">
+  </form-->
+
+
   <!--Mis Ideas-->
   <div class="lista-perfil">
       <h1>Mis Ideas</h1>
