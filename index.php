@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/top_ideas.css" />
     <!--Hoja de estilos para mostra los 3 eventos mas proximos -->
 	<link rel="stylesheet" type="text/css" href="./css/top_events.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 	<link rel="shortcut icon" href="../images/icon.png" />
 	<meta charset="utf-8">
 	<title>SelfIdea</title>
@@ -68,11 +69,11 @@ entrega-->
 		<img id="title" src="./images/selfidea.png" alt="Logotipo Selfidea">
 
         <!--La siguiente parte corresponde al boton de crear ideas -->
-		<div class="field" id="searchform">
+		<form class="field" id="searchform" method="POST" action="../controllers/busca.php">
 			<a class="Create_button" id="create_idea" href='/views/crearidea.php'>Crear Idea</a>
-			<input type="text" id="searchterm" placeholder="¿Qué buscas?" />
-			<button type="button" id="search">Buscar</button>
-		</div>
+			<input type="text" id="searchterm" name="busqueda" placeholder="Buscar idea"/>
+			<button type="summit" id="search"><i class="fas fa-search"></i></button>
+		</form>
 		<!--<script class="search" src="aqui va el script de busqueda."></script> -->
 	</div>
 
