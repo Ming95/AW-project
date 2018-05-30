@@ -46,10 +46,10 @@ body {
 }
 .boton-formulario2{
 	outline:0;
+	border: solid 1px #bbb;
 	cursor: pointer;
   font-size: 12pt;
   color: black;
-	border-width: 1px;
 	margin-right: 5px;
   background-color:#FFF;
   padding: 10px;
