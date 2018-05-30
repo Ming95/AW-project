@@ -74,22 +74,22 @@ class IdeasList extends EntidadBase {
     if(!isset($this->list)) $this->rectentEvents();
     $posts=count($this->list);
     $top = ($num == 0) ? $posts : min($num, $posts);
-
-    echo '<div id=topentradas>';
-    echo '<ul>';
+    echo '<div class=topentradas>';
           $i =0;
           while($i<$top){
             $id = $this->list[$i]["id_idea"];
             $imagen = $this->list[$i]['imagen'];
             $nombre = $this->list[$i]['nombre_idea'];
+            $description = $this->list[$i]['desc_idea'];
 
-            echo '<div class="thumbnail">';
+            echo '<div class="i_thumbnail">';
             echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
             echo '<img class ="previewImg" src= "'.$imagen.'">';
-            echo '<p class= "description">'.$nombre.'</p></a></div>';
+            echo '<p class= "title">'.$nombre.'</p>';
+            echo '<p class= "description">'.$description.'</p></a></div>';
             $i++;
           }
-    echo '</ul></div>';
+    echo '</div>';
   }
 }
 ?>

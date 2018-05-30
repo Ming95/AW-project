@@ -38,25 +38,23 @@ class EventsList extends EntidadBase {
   public function showNList($num){
     if(!isset($this->list)) $this->rectentEvents();
     $posts=count($this->list);
-    $height=600+(floor(($posts-1)/3))*450;
-    if(!$posts)$height=580;
     $top = ($num == 0) ? $posts : min($num, $posts);
-    echo '<div id=topentradas style="height:'.$height.'px">';
-    echo '<ul>';
+    echo '<div class=topev';
           $i =0;
           while($i<$top){
             $id = $this->list[$i]["id"];
             $imagen = $this->list[$i]['imagen'];
             $nombre = $this->list[$i]['nombre'];
+            $description =$this->list[$i]['desc_evento'];
 
-            echo '<div class="thumbnail">';
+            echo '<div class="e_thumbnail">';
             echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
             echo '<img class ="previewImg" src= "'.$imagen.'">';
-            echo '<p class= "description">'.$nombre.'</p></a></div>';
+            echo '<p class= "title">'.$nombre.'</p>';
+            echo '<p class= "description">'.$description.'</p></a></div>';
             $i++;
-
           }
-    echo '</ul></div>';
+    echo '</div>';
   }
 }
 ?>
