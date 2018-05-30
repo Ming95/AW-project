@@ -9,16 +9,53 @@ body {
 }
 div.lateral {
 	margin: auto;
-	width: 100%;
+	width: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 	background-color: white;
+}
+
+div.row_obj{
+    display:grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(4, 300px);
 }
 
 div.evento1{
 	padding: 10px;
 	float: left;
-	/*min-height: 200px;*/
-	width: 30%;
-	border: 1px solid #ccc;
+	height: 300px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	width: 300px;
+}
+
+.prevImg{
+    width: 280px;
+    height: 200px;
+    padding: 0px;
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+    border-radius: 10%;
+    border: 1px solid #000000;
+}
+
+.title{
+    font-size: 20px;
+}
+
+a:link{
+    text-decoration: none;
+    color:black;
+}
+
+a:visited{
+    text-decoration: none;
 }
 
 
