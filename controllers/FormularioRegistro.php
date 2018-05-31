@@ -44,6 +44,13 @@ EOF;
         $password = htmlspecialchars(trim(strip_tags($_REQUEST["psw"])));
       	$password2 = htmlspecialchars(trim(strip_tags($_REQUEST["psw2"])));
       	$mail = htmlspecialchars(trim(strip_tags($_REQUEST["mail"])));
+		
+		if ($username==null || empty($username) || $password ==null || empty($password ) || $password2 ==null || empty($password2)
+			|| $mail ==null || empty($mail)){
+			$result[] = "Campos de entrada vacíos o nulos";
+			return $result;
+		}
+		
       	//comprueba que las dos contrasenas coincidan
       	if($password != $password2){
       		$result[] = "Las contraseñas no coinciden.";
