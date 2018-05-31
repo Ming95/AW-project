@@ -1,6 +1,8 @@
+
 <?php
 require 'Form.php';
 require $_SERVER['DOCUMENT_ROOT']."/models/usuario.php";
+
 class FormularioLogin extends Form
 {
     public function __construct() {
@@ -9,7 +11,6 @@ class FormularioLogin extends Form
 
     protected function generaCamposFormulario($datos)
     {
-
         $html = <<<EOF
         			<legend>Iniciar Sesion</legend>
         				<div class="campos-formulario">
@@ -21,8 +22,9 @@ class FormularioLogin extends Form
 
         				</div>
         				<div class="submit-formulario">
-        					<input type="button" value="REGISTRARSE" class ="boton-formulario2" onclick="location.href='/views/signup.php'">
-        					<input type="submit" value="INICIAR SESIÓN" class ="boton-formulario">
+							<input type="button" id="reestablecerPassButton" name= "reestablecerPassButton" value="REESTABLECER CONTRASEÑA"  class ="boton-formulario2" onclick="location.href='/views/signup.php'" style="visibility:hidden">
+        					<input type="button" id= "registerButton" value="REGISTRARSE"  class ="boton-formulario2" onclick="location.href='/views/signup.php'">
+        					<input type="submit" id="iniciaButton" value="INICIAR SESIÓN"  class ="boton-formulario">
         				</div>
 EOF;
         return $html;
@@ -33,20 +35,24 @@ EOF;
       $result = array();
       $username = htmlspecialchars(trim(strip_tags($_REQUEST["mail"])));
       $password = htmlspecialchars(trim(strip_tags($_REQUEST["psw"])));
-
+		
       if(!isset($_SESSION['intentos'])){
         $_SESSION['intentos'] = 0;
         $_SESSION["logged"]=false;
-      }
+      }else{
+	      $_SESSION['intentos'] = $_SESSION['intentos']+1; 
+		  //$_SESSION['intentos'] = 0;
+	  }
       if(!isset($_SESSION['logged'])){
         $_SESSION["logged"]=false;
       }
+	  
       try{
         //Se crea el objeto usuario y se abre conexión
         $user = new Usuario();
         //Consultamos si existe el usuario
         $consulta = $user->getBy("id_correo",$username);
-        //Cerramos la conexión tras realizar la consulta
+        //Cerramos la conexiónbl tras realizar la consulta
         $user->closeConnection();
         //Generamos el hash de la password en claro
         $hash=SHA1($password);
@@ -59,8 +65,17 @@ EOF;
           $_SESSION['intentos'] = 0;
           $result = '../index.php';
         }
-        else $result[] = "Email o contraseña incorrecta";
-
+        else{ 
+			if($_SESSION['intentos']==3){
+				$_SESSION['intentos'] = 0;
+				$result[] = "Ha superado el número máximo de intentos";
+				$result = '../views/recuperarPass.php';
+			}else{
+				$result[] = "Email o contraseña incorrecta";
+        		
+			}
+		}
+		
       }catch (Exception $e) {
         error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
         $_SESSION['data_error']=$e->getMessage();
@@ -68,4 +83,12 @@ EOF;
       }
       return $result;
     }
+	
 }
+?>
+<script>
+function mostrarOcultar(doc) {
+	alert(doc);
+	doc.getElementById('reestablecerPassButton').style.visibility = 'visible';
+}
+</script>
