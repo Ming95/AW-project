@@ -59,9 +59,11 @@
 </div>
 
 <div class="lateral">
-	  <h2>Mas ideas</h2>
 		<?php
-
+		if($numIdeas==0){
+			echo' <h3>Lo sentimos, no existen ideas creadas para la categoría seleccionada</h3>';
+		}else
+			echo' <h2>Mas ideas</h2>';
 		$i = 0;
 		while($i <$numIdeas){
 			$id = $ideas[$i]["id_idea"];
@@ -77,6 +79,7 @@
 			if($i%3==2) echo '</div>';
 			$i++;
 		}
+
 
 		?>
 </div>
