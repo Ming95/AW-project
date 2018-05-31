@@ -35,7 +35,10 @@ EOF;
       $result = array();
       $username = htmlspecialchars(trim(strip_tags($_REQUEST["mail"])));
       $password = htmlspecialchars(trim(strip_tags($_REQUEST["psw"])));
-		
+	  if ($username==null || empty($username) || $password ==null || empty($password )){
+			$result[] = "Campos de entrada vacíos o nulos";
+			return $result;
+	  }
       if(!isset($_SESSION['intentos'])){
         $_SESSION['intentos'] = 0;
         $_SESSION["logged"]=false;
@@ -80,15 +83,8 @@ EOF;
         error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
         $_SESSION['data_error']=$e->getMessage();
         $result = '../errorpage.php';
-      }
+	  }
       return $result;
     }
-	
 }
 ?>
-<script>
-function mostrarOcultar(doc) {
-	alert(doc);
-	doc.getElementById('reestablecerPassButton').style.visibility = 'visible';
-}
-</script>
