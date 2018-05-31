@@ -7,9 +7,11 @@
 <link rel="shortcut icon" href="../images/icon.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
+	require '../models/eventslist.php';
 
 	include './layout/head.php';
-	require '../models/eventslist.php';
+	include './layout/categories.php';
+
 
 
 	$lista = new EventsList();

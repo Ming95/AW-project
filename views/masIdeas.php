@@ -8,9 +8,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
 
+	require_once '../models/ideaslist.php';
+	require_once '../models/categorias.php';
+
 	include './layout/head.php';
-	require '../models/ideaslist.php';
-	require '../models/categorias.php';
+	include './layout/categories.php';
 
 	$cat = $_GET['cat'];
 

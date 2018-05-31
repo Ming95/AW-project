@@ -42,6 +42,7 @@
 <body onload="myfunction1(this)">
 
 <?php include './layout/head.php';
+			include './layout/categories.php';
 		echo '<div id="todo">
 					<div id="idea">
 					<div id="cabecera">

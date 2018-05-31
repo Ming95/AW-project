@@ -1,81 +1,94 @@
-*{
-    margin: 0px;
-    padding: 0px;
+#ctopideas{
+  width: 70%;
+  margin-left: auto;
+  margin-right: 10%;
 }
-
-.topentradas{
-    margin-left: auto;
-    margin-right: auto;
-    width: 100vh;
-    height: 350px;
-    display: grid;
-    grid-gap: 25px;
-    grid-template-columns: repeat(3, 300px);
-    align-items: center;
+#relacionadas{
+	border-radius: 2px;
+	border: solid 1px #ddd;
+	margin-left: 2%;
+	margin-right:  auto;
+	float: left;
+	background-color: white;
+	min-width: 320px;
+	height: 450px;
+	margin-bottom: 20px;
 }
-
-@media(max-width: 400px){
-    .topentradas{
-        margin-left: auto;
-        margin-right: auto;
-        width: 100vh;
-        height: 1000px;
-        display: grid;
-        grid-gap: 25px;
-        grid-template-columns: 300px;
-        grid-template-rows: repeat(3, 300px);
-        align-items: center;
-    }
+#toptilte{
+  clear: both;
+  text-align:  center;
+  padding: 40px;
+  color: #333;
+  font-size: 25px;
 }
-
-
-.i_thumbnail{
-    width: 300px;
-    height: 300px;
-    float:left;
-    align-content: center;
+.previewImg:hover{
+  filter: brightness(65%);
 }
 .previewImg{
-    width: 250px;
-    height: 200px;
-    padding: 5px;
-    display: block;
-    margin-left: auto;
-    margin-right:auto;
-    border-radius: 10%;
+  min-height: 230px;
+	width: 320px;
+	position: absolute;
 }
-.title{
-    text-align: center;
-    text-decoration: none;
+.textrel{
+	padding-top: 10px;
+	background-color: white;
+	position: relative;
+  margin-top: 230px;
+  height: 178px;
 }
-.description{
-    width: 220px;
-    margin-left: auto;
-    margin-right:auto;
-    text-align: center;
+.namerel{
+	max-height: 24px;
+	overflow: hidden;
+	text-decoration: none;
+	color: black;
+	margin-left: 20px;
+	font-size: 17px;
+	margin-top: 15px;
+	margin-bottom: 5px;
 }
-
-.description{
-    font-size: 20px;
-    text-align: center;
-    text-decoration:none;
+.catrel{
+  text-decoration:  none;
+  color: #555;
+  margin-left: 20px;
+  border: solid 1px #555;
+  border-radius: 54px;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 15px;
 }
-
-#all_ideas{
-    margin: auto;
-    width: 900px;wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    height: 20px;
-    text-align: right;
+.catrel:hover{
+  color: white;
+  background-color: #f50;
+  border: none;
 }
-a{
-    text-decoration: none;
-    color: black;
+a:-webkit-any-link {
+  text-decoration: none;
 }
-
-a:link{
-    text-decoration: none;
+.usurel{
+	margin-top: 0px;
+	text-decoration: none;
+	color: #555;
+	margin-left: 20px;
+	font-size: 14px;
+	max-width: 280px;
+	max-height: 45px;
+	overflow: hidden;
+	margin-bottom: 25px;
 }
-
-a:visited{
-    text-decoration: none;
+.readmore{
+  margin-top: 0;
+  text-decoration:  none;
+  color: #f50;
+  text-align:  right;
+  margin-right: 24px;
+  font-size: 16px;
 }
+.descrel{
+	text-decoration: none;
+	color: #555;
+	margin-left: 20px;
+	font-size: 14px;
+	max-width: 280px;
+	height: 50px;
+	overflow: hidden;
+	margin-bottom: 25px;

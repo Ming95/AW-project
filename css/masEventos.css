@@ -9,7 +9,6 @@ body {
 }
 div.lateral {
 	margin: auto;
-	width: 100vh;
     display:flex;
     flex-direction: column;
     justify-content: center;

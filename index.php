@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/top_ideas.css" />
     <!--Hoja de estilos para mostra los 3 eventos mas proximos -->
 	<link rel="stylesheet" type="text/css" href="./css/top_events.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 	<link rel="shortcut icon" href="../images/icon.png" />
 	<meta charset="utf-8">
 	<title>SelfIdea</title>
@@ -69,26 +70,28 @@ entrega-->
 
         <!--La siguiente parte corresponde al boton de crear ideas -->
 		<form class="field" id="searchform" method="POST" action="../controllers/busca.php">
-			<a class="Create_button" id="create_idea" href='/views/crearidea.php'>Crear Idea</a>
+			<a class="Create_button" id="create_idea" href='/views/crearidea.php'>CREAR IDEA</a>
 			<input type="text" id="searchterm" name="busqueda" placeholder="Buscar idea"/>
--			<button type="summit" id="search"><i class="fas fa-search"></i></button>
--		</form>
+      <button type="summit" id="search"><i class="fas fa-search"></i></button>
+</form>
 		<!--<script class="search" src="aqui va el script de busqueda."></script> -->
 	</div>
 
-	<hr>
     <!--esta parte muestra las 3 ideas mas valoradas -->
-	<div id="top_ideas.css">
-		<h2 style="text-align:center" >Top ideas</h2>
+	<div>
+		<h2 id="toptilte">Ideas más populares en Selfidea</h2>
 		<?php
 		$lista = new IdeasList();
 		$lista->topRated();
+    echo '<div id="ctopideas">';
 		$lista->showNList(3);
+    echo '</div>';
 		?>
 	</div>
     <!--Esta parte muestra los 3 eventos más proximos -->
-	<div id="top_events.css">
-		<h2 style="text-align:center" >Top eventos</h2>
+	<div>
+    <div id="blockevents">
+		<h2 id="toptilte">Próximos Eventos en Selfidea</h2>
 		<?php
 		$lista2 = new EventsList();
 		$lista2->rectentEvents();

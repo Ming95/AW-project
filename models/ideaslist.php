@@ -26,6 +26,8 @@ class IdeasList extends EntidadBase {
   public function topRated(){
     $req=$this->db()->query("SELECT *,COUNT(idea.id_idea) AS rated
                               FROM likes JOIN idea on(idea.id_idea = likes.id_idea)
+                              JOIN categorias on(idea.id_categoria = categorias.id_categoria)
+                              JOIN usuario on(usuario.id_correo = idea.id_correo)
                               GROUP BY idea.id_idea ORDER BY rated DESC");
     if($req==false)
       throw new Exception('MySQL: Error al realizar la consulta SQL');
@@ -74,22 +76,27 @@ class IdeasList extends EntidadBase {
     if(!isset($this->list)) $this->rectentEvents();
     $posts=count($this->list);
     $top = ($num == 0) ? $posts : min($num, $posts);
-    echo '<div class=topentradas>';
-          $i =0;
-          while($i<$top){
-            $id = $this->list[$i]["id_idea"];
-            $imagen = $this->list[$i]['imagen'];
-            $nombre = $this->list[$i]['nombre_idea'];
-            $description = $this->list[$i]['desc_idea'];
-
-            echo '<div class="i_thumbnail">';
-            echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
-            echo '<img class ="previewImg" src= "'.$imagen.'">';
-            echo '<p class= "title">'.$nombre.'</p>';
-            echo '<p class= "description">'.$description.'</p></a></div>';
-            $i++;
-          }
-    echo '</div>';
+    $i=0;
+    	while($i<$top){
+    		$id = $this->list[$i]["id_idea"];
+    		$imagen = $this->list[$i]['imagen'];
+    		$nombre = $this->list[$i]['nombre_idea'];
+    		$cat = $this->list[$i]['valor'];
+        $catId = $this->list[$i]['id_categoria'];
+    		$desc = $this->list[$i]['desc_idea'];
+        $usu = $this->list[$i]['nombre'];
+        
+    		echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
+    		echo '<div id="relacionadas">';
+    		echo '<img class ="previewImg" src= "'.$imagen.'">';
+    		echo '<div class ="textrel">';
+    		echo '<p class="namerel">'.$nombre.'</p>';
+    		echo '<p class="usurel">'.$usu.'</p>';
+    		echo '<p class="descrel">'.$desc.'</p>';
+    		echo '<a class="catrel" href="../views/masIdeas.php?cat='.$catId.'">'.$cat.'</a>';
+    		echo '</div></div></a>';
+    		$i++;
+      }
   }
 }
 ?>

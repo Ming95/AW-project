@@ -24,6 +24,7 @@
 <body>
 <?php
 	include './layout/head.php';
+	include './layout/categories.php';
 	?>
 
 <div class="contenido">
@@ -36,12 +37,9 @@
        <h1>
             <?php echo  $evento->getNombre();?>
         </h1>
-		<div class="descripcion" id="datos1"
+		<div class="descripcion" id="datos1">
+			<p><?php echo $evento->getDescripcion();?></p>
 
-			<p>
-                <?php echo $evento->getDescripcion();?>
-			</p>
-		</div>
 		<?php
 			if(!isset($_SESSION['mail']))
 				echo '<input type="button"  class="button" value="Suscribete" id="boton"
@@ -52,7 +50,7 @@
 			else echo '<input type="button"  class="button" value="Suscribete" id="boton"
 				onclick="location.href=\'../controllers/suscribe.php?id='.$evento->getId().'&mail='.$_SESSION['mail'].'&sub='.$subscribed.'\'">';
 			?>
-
+		</div>
 </div>
 <!-- LATERAL -->
 <div class="lateral">
@@ -74,13 +72,13 @@
 		echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
 		echo '<img src= "'.$imagen.'" alt="evento 1" style="width:100%">';
 		echo '<div class="caption">';
-		echo '<p><a href="../views/infoevento.php?id_evento='.$id.'">'.$nombre.'</a></p></div></a></div>';
+		echo '<p><a class="rightext" href="../views/infoevento.php?id_evento='.$id.'">'.$nombre.'</a></p></div></a></div>';
 
 	}
 
 
 ?>
-<p class="texto3"><a href="../views/masEventos.php">Ver mas</a></p>
+<p class="texto3"><a class="rightext" href="../views/masEventos.php">Ver mas</a></p>
 </div><!-- LATERAL -->
 
 <div class="pie">

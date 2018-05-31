@@ -1,0 +1,37 @@
+#contenedor{
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding-right: 10%;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #252932cc;
+  margin-left:  auto;
+  margin-right:  auto;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.17);
+}
+.catlist {
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left:  auto;
+  margin-right:  auto;
+  padding: 0;
+  width: 60%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+  font-family:sans-serif;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+    background-color: #252932;
+}
