@@ -32,6 +32,10 @@ EOF;
         $result = array();
 
         $username = htmlspecialchars(trim(strip_tags($_REQUEST["uname"])));
+		if ($username==null || empty($username)){
+			$result[] = "Campos de entrada vacíos o nulos";
+			return $result;
+		}
       	$mail = $_SESSION['mail'];
 		if ($username!=null && !empty($username)){
 			try{
