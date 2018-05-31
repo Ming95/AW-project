@@ -60,7 +60,7 @@ class FormularioIdea extends Form
   			<h4>Nombre de la idea</h4><input type="text" name="nombre" required class ="input-box">
   			<h4>Recaudación</h4>
   			<p>Indica la cantidad en euros que deseas recaudar.</p>
-  			<input type="text" name="recaudacion" onkeypress="return valida(event)" required class ="input-box">
+  			<input type="text" name="recaudacion" onkeypress="return valida(event)" required class ="input-box" placeholder="Ej: 500000">
   			<h4>Fin de recaudacion</h4>
   			<p>Indica la fecha en la que se cerrará la recaudación.</p>
   			<input type="date" name="fecha" step="1" min="$date" max="2033-12-31" value="$date" class ="input-box">
