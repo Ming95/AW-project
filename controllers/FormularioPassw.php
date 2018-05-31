@@ -39,7 +39,7 @@ EOF;
       	$password2 = htmlspecialchars(trim(strip_tags($_REQUEST["psw2"])));
       	$mail =  $_SESSION['mail'];
       	//comprueba que las dos contrasenas coincidan
-      	if($password != $password2){
+      	if($password==null || empty($password) || $password2==null || empty($password2) || $password != $password2){
       		$result[] = "Las contraseñas no coinciden.";
       	}
       	else{
