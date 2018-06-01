@@ -37,6 +37,7 @@ class IdeasList extends EntidadBase {
   public function categoria($cat){
     $req=$this->db()->query("SELECT * FROM idea JOIN categorias
                             on(idea.id_categoria = categorias.id_categoria)
+                            JOIN usuario on(usuario.id_correo = idea.id_correo)
                             WHERE idea.id_categoria = '".$cat."'");
     if($req==false)
       throw new Exception('MySQL: Error al realizar la consulta SQL: no se han podido mostrar las categorias');
@@ -85,7 +86,7 @@ class IdeasList extends EntidadBase {
         $catId = $this->list[$i]['id_categoria'];
     		$desc = $this->list[$i]['desc_idea'];
         $usu = $this->list[$i]['nombre'];
-        
+
     		echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
     		echo '<div id="relacionadas">';
     		echo '<img class ="previewImg" src= "'.$imagen.'">';

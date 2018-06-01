@@ -1,13 +1,13 @@
 #ctopideas{
-  width: 70%;
+  width: 76%;
   margin-left: auto;
   margin-right: 10%;
 }
 #relacionadas{
 	border-radius: 2px;
 	border: solid 1px #ddd;
-	margin-left: 2%;
-	margin-right:  auto;
+	margin-left: 1%;
+	margin-right: 1%;
 	float: left;
 	background-color: white;
 	min-width: 320px;
@@ -25,6 +25,7 @@
   filter: brightness(65%);
 }
 .previewImg{
+  object-fit: cover;
   min-height: 230px;
 	width: 320px;
 	position: absolute;

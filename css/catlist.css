@@ -1,8 +1,8 @@
 #contenedor{
   box-sizing: border-box;
   font-family: sans-serif;
-  padding-right: 10%;
-  margin-bottom: 20px;
+  /* padding-right: 10%; */
+  /* width: 100%; */
   overflow: hidden;
   background-color: #252932cc;
   margin-left:  auto;
@@ -16,7 +16,7 @@
   margin-left:  auto;
   margin-right:  auto;
   padding: 0;
-  width: 60%;
+  width: 70%;
 }
 
 li {

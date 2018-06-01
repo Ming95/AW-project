@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/masEventos.css" />
 <link rel="stylesheet" type="text/css" href="../css/styleforms.css" />
+<link rel="stylesheet" type="text/css" href="../css/top_ideas.css" />
 <link rel="shortcut icon" href="../images/icon.png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
@@ -30,50 +31,47 @@
 		$i++;
 		echo '<div class="diapositiva">';
 		echo '<div class="numbertext">'.$i.' / '.$tope.'</div>';
-		echo '<a style="margin:150px;" href="../views/infoevento.php?id_evento='.$id.'">';
-		echo '<img src= "'.$imagen.'" alt="idea 1" style="max-height: 500px;">';
-		echo '<p class="text"">'.$nombre.'</p></a></div>';
+		echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
+		echo '<img src= "'.$imagen.'" alt="imagen del evento" class="himage">';
+		echo '<p class="text"">EVENTOS</p></a></div>';
 
 	}
 	?>
-	</div>
-	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-	<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
-	<?php
-	$i = 0;
-	while($i <$tope){
-		$i++;
-		echo '<span class="dot" onclick="currentSlide('.$i.')"></span>';
-	}
-		?>
-</div>
-
-<div class="lateral">
-	  <h2>Mas ideas</h2>
+	<div class="dots">
 		<?php
-
 		$i = 0;
-		while($i <$numEventos){
-			$id = $eventos[$i]["id"];
-			$imagen = $eventos[$i]['imagen'];
-			$nombre = $eventos[$i]['nombre'];
-
-			if($i%3==0) echo '<div class="row">';
-			echo '<div class="evento1">';
-			echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
-			echo '<img src= "'.$imagen.'" alt="imagen de '.$nombre.'" style="width:100%">';
-			echo '<div class="caption">';
-			echo '<p>'.$nombre.'</p></a></div></div>';
-			if($i%3==2) echo '</div>';
+		while($i <$tope){
 			$i++;
+			echo '<span class="dot" onclick="currentSlide('.$i.')"></span>';
 		}
+			?>
+	</div>
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+	<div class="lateral">
+		<h2 id="toptilte">Próximos eventos</h2>
+		<div id="blocklista">
+			<?php
+			$i = 0;
+			while($i <$numEventos){
+				$id = $eventos[$i]["id"];
+				$imagen = $eventos[$i]['imagen'];
+				$nombre = $eventos[$i]['nombre'];
+				$desc = $eventos[$i]['desc_evento'];
 
-		?>
+				echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
+				echo '<div id="relacionadas">';
+				echo '<img class ="previewImg" src= "'.$imagen.'">';
+				echo '<div class ="textrel">';
+				echo '<p class="namerel">'.$nombre.'</p>';
+				echo '<p class="descrel">'.$desc.'</p>';
+				echo '</div></div></a>';
+				$i++;
+			}
+
+			?>
+		</div>
 </div>
 
 <script>

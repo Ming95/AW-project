@@ -38,6 +38,7 @@
             <?php echo  $evento->getNombre();?>
         </h1>
 		<div class="descripcion" id="datos1">
+			<p><?php echo $evento->getFecha();?></p>
 			<p><?php echo $evento->getDescripcion();?></p>
 
 		<?php

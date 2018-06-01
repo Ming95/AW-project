@@ -56,8 +56,6 @@ div.descripcion{
 	margin: 4px 2px;
 	cursor: pointer;
 	float: right;
-	margin-top: 15%;
-	/* -webkit-transition-duration: 0.4s; */ /* Safari */
 	transition-duration: 0.4s;
 	box-shadow: 0px 3px 11px 0 #20202059;
 }
