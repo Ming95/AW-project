@@ -57,10 +57,8 @@ EOF;
         $consulta = $user->getBy("id_correo",$username);
         //Cerramos la conexiónbl tras realizar la consulta
         $user->closeConnection();
-        //Generamos el hash de la password en claro
-        $hash=SHA1($password);
         //Comparamos el nuevo hash con el existente en BBDD
-        if($consulta!=null and hash_equals($hash,$consulta[0]['password'])){
+        if($consulta!=null and password_verify($password,$consulta[0]['password'])){
           $_SESSION["logged"]	= true;
           $_SESSION['login'] = $consulta[0]['nombre'];
           $_SESSION['mail'] = $consulta[0]['id_correo'];
