@@ -33,9 +33,30 @@ class Usuario extends EntidadBase {
 	   public function getPassword() {
         return $this->password;
     }
+	
+/* 	function generateRandomString($length = 10) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < $length; $i++) {
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		return $randomString;
+	}  */
+	
+	public function generaPass($newPassword){
+		$salt=base64_encode(random_bytes(16));
+		$options=[
+			'cost'=>8,
+			'salt'=>"$salt",
+		]	;
+		return password_hash($newPassword, PASSWORD_DEFAULT);
+	}
 
-    public function setPassword($password) {
-        $this->password = SHA1($password);
+    public function setPassword($newPassword) {
+		$this->password= $this->generaPass($newPassword);
+		//var_dump($this->password);
+        //$this->password = encriptar($newPassword);
     }
 
     public function getNombre() {
@@ -57,7 +78,7 @@ class Usuario extends EntidadBase {
 
     //cambiar contrasenia de usuario en db
     public function cambiarPass($nuevaPass){
-		$encryptedNuevaPass=SHA1($nuevaPass);
+		$encryptedNuevaPass=$this->generaPass($nuevaPass);
         if($nuevaPass==$this->getPassword()) return 0;
         $query="UPDATE usuario SET password='".$encryptedNuevaPass."'
                 WHERE usuario.id_correo = '".$this->getIdCorreo()."'";
