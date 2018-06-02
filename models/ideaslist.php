@@ -23,6 +23,20 @@ class IdeasList extends EntidadBase {
       - Muestra el numero de elementos indicados.
       - si $num == 0 , muestra todos los elementos disponibles
   */
+  private function loadRecaudadoList(){
+    $i=0;
+    while($i<count($this->list)){
+      $req=$this->db()->query("SELECT SUM(usuario_importe_idea.importe_aportado)AS recaudado
+                              FROM idea JOIN usuario_importe_idea on (idea.id_idea = usuario_importe_idea.id_idea)
+                              WHERE idea.id_idea = ".$this->list[$i]['id_idea']." GROUP BY idea.id_idea");
+      if($req==false)
+        throw new Exception('MySQL: Error al cargar la recaudación');
+      $filas = $this->showData($req);
+      $this->list[$i]['recaudado'] = ((!count($filas))?0:$filas[0]['recaudado']);
+      $i++;
+    }
+  }
+
   public function topRated(){
     $req=$this->db()->query("SELECT *,COUNT(idea.id_idea) AS rated
                               FROM likes JOIN idea on(idea.id_idea = likes.id_idea)
@@ -32,6 +46,7 @@ class IdeasList extends EntidadBase {
     if($req==false)
       throw new Exception('MySQL: Error al realizar la consulta SQL');
     $this->list = $this->showData($req);
+    $this->loadRecaudadoList();
   }
   //Muestra las ideas de la categoria indicada
   public function categoria($cat){
@@ -42,6 +57,7 @@ class IdeasList extends EntidadBase {
     if($req==false)
       throw new Exception('MySQL: Error al realizar la consulta SQL: no se han podido mostrar las categorias');
     $this->list = $this->showData($req);
+    $this->loadRecaudadoList();
   }
   //Muestra las ideas de un determinado usuario
   public function perfil($mail){
@@ -51,6 +67,7 @@ class IdeasList extends EntidadBase {
     if($req==false)
       throw new Exception('MySQL: Error al realizar la consulta SQL: no se han podido mostrar las ideas del usuario');
     $this->list = $this->showData($req);
+    $this->loadRecaudadoList();
   }
 
   //consulta ideas relacionadas
