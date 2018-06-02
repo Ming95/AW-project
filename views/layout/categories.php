@@ -9,7 +9,7 @@
       //crea categorias
         $i =0;
         while(isset($categorias[$i])){
-          echo '<li><a href="/views/masIdeas.php?cat=';
+          echo '<li><a class="catitem" href="/views/masIdeas.php?cat=';
           echo $i+1;
           echo '">';
           echo $categorias[$i];

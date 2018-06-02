@@ -23,7 +23,7 @@ li {
     float: left;
 }
 
-li a {
+.catitem{
   font-family:sans-serif;
   display: block;
   color: white;
@@ -32,6 +32,6 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+.catitem:hover {
     background-color: #252932;
 }
