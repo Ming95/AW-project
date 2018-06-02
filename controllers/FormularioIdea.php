@@ -110,7 +110,7 @@ EOF;
 
         $datos['categoria'] = array_search($datos['categoria'],$this->categorias)+1;
         $datos['enventa']=(isset($_REQUEST['vender']))?'1':'0';
-        $datos['precio']=(isset($_REQUEST['precio']))?$_REQUEST['precio']:'0';
+        $datos['precio']=(isset($_REQUEST['vender']) && $datos['enventa']==1)?$_REQUEST['precio']:'0';
         $desc = nl2br(htmlentities($datos['descripcion'], ENT_QUOTES, 'UTF-8'));
         //Crea objeto idea y atributos
         if(empty($result)){
