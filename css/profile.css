@@ -1,10 +1,59 @@
 .profile-settings{
-  margin:auto;
-  width: 1100px;
-  font-family: "Roboto";
-  font-size: 12pt;
-  font-weight: 200 !important;
+    margin:auto;
+    width: 1100px;
+    font-family: "Roboto";
+    font-size: 12pt;
+    font-weight: 200 !important;
+    justify-content: center;
 }
+
+.user_data{
+    width: 350px;
+    height: 280px;
+    display:block;
+    margin:auto;
+}
+
+#user_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    display:block;
+    margin:auto;
+    
+}
+
+.data{
+    font-size: 18px;
+    text-align: center;
+}
+
+.change{
+    width: 800px;
+    margin: auto;
+    justify-content: center;
+}
+
+.bottons{
+    width: 250px;
+    padding : 5px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.boton-formulario{
+    outline:0;
+	cursor: pointer;
+    font-size: 12pt;
+    color: white;
+    background-color:#f50;
+	box-shadow: 0px 1px 8px -1px rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 4px;
+	border-style: hidden;
+}
+
 div .lista-perfil{
   margin: auto;
   margin-top: 50px;
@@ -44,4 +93,20 @@ div .boton-fila-perfil{
 }
 .profile-settings h1{
   font-size: 16pt;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+}
+
+.links:link{
+    text-decoration: none;
+    color: black;
+}
+
+.links:visited{
+    color:black;
+    text-decoration: none;
+    
 }
