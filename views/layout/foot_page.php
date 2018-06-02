@@ -25,13 +25,13 @@
                 <div class="column2">
                     <h1>Redes sociales</h1>
                     <div class="row">
-							<img class="footerImg" src="/images/facebook.png"> <label><a href="http://www.facebook.com">Siguenos en facebook</a></label>
+							          <img class="footerImg" src="/images/facebook.png"> <label><a class="footlink" href="http://www.facebook.com">Siguenos en facebook</a></label>
                     </div>
                     <div class="row">
-                        <img class="footerImg" src="/images/twitter.jpg"> <label> <a href="http://www.twitter.com">Siguenos en Twitter </label>
+                        <img class="footerImg" src="/images/twitter.jpg"> <label> <a class="footlink" href="http://www.twitter.com">Siguenos en Twitter</a></label>
                     </div>
                     <div class="row">
-                        <img class="footerImg" src="/images/googlep.png"> <label><a href="https://plus.google.com"> Siguenos en Google Plus </label>
+                        <img class="footerImg" src="/images/googlep.png"> <label><a class="footlink" href="https://plus.google.com">Siguenos en Google Plus</a></label>
                     </div>
                 </div>
 

@@ -26,13 +26,13 @@
 	$i = 0;
 	while($i <$tope){
 		$id = $eventos[$i]["id"];
-		$imagen = $eventos[$i]['imagen'];
+		$imagen = 'url('.$eventos[$i]['imagen'].')';
 		$nombre = $eventos[$i]['nombre'];
 		$i++;
 		echo '<div class="diapositiva">';
 		echo '<div class="numbertext">'.$i.' / '.$tope.'</div>';
 		echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
-		echo '<img src= "'.$imagen.'" alt="imagen del evento" class="himage">';
+		echo '<div class="himage" style="background-image: '.$imagen.';"></div>';
 		echo '<p class="text"">EVENTOS</p></a></div>';
 
 	}
@@ -59,12 +59,14 @@
 				$imagen = $eventos[$i]['imagen'];
 				$nombre = $eventos[$i]['nombre'];
 				$desc = $eventos[$i]['desc_evento'];
+				$fech = $eventos[$i]['fecha'];
 
 				echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
 				echo '<div id="relacionadas">';
 				echo '<img class ="previewImg" src= "'.$imagen.'">';
 				echo '<div class ="textrel">';
 				echo '<p class="namerel">'.$nombre.'</p>';
+				echo '<p class="descrel">'.$fech.'</p>';
 				echo '<p class="descrel">'.$desc.'</p>';
 				echo '</div></div></a>';
 				$i++;

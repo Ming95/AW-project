@@ -15,6 +15,13 @@ class EventsList extends EntidadBase {
   public function getList(){
     return $this->list;
   }
+
+  private function diffFechas($fecha){
+    $date1 = new DateTime($fecha);
+    $date2 = new DateTime("now");
+    $diff = $date1->diff($date2);
+    return ($diff->days);
+  }
   /*
 
   Genera la lista de eventos recientes
@@ -45,14 +52,16 @@ class EventsList extends EntidadBase {
             $imagen = $this->list[$i]['imagen'];
             $nombre = $this->list[$i]['nombre'];
             $description =$this->list[$i]['desc_evento'];
-            $fecha =$this->list[$i]['fecha'];
+            $dias =$this->diffFechas($this->list[$i]['fecha']);
+            $fecha=(!$dias)?'Hoy':'Faltan '.$dias.' diás';
 
             echo '<div class="evento">';
             echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
             echo '<img class="imgevent" src= "'.$imagen.'">';
         		echo '<div class="textevent">';
         		echo '<p class="nomevent">'.$nombre.'</p>';
-            echo '<p class="descevent">'.$fecha.': '.$description.'</p></a></div></div>';
+            echo '<p class="descevent">'.$fecha.'</p>';
+            echo '<p class="descevent">'.$description.'</p></a></div></div>';
             $i++;
           }
     echo '</div>';

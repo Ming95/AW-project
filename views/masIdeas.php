@@ -34,13 +34,13 @@ if($numIdeas){
 	$i = 0;
 	while($i <$tope){
 		$id = $ideas[$i]["id_idea"];
-		$imagen = $ideas[$i]['imagen'];
+		$imagen = 'url('.$ideas[$i]['imagen'].')';
 		$nombre = $ideas[$i]['nombre_idea'];
 		$i++;
 		echo '<div class="diapositiva">';
 		echo '<div class="numbertext">'.$i.' / '.$tope.'</div>';
 		echo '<a href="../views/infoIdea.php?id_idea='.$id.'">';
-		echo '<img src= "'.$imagen.'" alt="imagen de la idea" class="himage">';
+		echo '<div class="himage" style="background-image: '.$imagen.';"></div>';
 		echo '<p class="text"">'.mb_strtoupper(html_entity_decode($cat),'utf-8').'</p></a></div>';
 
 	}

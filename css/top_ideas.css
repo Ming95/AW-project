@@ -1,5 +1,5 @@
 #ctopideas{
-  width: 76%;
+  width: 207vh;
   margin-left: auto;
   margin-right: 10%;
 }
@@ -38,6 +38,7 @@
   height: 178px;
 }
 .namerel{
+  max-width: 270px;
 	max-height: 24px;
 	overflow: hidden;
 	text-decoration: none;

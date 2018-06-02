@@ -60,7 +60,12 @@ div.column1 p{
     max-width: 400px;
     margin:50px;
 }
-
+.footlink{
+  margin-top: 10px;
+  margin-left: 20px;
+  max-width: 150px;
+  color: #c7c7c7;
+}
 .column3 h1{
     padding-top: 10px;
     font-size: 22px;
