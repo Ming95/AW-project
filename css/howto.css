@@ -1,0 +1,31 @@
+*{
+    margin: auto;
+    padding: 0px;
+}
+
+.text{
+    width: 80%;
+    height: auto;
+    margin: 0, auto;
+    background-color: #f0f0f5;
+}
+
+.text h1{
+    
+    padding-top: 80px;
+    text-align: center;
+}
+
+.text h2{
+    width: 70%;
+    font-size: 20px;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.text p{
+    width: 70%;
+    padding-bottom: 35px;
+    font-size: 18px;
+    
+}
