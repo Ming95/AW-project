@@ -220,14 +220,13 @@ try{
                 while($i < $top){
                     $nombre = $eventos[$i]['nombre'];
                     $fecha = $eventos[$i]['fecha'];
-                    $incrib = $eventos[$i]['num_usuarios'];
                     $id = $eventos[$i]['id'];
                     
                     echo '<a class="links" href="../views/infoevento.php?id_evento='.$id.'">';
                         echo '<div class="fila-perfil">';
                             echo '<div class ="texto-dato">';
                                 echo'<h3>'. $nombre.'</h3>';
-                                echo'<p>'. $fecha. ' |'.$incrib.' de personas inscritas</p>';
+                                echo'<p>'. $fecha. '</p>';
                             echo'</div>';
                     echo'</div></a>';
                     $i++;
