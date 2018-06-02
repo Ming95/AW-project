@@ -25,7 +25,7 @@
                 <div class="column2">
                     <h1>Redes sociales</h1>
                     <div class="row">
-							          <img class="footerImg" src="/images/facebook.png"> <label><a class="footlink" href="http://www.facebook.com">Siguenos en facebook</a></label>
+				        <img class="footerImg" src="/images/facebook.png"> <label><a class="footlink" href="http://www.facebook.com">Siguenos en facebook</a></label>
                     </div>
                     <div class="row">
                         <img class="footerImg" src="/images/twitter.jpg"> <label> <a class="footlink" href="http://www.twitter.com">Siguenos en Twitter</a></label>
@@ -39,22 +39,22 @@
                 <div class="column3">
                     <h1>Atención al cliente</h1>
                     <div class="row2">
-                        <img class="footerImg" src="/images/contacto.jpg"> <label> Contacto </label>
+                        <img class="footerImg" src="/images/contacto.jpg"> <label><a class="footlink" href="../views/contact.php">Contacto</a></label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/reglas.jpg"> <label> Reglas de nuestra comunidad </label>
+                        <img class="footerImg" src="/images/reglas.jpg"> <label><a class="footlink" href="../views/rules.php">Reglas de nuestra comunidad</a></label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/howto.jpg"> <label> Cómo crear ideas </label>
+                        <img class="footerImg" src="/images/howto.jpg"> <label><a class="footlink" href="../views/howto.php">Cómo crear ideas</a></label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/cookie.jpg"> <label> Política de cookies </label>
+                        <img class="footerImg" src="/images/cookie.jpg"> <label><a class="footlink" href="../views/privacy.php">Política de cookies</a></label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/privacy.png"> <label> Política de privacidad </label>
+                        <img class="footerImg" src="/images/privacy.png"> <label><a class="footlink" href="../views/privacy.php">Política de privacidad</a></label>
                     </div>
                     <div class="row2">
-                        <img class="footerImg" src="/images/use.png"> <label> Términos de uso</label>
+                        <img class="footerImg" src="/images/use.png"> <label><a class="footlink" href="../views/term.php">Término de uso</a></label>
                     </div>
                 </div>
             </div>
