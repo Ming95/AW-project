@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Contacto</title>
+    <title>Política de privacidad</title>
     <link rel="shortcut icon" href="../images/icon.png" />
     <link rel="stylesheet" type="text/css" href="../css/privacy.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
