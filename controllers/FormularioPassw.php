@@ -3,16 +3,21 @@ require 'Form.php';
 require $_SERVER['DOCUMENT_ROOT']."/models/usuario.php";
 class FormularioPassw extends Form
 {
+    private $exito;
     public function __construct() {
-        parent::__construct('formPass');
+      $this->exito = false;
+      $opt = array();
+      $opt['action']='../views/cambiarPass.php';
+      parent::__construct('formPass', $opt);
     }
 
     protected function generaCamposFormulario($datos)
     {
+        if(!$this->exito){
         $html = <<<EOF
         <legend>Modificar contraseña</legend>
           <div class="campos-formulario">
-              <h4>Contraseña</h4>
+              <h4>Nueva Contraseña</h4>
               <input class ="input-box" type="password" placeholder="Introduce una contraseña entre 8 y 16 caracteres" name="psw"
                       pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" required>
               <p>La contraseña requiere al menos: un dígito, una minúscula, una mayúscula y un caracter no alfanumérico.</p>
@@ -22,11 +27,21 @@ class FormularioPassw extends Form
                       pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" required>
             </div>
             <div class="submit-formulario">
-			  <input type="button" value="VOLVER" class ="boton-formulario2" onclick="location.href='/views/profile.php'">
-              <input type="submit" value="GUARDAR Y ACTUALIZAR DATOS" class ="boton-formulario">
-			  
+			  <input type="button" value="CANCELAR" class ="boton-formulario2" onclick="location.href='/views/profile.php'">
+              <input type="submit" value="GUARDAR" class ="boton-formulario">
+
             </div>
 EOF;
+      }
+      else{
+        $html = <<<EOF
+        <h2>Contraseña modificada correctamente</h2>
+        <p>Utiliza tu nueva contraseña para tu próximo acceso</p>
+        <div class="submit-formulario">
+			     <input type="button" value="CONTINUAR" class ="boton-formulario" onclick="location.href='../views/profile.php'">
+        </div>
+EOF;
+      }
         return $html;
     }
 
@@ -48,7 +63,7 @@ EOF;
       			if($user->getBy("id_correo",$mail)!=null){
       				$user->setIdCorreo($mail);
       				$user->cambiarPass($password);
-					$result[] = "Contraseña modificada correctamente";
+					    $this->exito = true;
       			}
       			$user->closeConnection();
       		}catch(Exception $e){

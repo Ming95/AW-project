@@ -33,7 +33,7 @@ class Usuario extends EntidadBase {
 	   public function getPassword() {
         return $this->password;
     }
-	
+
 /* 	function generateRandomString($length = 10) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
@@ -43,7 +43,7 @@ class Usuario extends EntidadBase {
 		}
 		return $randomString;
 	}  */
-	
+
 	public function generaPass($newPassword){
 		$salt=base64_encode(random_bytes(16));
 		$options=[
@@ -110,11 +110,12 @@ class Usuario extends EntidadBase {
 
     //Carga los campos desde db
     public function aportaciones(){
-        $req=$this->db()->query("SELECT *, SUM(usuario_importe_idea.importe_aportado)
-                                  AS aportado FROM usuario_importe_idea
-                                  JOIN idea ON (idea.id_idea = usuario_importe_idea.id_idea)
-                                  WHERE usuario_importe_idea.id_correo = '".$this->getIdCorreo()."'
-                                  GROUP By usuario_importe_idea.id_idea");
+        $req=$this->db()->query(
+        "SELECT *, SUM(importe_aportado)\n"
+    . "                 AS aportado FROM usuario_importe_idea\n"
+    . "                 JOIN idea ON (idea.id_idea = usuario_importe_idea.id_idea)\n"
+    . "                 WHERE usuario_importe_idea.id_correo = '".$this->getIdCorreo()."'\n"
+    . "                 GROUP By usuario_importe_idea.id_idea");
         if($req==false)
           throw new Exception('MySQL: Error al cargar las aportaciones del usuario');
         $filas = $this->showData($req);

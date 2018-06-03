@@ -10,17 +10,17 @@ class FormularioPersonalInfo extends Form
     protected function generaCamposFormulario($datos)
     {
         $html = <<<EOF
-        <legend>Modificar datos personales</legend>
+        <legend>Cambiar nombre</legend>
           <div class="campos-formulario">
 		      <h4>Email</h4>
-              <input class ="input-box" type="text" name="fname" value='{$_SESSION['mail']}' disabled><br>
+          <p>{$_SESSION['mail']}</p>
 		      <h4>Nombre de usuario</h4>
               <input class ="input-box" type="text" name="uname" value='{$_SESSION['login']}'><br>
             </div>
             <div class="submit-formulario">
-			  <input type="button" value="VOLVER" class ="boton-formulario2" onclick="location.href='/views/profile.php'">
-              <input type="submit" value="GUARDAR Y ACTUALIZAR DATOS" class ="boton-formulario">
-			  
+			  <input type="button" value="CANCELAR" class ="boton-formulario2" onclick="location.href='/views/profile.php'">
+              <input type="submit" value="GUARDAR" class ="boton-formulario">
+
         </div>
 EOF;
         return $html;
@@ -48,7 +48,7 @@ EOF;
 						$_SESSION['login'] = $username;
 						//$_SESSION['mail'] = $mail;
 						$result[] = "Datos personales modificados correctamente";
-						Header("Location: ../views/cambiarPersonalInfo.php");
+						$result = '../views/profile.php';
 				}
 				$user->closeConnection();
 			}catch(Exception $e){
@@ -59,5 +59,5 @@ EOF;
 		}
 		return $result;
     }
-        
+
 }

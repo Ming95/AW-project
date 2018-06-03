@@ -3,7 +3,7 @@
 <head>
 	<link rel="shortcut icon" href="../images/icon.png" />
 	<link rel="stylesheet" type="text/css" href="../css/formulario.css" />
-	<title>Registro</title>
+	<title>Cambiar contraseña</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
