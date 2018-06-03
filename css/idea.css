@@ -95,6 +95,8 @@ relacionadas
 	margin-bottom: 20px;
 }
 .previewImg{
+	object-fit: cover;
+	min-height: 230px;
 	width: 320px;
 	position: absolute;
 }
@@ -106,7 +108,9 @@ relacionadas
   height: 178px;
 }
 .namerel{
+	/* word-break: break-word; */
 	max-height: 24px;
+	max-width: 293px;
 	overflow: hidden;
 	text-decoration: none;
 	color: black;
