@@ -41,7 +41,7 @@ try{
   <div class="profile-settings">
 
       <div class="user_data">
-          <img id="user_img" alt="imagen por defecto de los usuarios" src ="/images/usuario.jpg">
+          <img id="user_img" alt="imagen por defecto de los usuarios" src ="../images/usuario.png">
 
 					<p class="data" >Correo: <?php echo $user->getIdCorreo(); ?></p>
           <p class="data" >Nombre: <?php echo $user->getNombre(); ?> <a class="pricon" href="./cambiarPersonalInfo.php"><i class="fas fa-user-edit"></i></a></p>
