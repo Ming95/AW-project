@@ -1,7 +1,44 @@
-div.top_ideas{
+#blockevents{
+  clear: both;
+  padding-top: 20px;
+  background-color: #eee;
+  padding-bottom: 20px;
 }
-
-p{
-	font-size: 35px;
-	text-align: center;
+.imgevent{
+  object-fit: cover;
+  height: 300px;
+  filter: brightness(65%);
+  width: 1300px;
+  /* float:  left; */
+}
+.imgevent:hover{
+  filter: brightness(30%);
+}
+.textevent{
+  position: absolute;
+  left: 20%;
+  margin-top: 50px;
+  display: inline-block;
+}
+.evento{
+  width: 80%;
+  margin-left:  auto;
+  margin-right:  auto;
+  margin-bottom: 20px;
+  display: flex;
+}
+.nomevent{
+  color:  black;
+  background-color: white;
+  padding: 15px;
+  font-size: 28px;
+}
+.descevent{
+  background-color: white;
+  padding: 5px;
+  color: #555;
+  max-width: 1000px;
+  overflow: hidden;
+  max-height: 50px;
+  font-size: 16px;
 }

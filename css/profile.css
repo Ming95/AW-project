@@ -1,0 +1,110 @@
+.profile-settings{
+    margin:auto;
+    width: 1100px;
+    font-family: "Roboto";
+    font-size: 12pt;
+    font-weight: 200 !important;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.user_data{
+    width: 350px;
+    height: 280px;
+    display:block;
+    margin:auto;
+}
+
+#user_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    display:block;
+    margin:auto;
+
+}
+
+.data{
+    font-size: 18px;
+    text-align: center;
+}
+
+.change{
+    width: fit-content;
+    margin-left: auto;
+    margin-right:  auto;
+}
+
+.bottons{
+    display:  inline;
+}
+
+.boton-formulario{
+    outline:0;
+	cursor: pointer;
+    font-size: 12pt;
+    color: white;
+    background-color:#f50;
+	box-shadow: 0px 1px 8px -1px rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 4px;
+	border-style: hidden;
+}
+
+div .lista-perfil{
+  margin: auto;
+  margin-top: 50px;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+}
+
+div .texto-dato{
+  margin: auto;
+  border-radius: 10px;
+  border: solid 1px #ccc;
+  box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.19);
+  background-color: #ffffff;
+  padding: 20px;
+  padding-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+div .boton-fila-perfil{
+  color: white;
+  float: right;
+  margin-top: 22px;
+  margin-right: 100px;
+  background-color:#f50;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+.pricon{
+  color: #F50;
+}
+.profile-settings h3{
+  font-size: 20px;
+  color: #f50;
+}
+.profile-settings h1{
+  font-size: 20pt;
+  font-weight: bolder;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+}
+
+.links:link{
+    text-decoration: none;
+    color: black;
+}
+
+.links:visited{
+    color:black;
+    text-decoration: none;
+
+}

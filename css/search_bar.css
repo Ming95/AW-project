@@ -4,6 +4,7 @@
   left: 30px;
   width: 150px;
   margin: 20px;
+  margin-left: 130px;
 }
 
 .field>input[type=text],
@@ -13,16 +14,21 @@
 }
 
 .field>input[type=text] {
+  outline: none;
+  font-family:  sans-serif;
   flex:1;
   padding:0.6em;
+  border-radius: 10px 0px 0px 10px;
+  font-size: 17px;
   border:0.2em solid rgb(26, 188, 156);
 }
 
 .field>button {
-  padding:0.6em 0.8em;
-  background-color:rgb(26, 188, 156);
-  color:white;
-  border:none;
+  padding: .6em .85em;
+  outline:none;
+  background-color: rgb(26, 188, 156);
+  color: white;
+  margin-right: 0;
+  border-radius: 0px 10px 10px 0px;
+  border: none;
 }
-
-

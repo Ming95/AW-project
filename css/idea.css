@@ -1,0 +1,224 @@
+body {
+	margin: 0px;
+	font-family: sans-serif;
+	background-color: #f7f7f7;
+}
+#todo{
+	margin-top: 20px;
+	margin-left: 3%;
+	margin-right: auto;
+}
+#idea{
+	min-height: 1372px;
+	border-radius: 2px;
+	box-shadow: 0px 0px 11px -3px rgba(0,0,0,0.39);
+	float: left;
+	min-width: 1182px;
+	margin-bottom: 25px;
+	padding-bottom: 20px;
+	background-color: #fff;
+}
+/*
+Cabecera
+*/
+#title{
+	font-weight: lighter;
+}
+#subtitle{
+	 font-weight: lighter;
+	 font-weight: 15px;
+	 color: #555;
+}
+#cabecera{
+	padding-top: 50px;
+	margin-left: 90px;
+	margin-bottom: 30px;
+}
+/*
+Acciones
+*/
+#acciones-idea{
+	margin-left: 70px;
+}
+#bsecun{
+	margin-top: 30px;
+}
+#main-img{
+	float: left;
+	max-width: 700px;
+	max-height: 700px;
+}
+#buy{
+	margin-left: 20px;
+	width: 140px;
+}
+#patrocinar{
+	margin-top: 10px;
+	width:300px;
+}
+.fa, .fas{
+	color: #f05;
+}
+#like{
+	width:40px;
+	margin-right: 0;
+}
+#lateral{
+	margin-left: 40px;
+	float: left;
+}
+.numInfo{
+	margin-bottom: 5px;
+	color: #f50;
+	font-size: 25px;
+
+}
+.numInfo2{
+	margin-bottom: 5px;
+	font-size: 25px;
+}
+.textInfo{
+	margin-bottom: 25px;
+	color: #555;
+}
+/*
+relacionadas
+*/
+#relacionadas{
+	border-radius: 2px;
+	box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.11);
+	margin-left: 1%;
+	float: left;
+	background-color: white;
+	min-width: 320px;
+	height: 450px;
+	margin-bottom: 20px;
+}
+.previewImg{
+	object-fit: cover;
+	min-height: 230px;
+	width: 320px;
+	position: absolute;
+}
+.textrel{
+	padding-top: 10px;
+	background-color: white;
+	position: relative;
+  margin-top: 230px;
+  height: 178px;
+}
+.namerel{
+	/* word-break: break-word; */
+	max-height: 24px;
+	max-width: 293px;
+	overflow: hidden;
+	text-decoration: none;
+	color: black;
+	margin-left: 20px;
+	font-size: 21px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.catrel{
+	margin-top: 0px;
+	text-decoration: none;
+	color: #555;
+	margin-left: 20px;
+	font-size: 14px;
+	max-width: 280px;
+	max-height: 45px;
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+.readmore{
+  margin-top: 0;
+  text-decoration:  none;
+  color: #f50;
+  text-align:  right;
+  margin-right: 24px;
+  font-size: 16px;
+}
+.descrel{
+	text-decoration: none;
+	color: black;
+	margin-left: 20px;
+	font-size: 14px;
+	max-width: 280px;
+	max-height: 83px;
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+/*
+panel
+*/
+
+#panel{
+	clear:both;
+	padding-top: 1px;
+	margin-left: 150px;
+	margin-right: 150px;
+	min-height: 500px;
+	padding-bottom: 20px;
+}
+/*
+--------Comentarios
+*/
+.comen{
+	padding: 10px;
+	padding-left: 20px;
+	margin-bottom: 10px;
+	width: 840px;
+}
+.comname{
+	word-break: break-word;
+	font-weight: bold;
+	margin-right: 10px;
+	color:  black;
+	font-size: 16px;
+}
+.comfech{
+	font-size: 14px;
+}
+.comtext{
+	word-break: break-word;
+	padding-left: 10px;
+	color:  black;
+	font-size: 15px;
+}
+/*
+-------End Comentarios
+*/
+.lista{
+  list-style-type: none;
+	margin-top: 100px;
+  padding: 0;
+	border-bottom: 2px solid #f50;
+  overflow: hidden;
+}
+
+.active {
+	float: left;
+	border-bottom: 3px solid #f50;
+  color: #f50;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+	font-size: 18px;
+}
+
+.nactive {
+	float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+	font-size: 18px;
+}
+
+#datos1,#datos2,#datos3{
+	width: 840px;
+	min-height: 400px;
+	margin-top: 40px;
+	margin-left: 10px;
+	color: #444;
+}

@@ -8,6 +8,8 @@ ul, ol {
 	list-align: right;
 	list-style: none;
 }
+
+/*aqui se define el color y la forma del texto de cada elementos del menu de categorias*/
 .nav li a{
 	background-color:rgb(26, 188, 156);
 	color:#FFFFFF;
@@ -32,6 +34,3 @@ ul, ol {
  .nav li:hover > ul{
 	display:block;
  }
- 
-
-

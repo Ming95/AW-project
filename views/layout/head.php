@@ -1,24 +1,24 @@
-<?php
-	echo"<header id="."main-header".">";
-		session_start();
-		//var_dump($_SESSION["logged"]);
-		//var_dump($_SESSION["login"]);
-		//$log = $_SESSION["logged"];//la variable login viene de modelo.
-		echo"<a id="."logo-header"." href="."../index.php".">";
-			echo"<span class="."site-name".">SelfIdea</span>";
-		echo"</a>";
 
-		echo"<nav>";
-			echo"<ul class="."user".">";
-				if (isset($_SESSION["logged"]) && ($_SESSION["logged"]===true)) {
-					echo"<li>Bienvenido, {$_SESSION['login']} <a href='/views/logout.php'>Cerrar Sesion</a></li>";
-				}else{
-					//echo"<li><a href="."../views/login.php".">SignUp"."</a></li>";
-					echo "<li><a href='/views/login.php'>Login</a> / <a href='/views/signup.php'>Registro</a></li>";
-				}
-			echo"</ul>";
-		echo"</nav>";
-	echo"</header>";
+<link rel="stylesheet" type="text/css" href="../css/head.css" />
+    <?php if(!isset($_SESSION)) { session_start(); } ?>
+    <!--header es el contenedor principal -->
+  <header id="container">
+      <div class="wrapper">
+          <!--El logo de la pagina que la pinchar lleva a la pagina principal -->
+          <a href="../index.php">
+          <img class="logo" src="../images/selfidea.png" alt="Logotipo Selfidea"></a>
 
-	echo"<hr>";
-?>
+          <!--esta caja permite al usuario hacer login, registrarse o cerrar sesion. -->
+          <div id="derecha">
+              <?php
+                  if (isset($_SESSION["logged"]) && ($_SESSION["logged"]===true)) {
+                      echo"<a class="."sesion"." href='../views/logout.php'>Cerrar Sesion</a><a href='../views/profile.php' class="."sesion".">Bienvenido, {$_SESSION['login']}</a>";
+
+                  }else{
+                      //echo"<li><a href="."../views/login.php".">SignUp"."</a></li>";
+                      echo "<a class="."sesion"." href='../views/login.php'>Login</a>";
+                  }
+              ?>
+          </div>
+      </div>
+  </header>
