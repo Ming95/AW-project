@@ -1,0 +1,24 @@
+*{
+    margin: auto;
+    padding: 0px;
+}
+
+.text{
+    width: 70%;
+    margin: 0, auto;
+    background-color: c2c2d6;
+}
+
+div h1{
+    padding-top: 20px;
+    text-align: center;
+}
+
+div h2{
+    text-align: center;
+}
+
+div p{
+    padding-bottom: 30px;
+    text-align: center;
+}

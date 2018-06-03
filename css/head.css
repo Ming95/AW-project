@@ -1,18 +1,15 @@
 #container{
     box-sizing: border-box;
     font-family: sans-serif;
+    padding-right: 10%;
     width: 100%;
     overflow: hidden;
     background-color: #252932;
-    margin-bottom: 20px;
-}
-.sesion{
-    float:right;
 }
 
 .logo{
     color:#f2f2f2;
-    width: 200px;
+    width: 172px;
     font-size: 50px;
     line-height: 300px;
     float:left;
@@ -23,30 +20,22 @@
 }
 
 .wrapper{
-    width: 90%;
-    max-width: 1000px;
-    margin:auto;
+    width: 70%;
+    margin-left: auto;
+    margin-right:  auto;
 }
 
 .sesion{
-    padding-top: 40px;
-    color:#f2f2f2;
+  font-size: 18px;
+  float:right;
+  padding-top: 34px;
+  margin-right: 50px;
+  color:#f2f2f2;
 }
 div a:link{
     text-decoration: none;
 }
 
 div a:visited{
-    text-decoration: none;
-}
-
-label a:link{
-    color:#f2f2f2;
-    font-size: 20px;
-    text-decoration: none;
-}
-label a:visited{
-    color:#f2f2f2;
-    font-size: 20px;
     text-decoration: none;
 }

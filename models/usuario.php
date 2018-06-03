@@ -34,8 +34,29 @@ class Usuario extends EntidadBase {
         return $this->password;
     }
 
-    public function setPassword($password) {
-        $this->password = SHA1($password);
+/* 	function generateRandomString($length = 10) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < $length; $i++) {
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		return $randomString;
+	}  */
+
+	public function generaPass($newPassword){
+		$salt=base64_encode(random_bytes(16));
+		$options=[
+			'cost'=>8,
+			'salt'=>"$salt",
+		]	;
+		return password_hash($newPassword, PASSWORD_DEFAULT);
+	}
+
+    public function setPassword($newPassword) {
+		$this->password= $this->generaPass($newPassword);
+		//var_dump($this->password);
+        //$this->password = encriptar($newPassword);
     }
 
     public function getNombre() {
@@ -57,8 +78,9 @@ class Usuario extends EntidadBase {
 
     //cambiar contrasenia de usuario en db
     public function cambiarPass($nuevaPass){
+		$encryptedNuevaPass=$this->generaPass($nuevaPass);
         if($nuevaPass==$this->getPassword()) return 0;
-        $query="UPDATE usuario SET password='".$nuevaPass."'
+        $query="UPDATE usuario SET password='".$encryptedNuevaPass."'
                 WHERE usuario.id_correo = '".$this->getIdCorreo()."'";
 
         if($this->db()->query($query) == false)
@@ -88,11 +110,12 @@ class Usuario extends EntidadBase {
 
     //Carga los campos desde db
     public function aportaciones(){
-        $req=$this->db()->query("SELECT *, SUM(usuario_importe_idea.importe_aportado)
-                                  AS aportado FROM usuario_importe_idea
-                                  JOIN idea ON (idea.id_idea = usuario_importe_idea.id_idea)
-                                  WHERE usuario_importe_idea.id_correo = '".$this->getIdCorreo()."'
-                                  GROUP By usuario_importe_idea.id_idea");
+        $req=$this->db()->query(
+        "SELECT *, SUM(importe_aportado)\n"
+    . "                 AS aportado FROM usuario_importe_idea\n"
+    . "                 JOIN idea ON (idea.id_idea = usuario_importe_idea.id_idea)\n"
+    . "                 WHERE usuario_importe_idea.id_correo = '".$this->getIdCorreo()."'\n"
+    . "                 GROUP By usuario_importe_idea.id_idea");
         if($req==false)
           throw new Exception('MySQL: Error al cargar las aportaciones del usuario');
         $filas = $this->showData($req);

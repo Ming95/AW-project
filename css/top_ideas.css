@@ -1,58 +1,96 @@
-*{
-    margin: 0px;
-    padding: 0px;
-
+#ctopideas{
+  width: 80%;
+  margin-left: auto;
+  margin-right: 10%;
 }
-#box{
-    margin: auto;
-    padding: 60px;
-    width: 900px;
-    height:400px;
-    align-content: center;
+#relacionadas{
+	border-radius: 2px;
+	border: solid 1px #ddd;
+	margin-left: 1%;
+	margin-right: 1%;
+	float: left;
+	background-color: white;
+	min-width: 320px;
+	height: 450px;
+	margin-bottom: 20px;
 }
-#topentradas{
-  height: 500px;
+#toptilte{
+  clear: both;
+  text-align:  center;
+  padding: 40px;
+  color: #333;
+  font-size: 25px;
 }
-.thumbnail{
-    width: 300px;
-    height: 230px;
-
-    float: left;
-    align-content: center;
+.previewImg:hover{
+  filter: brightness(65%);
 }
-img:hover {
-    /*box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);*/
-}
-
 .previewImg{
-    width: 250px;
-    height: 200px;
-    padding: 5px;
-    border-radius: 10%;
+  object-fit: cover;
+  min-height: 230px;
+	width: 320px;
+	position: absolute;
 }
-
-.description{
-    width: 220px;
-    text-align: center;
+.textrel{
+	padding-top: 10px;
+	background-color: white;
+	position: relative;
+  margin-top: 230px;
+  height: 178px;
 }
-
-.description{
-    font-size: 20px;
-    text-align: center;
+.namerel{
+  max-width: 270px;
+	max-height: 24px;
+	overflow: hidden;
+	text-decoration: none;
+	color: black;
+	margin-left: 20px;
+	font-size: 17px;
+	margin-top: 15px;
+	margin-bottom: 5px;
 }
-
-#all_ideas{
-    margin: auto;
-    width: 900px;wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    height: 20px;
-    text-align: right;
+.catrel{
+  text-decoration:  none;
+  color: #555;
+  margin-left: 20px;
+  border: solid 1px #555;
+  border-radius: 54px;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 15px;
 }
-
-a:link{
-    text-decoration: none;
+.catrel:hover{
+  color: white;
+  background-color: #f50;
+  border: none;
 }
-
-a:visited{
-    /*color: black;*/
-    text-decoration: none;
+a:-webkit-any-link {
+  text-decoration: none;
 }
+.usurel{
+	margin-top: 0px;
+	text-decoration: none;
+	color: #555;
+	margin-left: 20px;
+	font-size: 14px;
+	max-width: 280px;
+	max-height: 45px;
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+.readmore{
+  margin-top: 0;
+  text-decoration:  none;
+  color: #f50;
+  text-align:  right;
+  margin-right: 24px;
+  font-size: 16px;
+}
+.descrel{
+	text-decoration: none;
+	color: #555;
+	margin-left: 20px;
+	font-size: 14px;
+	max-width: 280px;
+	height: 50px;
+	overflow: hidden;
+	margin-bottom: 25px;

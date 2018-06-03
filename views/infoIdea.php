@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../css/idea.css" />
 <link rel="stylesheet" type="text/css" href="../css/formulario.css" />
+<script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
 <script type="text/javascript" src="../js/utilidea.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 <?php
@@ -40,8 +41,8 @@
 ?>
 </head>
 <body onload="myfunction1(this)">
-
-<?php include '../views/layout/head.php';
+<?php include './layout/head.php';
+			include './layout/categories.php';
 		echo '<div id="todo">
 					<div id="idea">
 					<div id="cabecera">
@@ -65,19 +66,14 @@
 					'<input type="submit" class="boton-formulario" id="patrocinar" value="Patrocinar" onclick = "location=\'../views/patrocina.php?id='.$idea->getId_idea().'\'"/><br>'.
 					'<div id="bsecun">';
 
-
-			    if(!isset($_SESSION['mail']))
+			    if(!isset($_SESSION['mail'])){
 						echo '<button id="like" class="boton-formulario2"
 						onclick="location.href=\'../views/login.php\'">
 						<i class="far fa-heart"></i></button>';
-					else if($liked)
-						echo '<button id="like" class="boton-formulario2"
-						onclick="location.href=\'../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'&liked='.$liked.'\'">
-						<i class="fas fa-heart"></i></button>';
+				}  else if($liked)
+						echo '<button id="like" class="boton-formulario2"> <i class="fas fa-heart"></i></button>';
 					else
-						echo '<button id="like" class="boton-formulario2"
-						onclick="location.href=\'../controllers/like.php?id='.$idea->getId_idea().'&mail='.$_SESSION['mail'].'&liked='.$liked.'\'">
-						<i class="far fa-heart"></i></button>';
+						echo '<button id="like" class="boton-formulario2"> <i class="far fa-heart"></i></button>';  
 
 					if($idea->getEnVenta())
 							echo '<input id="buy" type="submit" class="boton-formulario2" value="Comprar idea" onclick = "location=\'../views/compraidea.php?id='.$idea->getId_idea().'\'"/>';
@@ -86,15 +82,18 @@
 				</div><!--lateral-->
 			</div><!--acciones-->
 			<!--		Descripcion			-->
-	<div id="panel">
+			<input type="hidden" id="id-idea" name="id-idea" value="<?php echo $idea->getId_idea();?>">
+			<input type="hidden" id="id-mail" name="id-mail" value="<?php echo $_SESSION["mail"];?>">
+			<input type="hidden" id="id-liked" name="id-liked" value="<?php echo $liked?>">
+		<div id="panel">
 			<ul class="lista">
-				<li><a class="active"  id="lista1" href="#Descripcion" onclick="myfunction1(this)" >Descripción</a></li>
-				<li><a class="nactive" id="lista3"  href="#Equipo" onclick="myfunction3(this)">Equipo</a></li>
-				<li><a class="nactive" id="lista2"  href="#Comentarios" onclick="myfunction2(this)">Comentarios</a></li>
+				<li><a class="active"  id="lista1" href="#Descripcion">Descripción</a></li>
+				<li><a class="nactive" id="lista3"  href="#Equipo" >Equipo</a></li>
+				<li><a class="nactive" id="lista2"  href="#Comentarios">Comentarios</a></li>
 			</ul>
 
 		<div id="datos1">
-			<p class="textarea1" name="textarea1" id="textarea1" disabled> <?php echo $idea->getDesc_idea();?></p>
+			<p class="comtext" disabled> <?php echo $idea->getDesc_idea();?></p>
 		</div>
 		<!--		Comentarios			-->
 		<div id="datos2">
@@ -123,7 +122,8 @@
 				<textarea class="input-text" name="comment" placeholder="Escribe un comentario..." style="height:200px"></textarea></br>
 		   	<input type="submit" id= "button" class="boton-formulario" value="Publicar"/>
 				</form>
-				<button class="boton-formulario2" onclick = "window.location.href='../views/reportaincidencia.php?id_idea=<?php echo $idea->getId_idea();?>'">Reportar incidencia</button>
+				<!--button class="boton-formulario2" onclick = "window.location.href='../views/reportaincidencia.php?id=<?php echo $idea->getId_idea();?>'">Reportar incidencia</button-->
+				
 		</div>
 		<!--		Curriculum			-->
 		<div id="datos3" >
@@ -133,9 +133,9 @@
 			<a href="<?php echo $idea->getCv_equipo();?>" target='_blank' title="Curriculum PDF">descargar</a> el currículum del equipo.</p>
 		</div>
 
-	<script type="text/javascript">
+	<!--script type="text/javascript">
 		myfunction2('<?php echo json_encode($comentarios)?>');
-	</script>
+	</script-->
 
 	</div><!--panel-->
 </div><!--idea-->
@@ -163,5 +163,5 @@ $top = min(count($irel),3);
 }?>
 
 </div><!--todo-->
-<?php include 'layout/foot_page.php';?>
+<?php include './layout/foot_page.php';?>
 </body>

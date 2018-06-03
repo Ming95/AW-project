@@ -12,7 +12,7 @@ class Conectar{
 		else{
 			$this->servername=$ini_array['SELFIDEA']['servername'];
 			$this->username=$ini_array['SELFIDEA']['username'];
-			$this->password=$ini_array['SELFIDEA']['password'];
+			$this->password=base64_decode($ini_array['SELFIDEA']['password']);
 			$this->database=$ini_array['SELFIDEA']['database'];
 			if ($this->servername==null or empty($this->servername) or
 			$this->username==null or empty($this->username) or

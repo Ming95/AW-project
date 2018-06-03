@@ -20,7 +20,15 @@ class Comentario extends EntidadBase {
   }
 
   public function getListaUsuario($mail){
-    return $this->getAllFilteredAndOrderDESC("fecha_creacion","id_correo",$mail);
+    $req=$this->db()->query("SELECT * FROM usuario_comentario_idea
+      JOIN idea on(usuario_comentario_idea.id_idea = idea.id_idea)
+      WHERE usuario_comentario_idea.id_correo = '".$mail."'
+      ORDER by 'usuario_comentario_idea.fecha_creacion' DESC ");
+    if($req==false)
+     throw new Exception('MySQL: Error al realizar la consulta SQL');
+
+    $filas = $this->showData($req);
+    return $filas;
   }
 
 	public function newComentario($id, $comentario, $mail, $fecha){

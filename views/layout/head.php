@@ -1,35 +1,24 @@
-<html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
-<link rel="stylesheet" type="text/css" href="../css/head.css" />
 
-<script type="text/javascript" src="../js/utilidea.js"></script>
-</head>
-<body>
+<link rel="stylesheet" type="text/css" href="../css/head.css" />
     <?php if(!isset($_SESSION)) { session_start(); } ?>
     <!--header es el contenedor principal -->
-    <header id="container">
-        <div class="wrapper">
-            <!--El logo de la pagina que la pinchar lleva a la pagina principal -->
-            <a href="../index.php">
-            <img class="logo" src="../images/selfidea.png" alt="Logotipo Selfidea"></a>
+  <header id="container">
+      <div class="wrapper">
+          <!--El logo de la pagina que la pinchar lleva a la pagina principal -->
+          <a href="../index.php">
+          <img class="logo" src="../images/selfidea.png" alt="Logotipo Selfidea"></a>
 
-            <!--esta caja permite al usuario hacer login, registrarse o cerrar sesion. -->
-            <div id="derecha">
-                <?php
-                    if (isset($_SESSION["logged"]) && ($_SESSION["logged"]===true)) {
-                        echo"<label class="."sesion".">Bienvenido, {$_SESSION['login']} <a href='/views/logout.php'>Cerrar Sesion</a></label>";
+          <!--esta caja permite al usuario hacer login, registrarse o cerrar sesion. -->
+          <div id="derecha">
+              <?php
+                  if (isset($_SESSION["logged"]) && ($_SESSION["logged"]===true)) {
+                      echo"<a class="."sesion"." href='../views/logout.php'>Cerrar Sesion</a><a href='../views/profile.php' class="."sesion".">Bienvenido, {$_SESSION['login']}</a>";
 
-                    }else{
-                        //echo"<li><a href="."../views/login.php".">SignUp"."</a></li>";
-                        echo "<label class="."sesion"."><a href='../views/login.php'>Login</a> / <a href='../views/signup.php'>Registro</a></li>";
-                    }
-                ?>
-            </div>
-        </div>
-    </header>
-
-</body>
-
-</html>
+                  }else{
+                      //echo"<li><a href="."../views/login.php".">SignUp"."</a></li>";
+                      echo "<a class="."sesion"." href='../views/login.php'>Login</a>";
+                  }
+              ?>
+          </div>
+      </div>
+  </header>

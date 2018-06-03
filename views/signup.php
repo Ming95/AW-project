@@ -14,7 +14,7 @@
 
 			$form = new FormularioRegistro();
 			$form->gestiona();
-			include 'layout/foot_page.php';
+			include './layout/foot_page.php';
 	?>
 </body>
 </html>

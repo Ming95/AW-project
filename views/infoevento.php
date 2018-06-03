@@ -4,6 +4,8 @@
 <link rel="stylesheet" type="text/css" href="../css/evento.css" />
 <link rel="stylesheet" type="text/css" href="../css/styleforms.css" />
 <link rel="shortcut icon" href="../images/icon.png" />
+<script type="text/javascript" src="../js/jquery-2.2.4.js"></script>
+<script type="text/javascript" src="../js/utilidea.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
 	require "../models/evento.php";
@@ -23,7 +25,8 @@
 </head>
 <body>
 <?php
-	include '../views/layout/head.php';
+	include './layout/head.php';
+	include './layout/categories.php';
 	?>
 
 <div class="contenido">
@@ -36,24 +39,29 @@
        <h1>
             <?php echo  $evento->getNombre();?>
         </h1>
-		<div class="descripcion" id="datos1"
+		<div class="descripcion" id="datos1">
+			<p><?php echo $evento->getFecha();?></p>
+			<p><?php echo $evento->getDescripcion();?></p>
+			<input type="hidden" id="id-evento" name="id-evento" value="<?php echo $evento->getId();?>">
+			<input type="hidden" id="id-mail" name="id-mail" value="<?php echo $_SESSION["mail"];?>">
+			<input type="hidden" id="id-sub" name="id-sub" value="<?php echo $subscribed?>">
 
-			<p>
-                <?php echo $evento->getDescripcion();?>
-			</p>
-		</div>
 		<?php
 			if(!isset($_SESSION['mail']))
 				echo '<input type="button"  class="button" value="Suscribete" id="boton"
 				onclick="location.href=\'../views/login.php\'">';
 			else if($subscribed)
-						echo '<input type="button"  class="button" value="Suscrito!" id="boton"
+/* 						echo '<input type="button"  class="button" value="Suscrito!" id="boton"
 						onclick="location.href=\'../controllers/suscribe.php?id='.$evento->getId().'&mail='.$_SESSION['mail'].'&sub='.$subscribed.'\'">';
 			else echo '<input type="button"  class="button" value="Suscribete" id="boton"
-				onclick="location.href=\'../controllers/suscribe.php?id='.$evento->getId().'&mail='.$_SESSION['mail'].'&sub='.$subscribed.'\'">';
+				onclick="location.href=\'../controllers/suscribe.php?id='.$evento->getId().'&mail='.$_SESSION['mail'].'&sub='.$subscribed.'\'">'; */
+				echo '<input type="button" class="button" value="Suscrito!" id="boton" disabled>';
+			else echo '<input type="button" class="button" value="Suscribete" id="boton">';
 			?>
+		</div>
 
 </div>
+
 <!-- LATERAL -->
 <div class="lateral">
 	<h2>Eventos relacionados</h2>
@@ -74,23 +82,18 @@
 		echo '<a href="../views/infoevento.php?id_evento='.$id.'">';
 		echo '<img src= "'.$imagen.'" alt="evento 1" style="width:100%">';
 		echo '<div class="caption">';
-		echo '<p><a href="../views/infoevento.php?id_evento='.$id.'">'.$nombre.'</a></p></div></a></div>';
+		echo '<p><a class="rightext" href="../views/infoevento.php?id_evento='.$id.'">'.$nombre.'</a></p></div></a></div>';
 
 	}
 
 
 ?>
-<p class="texto3"><a href="../views/masEventos.php">Ver mas</a></p>
+<p class="texto3"><a class="rightext" href="../views/masEventos.php">Ver mas</a></p>
 </div><!-- LATERAL -->
 
 <div class="pie">
 </div>
 </div>
 
-	<?php include 'layout/foot_page.php';?>
-<script>
-	function cambiarboton(){
-    var i=document.getElementById("boton").value = "Suscrito!";
-	}
-</script>
+	<?php include './layout/foot_page.php';?>
 </body>
